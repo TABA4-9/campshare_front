@@ -1,9 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch,faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
+import {useEffect} from "react";
 import {useState} from "react";
 
 import {Link} from "react-router-dom";
+
+import axios from "axios";
 
 import picture1 from '../assets/picture1.jpg';
 
@@ -14,6 +17,15 @@ export default function Home() {
     const onChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
         setUserSearch(e.target.value)
     }
+
+    useEffect(()=>{
+        fetch('/src/data/campingData.json')
+        .then(res=> res.json())
+        .then(data => {
+            console.log(data)
+        })
+        .catch(error => console.log(error))
+    }, [])
 
     return (
         <div className="flex h-screen flex-col px-10">
