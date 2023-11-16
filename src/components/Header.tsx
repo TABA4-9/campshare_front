@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
+import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 
 import {Link, useLocation} from "react-router-dom";
 
@@ -23,10 +24,10 @@ export default function Header() {
                         </div>
                     </div>
                 </div>
-                <div className="w-[71px] h-6 justify-start items-center gap-[23px] inline-flex">
-                    {/* 여기도 Link로 바꿔줘야 함 */}
-                    <div className="w-6 h-6 relative"><FontAwesomeIcon icon={faHeart} /></div>
-                    <div className="w-6 h-6 relative"><FontAwesomeIcon icon={faUser} /></div>
+                <div className="w-[71px] h-6 justify-start items-center gap-[23px] inline-flex mr-6">
+                    <Link to="/posts"><div><FontAwesomeIcon icon={faPenToSquare} /></div></Link>
+                    <div><FontAwesomeIcon icon={faHeart} /></div>
+                    <div><FontAwesomeIcon icon={faUser} /></div>
                 </div>
             </div>
         </div>
