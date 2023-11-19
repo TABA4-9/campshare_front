@@ -6,24 +6,31 @@ import {useState} from "react";
 
 import {Link} from "react-router-dom";
 
-import picture1 from '../assets/picture1.jpg';
+import { useRecoilState } from 'recoil';
+import { campingItem } from '../data/campingItem';
 
+import picture1 from '../assets/picture1.jpg';
 
 export default function Home() {
     let [userSearch, setUserSearch] = useState<string>();
+    let [campItem, setCampItem] = useRecoilState<CampingItemType[]>(campingItem);
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
         setUserSearch(e.target.value)
     }
 
     useEffect(()=>{
-        fetch("/api/users")
+        fetch("/api/item")
         .then(res=>res.json())
-        .then(data=>console.log(data))
+        .then(data=>{
+            setCampItem(data)
+        })
     }, [])
+    
+    console.log(campItem)
 
     return (
-        <div className="flex h-screen flex-col px-10">
+        <div className="flex flex-col px-10">
             <div className="flex flex-col justify-between rounded-3xl bg-black shrink-0 bg-contain text-white" style={{ minHeight:"80%", backgroundImage: `url(${picture1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div/>
                 <div className="flex flex-col align-middle pt-20 pl-20">
@@ -51,22 +58,28 @@ export default function Home() {
                 <div/>
             </div>
 
-            <div className="flex mt-10">
+            <div className="flex justify-center mt-10">
                 <div className="flex flex-col">
                     <div className="font-bold text-3xl pb-5">대여 가능 용품</div>
                     <Link to="/categories"><button type="button" className="w-[120px] text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">더보기 <FontAwesomeIcon icon={faArrowRight} /></button></Link>
                 </div>
                 <div>
                     <div className="flex px-10">
-                        <div>
-                            상품 1
-                        </div>
-                        <div>
-                            상품 2
-                        </div>
-                        <div>
-                            상품 3
-                        </div>
+                        {
+                            // 만약 index가 홀수라면 사진 padding or margin을 다르게 줘서 위아래로 만들기
+                            campItem.slice(0,3).map((item,index)=>{
+                                if(index >4) return null;
+                                return (
+                                    <div className={`w-[299.33px] h-[436px] bg-white border border-white flex-col justify-start items-start gap-3 inline-flex ${index % 2 === 0 && 'pt-14'}`}>
+                                        <Link to={`/detail/${item.id}`} state={{item : item}}><img className="w-[200px] h-[200px]" src={item.image} alt="camping item img"/></Link>
+                                        <div className="flex-col justify-start items-start gap-[7px] flex">
+                                            <div className="text-stone-900 text-lg font-medium font-['Poppins']">{item.name}</div>
+                                            <div className="text-stone-900 text-opacity-50 text-lg font-medium font-['Poppins']">{item.price} ₩ / 일</div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>
