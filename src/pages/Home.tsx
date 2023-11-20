@@ -70,9 +70,9 @@ export default function Home() {
                             campItem.slice(0,3).map((item,index)=>{
                                 if(index >4) return null;
                                 return (
-                                    <div className={`w-[299.33px] h-[436px] bg-white border border-white flex-col justify-start items-start gap-3 inline-flex ${index % 2 === 0 && 'pt-14'}`}>
+                                    <div className={`w-[299px] h-[436px] bg-white border border-white flex-col justify-start items-start gap-3 inline-flex ${index % 2 === 0 && 'pt-14'}`}>
                                         <Link to={`/detail/${item.id}`} state={{item : item}}><img className="w-[200px] h-[200px]" src={item.image} alt="camping item img"/></Link>
-                                        <div className="flex-col justify-start items-start gap-[7px] flex">
+                                        <div className="flex-col justify-start items-start flex">
                                             <div className="text-stone-900 text-lg font-medium font-['Poppins']">{item.name}</div>
                                             <div className="text-stone-900 text-opacity-50 text-lg font-medium font-['Poppins']">{item.price} ₩ / 일</div>
                                         </div>

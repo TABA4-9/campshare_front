@@ -3,7 +3,6 @@ import RouterWeb from './RouterWeb';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Home from './pages/Home';
-import Test from './components/test';
 import './App.css';
 
 function App() {

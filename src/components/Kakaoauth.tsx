@@ -17,11 +17,11 @@ export default function Kakaoauth() {
     const getAccessToken = async () => {
         if (accessTokenFetching) return; // Return early if fetching
         console.log("getAccessToken 호출");
- 
+
         try {
             setAccessTokenFetching(true); // Set fetching to true
             const response = await axios.post(
-                "http://localhost:8080/login/oauth2/callback/kakao",
+                "http://localhost:8080/login/oauth2/code/kakao",
                 {
                     authorizationCode: KAKAO_CODE,
                 },

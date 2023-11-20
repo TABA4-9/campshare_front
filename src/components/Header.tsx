@@ -12,7 +12,7 @@ export default function Header() {
     const path:string = `/${pathSegments[1]}`;
 
     return (
-        <div className="flex">
+        <div className="flex px-5">
             <div className="flex w-screen justify-between padding p-10">
                 <div className="flex">
                     <div className="text-stone-900 text-base font-normal font-['Asar']"><Link to="/">CAMPSHARE</Link></div>
