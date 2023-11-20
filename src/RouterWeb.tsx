@@ -21,5 +21,6 @@ export default function RouterWeb() {
             } */}
             <Route path="/posts" element={<Posts/>}></Route>
         </Routes>
+
     )
 }
