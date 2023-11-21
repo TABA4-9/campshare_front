@@ -59,9 +59,11 @@ export const handlers = [
       },
     ])
   }),
-  http.get('/login/oauth2/code/kakao', () =>{
+  http.get('/login/oauth2/code/kakaoTest', () =>{
     return HttpResponse.json([
-
+      {
+        "kakaoAccessToken":"L1Mjs_s09jTR-gDBjmlCBBXbgV8JMsianSUKPXPsAAABi-9-KhTRDLJpR7eCqA"
+      }
     ])}
   )
 ]

@@ -9,7 +9,7 @@ export default function Kakaoauth() {
     const navigate = useNavigate();
     const PARAMS = new URL(window.location.href).searchParams;
     const KAKAO_CODE = PARAMS.get("code");
-    const [accessTokenFetching, setAccessTokenFetching] = useState(false);
+    const [accessTokenFetching, setAccessTokenFetching] = useState<boolean>(false);
  
     console.log("KAKAO_CODE:", KAKAO_CODE);
  
