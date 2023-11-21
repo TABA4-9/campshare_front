@@ -57,7 +57,11 @@ export const handlers = [
         price : 19000,
         explanation : "텐트 업그레이드 버전인 텐트 텐트입니다. 사용감 미쳤구요 1번 사용했습니다.",
       },
-
     ])
-  })
+  }),
+  http.get('/login/oauth2/code/kakao', () =>{
+    return HttpResponse.json([
+
+    ])}
+  )
 ]

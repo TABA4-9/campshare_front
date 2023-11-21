@@ -20,15 +20,11 @@ export default function Kakaoauth() {
 
         try {
             setAccessTokenFetching(true); // Set fetching to true
-            const response = await axios.post(
+            const response = await axios.get(
                 "http://localhost:8080/login/oauth2/code/kakao",
                 {
-                    authorizationCode: KAKAO_CODE,
-                },
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
+                    params:{"code":KAKAO_CODE},
+                    headers:{"Content-Type": "application/json"}
                 }
             );
             const accessToken = response.data.accessToken;
