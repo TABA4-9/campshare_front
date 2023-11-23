@@ -1,31 +1,38 @@
+import * as React from 'react';
+
+import picture2 from "../assets/picture2.jpg"
 import picture3 from "../assets/picture3.jpg"
 
 import {useState} from "react";
 
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { SelectChangeEvent } from '@mui/material/Select';
 
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-
-import DropDownForm from "../components/form/DropDownForm";
-import ItemDetailModal from "../components/form/modal/ItemDetailModal";
 import PostPageFirst from "../components/PostPageFirst";
+import PostPageSec from '../components/PostPageSec';
 
 export default function Posts() {
     const [itemName, setItemName] = useState<string>("");
     const [DetailItem, setDetailItem] = useState<string>("");
     const [CategoryItem, setCategoryItem] = useState<string>("");
     const [usingYearItem, setUsingYearItem] = useState<string>("");
+    const [itemPrice, setItemPrice] = useState<string>("");
+    const [itemImage, setItemImage] = useState<File[]>([]);
+    const [itemPeriod, setItemPeriod] = useState<string>("");
+    const [page, setPage] = useState<number>(1);
     
-    const onChange = (e: React.ChangeEvent<HTMLTextAreaElement> | SelectChangeEvent<string> | React.ChangeEvent<HTMLInputElement>) :void => {
+    const onChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement> | SelectChangeEvent<string>) :void => {
         if(e.target.name === "DetailItem") setDetailItem(e.target.value);
         else if(e.target.name === "CategoryItem") setCategoryItem(e.target.value);
         else if(e.target.name === "usingYearItem") setUsingYearItem(e.target.value);
         else if(e.target.name === "itemName") setItemName(e.target.value);
+        else if(e.target.name === "PriceItem") setItemPrice(e.target.value);
+        else if(e.target.name === "PeriodItem") setItemPeriod(e.target.value);
+    }
+
+    const handlePage = () => {
+        if(page === 1) setPage(2);
+        else setPage(1);
+        console.log(page)
     }
 
     return (
@@ -33,16 +40,26 @@ export default function Posts() {
             <div className="flex flex-col pb-3 items-center justify-center w-screen h-screen">
                 <div className="pb-3 text-lg font-bold">상품 등록</div>
                 <div className="flex w-[550px] h-[550px] bg-white shadow-sharp rounded-md">
-                    <div className="flex w-6/12 float-left rounded-md" style={{ minHeight:"80%", backgroundImage: `url(${picture3})`, backgroundSize: 'cover', backgroundPosition: 'center' }}/>
-                    <PostPageFirst 
-                        DetailItem = {DetailItem}
-                        itemName = {itemName}
-                        onChange = {onChange}
-                        CategoryItem = {CategoryItem}
-                        usingYearItem = {usingYearItem}
-                    />
-                    </div>
+                    <div className="flex w-6/12 float-left rounded-md" style={{ minHeight:"80%", backgroundImage: `url(${page === 1 ? picture2 : picture3})`, backgroundSize: 'cover', backgroundPosition: 'center' }}/>
+                    {
+                        page === 1 ? 
+                            <PostPageFirst 
+                                DetailItem = {DetailItem}
+                                itemName = {itemName}
+                                onChange = {onChange}
+                                CategoryItem = {CategoryItem}
+                                usingYearItem = {usingYearItem}
+                                handlePage={handlePage}
+                            /> :
+                            <PostPageSec
+                                handlePage={handlePage}
+                                onChange = {onChange}
+                                itemPrice = {itemPrice}
+                                itemPeriod = {itemPeriod}
+                            />
+                    }
                 </div>
             </div>
+        </div>
     )
 }

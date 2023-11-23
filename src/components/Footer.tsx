@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Footer() {
     return (
-        <div className="mt-auto mt-10">
+        <div className="mt-auto">
             <div className="flex items-center text-center justify-center padding p-10 bg-zinc-300" style={{minHeight:"160px", maxHeight:"160px"}}>
                 <div>
                     <div>
