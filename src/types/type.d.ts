@@ -6,3 +6,8 @@ type CampingItemType = {
     price : number,
     explanation : string,
 }
+
+type dropwDownOption = {
+    value : number,
+    label : string
+}

@@ -1,11 +1,10 @@
 import {useState, useEffect} from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router"
 
 import axios from 'axios';
 
 export default function Kakaoauth() {
-    const [userInfo, setUserInfo] = useState();
     const navigate = useNavigate();
     const PARAMS = new URL(window.location.href).searchParams;
     const KAKAO_CODE = PARAMS.get("code");
@@ -30,11 +29,6 @@ export default function Kakaoauth() {
             const accessToken = response.data.accessToken;
             console.log("accessToken:", accessToken);
  
-            // setUserInfo({
-            //     ...userInfo,
-            //     accessToken: accessToken,
-            // });
- 
             setAccessTokenFetching(false); // Reset fetching to false
             navigate("/");
         } catch (error) {
@@ -52,7 +46,6 @@ export default function Kakaoauth() {
         //     getAccessToken();
         // }
     }, [KAKAO_CODE]);
- 
  
     return (
         <div>
