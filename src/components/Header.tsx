@@ -19,8 +19,7 @@ export default function Header() {
                     <div className="flex pl-14">
                     <div className="w-[372px] h-[27px] justify-start items-start gap-[50px] inline-flex">
                         <div className={`text-stone-900 text-base font-medium font-['Poppins'] ${path === "/" ? "font-bold" : "text-opacity-50"}`}><Link to="/">Home</Link></div>
-                        <div className={`text-stone-900 text-base font-medium font-['Poppins'] ${path === "/categories" ? "font-bold" : "text-opacity-50"}`}><Link to="/categories">Categories</Link></div>
-                        <div className={`text-stone-900 text-base font-medium font-['Poppins'] ${path === "/recommend" ? "font-bold" : "text-opacity-50"}`}><Link to="/recommend">Recommend</Link></div>
+                        <div className={`text-stone-900 text-base font-medium font-['Poppins'] ${path === "/category" ? "font-bold" : "text-opacity-50"}`}><Link to="/category">Categories</Link></div>
                         </div>
                     </div>
                 </div>

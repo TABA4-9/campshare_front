@@ -6,6 +6,7 @@ import Posts from "./pages/Posts";
 import Detail from "./pages/Detail";
 import Login from "./pages/Login";
 import Kakaoauth from "./components/Kakaoauth";
+import Category from "./pages/Category";
 
 export default function RouterWeb() {
     // 로그인 기능 구현 시, false로 바꿔서 로그인 유무에 따라 true, false로 바꿔줘야 함.
@@ -16,6 +17,7 @@ export default function RouterWeb() {
             <Route path="/detail/:id" element={<Detail/>}></Route>
             <Route path="/loginOauth2" element={<Login/>}/>
             <Route path="/login/oauth2/code/kakao" element={<Kakaoauth/>}></Route>
+            <Route path="/category" element={<Category/>}></Route>
             {/* <Route path="/category" element={<Category/>}></Route>
             <Route path="/recommand" element={<Recommand/>}></Route>
             {
