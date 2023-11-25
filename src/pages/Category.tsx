@@ -1,21 +1,31 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 import picture1 from '../assets/picture1.jpg';
 import DropDownForm from '../components/form/DropDownForm';
 
 import { SelectChangeEvent } from '@mui/material/Select';
+import { experimentalStyled as styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 import { Dropdown } from 'flowbite-react';
 
-import styled from 'styled-components';
+import { useRecoilState } from "recoil";
+import { campingItem } from "../data/campingItem";
+import { Link } from "react-router-dom";
 
 const StyledDropDown = styled(Dropdown)`
     border : none;
 
 `;
+
+const StyledDropDownForm = styled(DropDownForm)`
+    max-width : 180px;
+`
 
 const StyledDropdownItem = styled(Dropdown.Item)`
     width : 220px;
@@ -25,6 +35,13 @@ const StyledDropdownItem = styled(Dropdown.Item)`
         // 다른 hover 스타일도 여기에 추가할 수 있습니다.
 `;
 
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
 
 const itemFilterOption:dropwDownOption[] = [
     { value: 0, label: 'None'},
@@ -33,6 +50,8 @@ const itemFilterOption:dropwDownOption[] = [
 ]
 
 export default function Category() {
+    const [campItem, setCampItem] = useRecoilState<CampingItemType[]>(campingItem);
+
     const [categoryfilter, setCategoryFilter] = useState<string>("");
     const [itemFilter, setItemFilter] = useState<string>("0");
     const category:string[] = ["텐트","캠핑 의자"];
@@ -44,6 +63,14 @@ export default function Category() {
     const handleFilter = (value: string) => {
         setCategoryFilter(value);
     };
+
+    useEffect(()=>{
+        fetch("/product/data/category")
+        .then(res=>res.json())
+        .then(data=>{
+            setCampItem(data)
+        })
+    }, [])
 
     return (
         <div className="flex flex-col px-10">
@@ -76,8 +103,8 @@ export default function Category() {
                         </StyledDropDown>
                     </div>
                 </div>
-                <div>
-                    <DropDownForm
+                <div className="flex flex-col">
+                    <StyledDropDownForm
                         title=""
                         label="Sort"
                         name="정렬"
@@ -85,6 +112,33 @@ export default function Category() {
                         onChange={onChange}
                         options={itemFilterOption}
                     />
+                </div>
+            </div>
+
+            {/* content */}
+            <div>
+                <div className="flex flex-col ml-52 mb-16">
+                    <Box sx={{ flexGrow: 1 }}>
+                        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                            {
+                                campItem.map((item, index) => {
+                                    return (
+                                        <Grid item xs={2} sm={4} md={3} key={index}>
+                                            <Item>
+                                                <div className="flex">
+                                                    <div className="flex-col justify-start items-start flex">
+                                                        <Link to={`/detail/${item.id}`} state={{item : item}}><img className="w-full h-[200px]" src={item.image} alt="camping item img"/></Link>
+                                                        <div className="text-stone-900 text-lg font-medium font-['Poppins']">{item.name}</div>
+                                                        <div className="text-stone-900 text-opacity-50 text-lg font-medium font-['Poppins']">{item.price} ₩ / 일</div>
+                                                    </div>
+                                                </div>
+                                            </Item>
+                                        </Grid>
+                                    )
+                                })
+                            }
+                        </Grid>
+                    </Box>
                 </div>
             </div>
         </div>

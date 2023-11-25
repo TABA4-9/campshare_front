@@ -20,14 +20,13 @@ export default function Home() {
     }
 
     useEffect(()=>{
+        // 따로 3개의 item만 받는 것으로 변경.
         fetch("/api/item")
         .then(res=>res.json())
         .then(data=>{
             setCampItem(data)
         })
     }, [])
-    
-    console.log(campItem)
 
     return (
         <div className="flex flex-col px-10">
