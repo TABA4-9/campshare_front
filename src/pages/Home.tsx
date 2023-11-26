@@ -7,13 +7,13 @@ import {useState} from "react";
 import {Link} from "react-router-dom";
 
 import { useRecoilState } from 'recoil';
-import { campingItem } from '../data/campingItem';
+import { campingItemAtom } from '../data/campingItemAtom';
 
 import picture1 from '../assets/picture1.jpg';
 
 export default function Home() {
     let [userSearch, setUserSearch] = useState<string>();
-    let [campItem, setCampItem] = useRecoilState<CampingItemType[]>(campingItem);
+    let [campItem, setCampItem] = useRecoilState<CampingItemType[]>(campingItemAtom);
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
         setUserSearch(e.target.value)

@@ -1,6 +1,6 @@
 import {atom } from 'recoil';
 
-export const campingItem = atom<CampingItemType[]>({
+export const campingItemAtom = atom<CampingItemType[]>({
     key : 'AllCampingItem',
     default : [],
 })

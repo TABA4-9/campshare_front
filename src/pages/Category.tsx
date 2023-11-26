@@ -15,7 +15,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Dropdown } from 'flowbite-react';
 
 import { useRecoilState } from "recoil";
-import { campingItem } from "../data/campingItem";
+import { campingItemAtom } from "../data/campingItemAtom";
 import { Link } from "react-router-dom";
 
 const StyledDropDown = styled(Dropdown)`
@@ -50,7 +50,7 @@ const itemFilterOption:dropwDownOption[] = [
 ]
 
 export default function Category() {
-    const [campItem, setCampItem] = useRecoilState<CampingItemType[]>(campingItem);
+    const [campItem, setCampItem] = useRecoilState<CampingItemType[]>(campingItemAtom);
 
     const [categoryfilter, setCategoryFilter] = useState<string>("");
     const [itemFilter, setItemFilter] = useState<string>("0");

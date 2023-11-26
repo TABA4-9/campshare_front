@@ -6,7 +6,7 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import {BrowserRouter, MemoryRouter} from 'react-router-dom'
 import "jest-location-mock";
-import { mockUseNavigate } from '../../setupTests';
+import userEvent from '@testing-library/user-event'
 
 test('서버로부터 인가 코드를 받은 후 홈 화면으로 이동하기', async () => {
         // 현 주소 조작(KAKAO_CODE를 받기 위함.)
@@ -24,11 +24,13 @@ test('서버로부터 인가 코드를 받은 후 홈 화면으로 이동하기'
         mock.onGet('http://localhost:8080/login/oauth2/code/kakao').reply(200, {
             accessToken
         })
-
+        
+        const user = userEvent.setup()
+        
         render(
-        <MemoryRouter initialEntries={[path]}>
-            <Kakaoauth />
-        </MemoryRouter>
+            <BrowserRouter>
+                <Kakaoauth />
+            </BrowserRouter>
         );
         expect(window.location).not.toBeAt("/");
         expect(window.location).toBeAt("/loginTest?code=221112222");
