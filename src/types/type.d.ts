@@ -9,6 +9,9 @@ type CampingItemType = {
     image : string,
     explanation : string,
     price : string,
+    address : string,
+
+    isLended : boolean,
 }
 
 type dropwDownOption = {
@@ -17,9 +20,10 @@ type dropwDownOption = {
 }
 
 type UserInfoType = {
+    id : number,
     name : string,
-    IsPosted : boolean,
     email : string,
     accessToken : string,
-    post? : CampingItemType,
+    LendItem? : CampingItemType[],
+    RentItem? : CampingItemType[],
 }

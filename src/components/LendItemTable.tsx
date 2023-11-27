@@ -1,9 +1,16 @@
+import { useRecoilState } from "recoil";
+import { userInfoAtom } from "../data/userInfoAtom";
+
+import { Link } from "react-router-dom";
+
 export default function LendItemTable() {
+    const [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
+
     return (
-        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
+                    <tr>
                         <th scope="col" className="px-6 py-3">
                             상품 이름
                         </th>
@@ -17,97 +24,41 @@ export default function LendItemTable() {
                             가격
                         </th>
                         <th scope="col" className="px-6 py-3">
-                            상품 설명
+                            대여 여부
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                            수정
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    {/* 여기는 map으로 해야겠죠 몇개의 상품을 빌려주고 있는지, 개수에 따라 생성. */}
-                    <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Apple MacBook Pro 17"
-                        </th>
-                        <td className="px-6 py-4">
-                            Silver
-                        </td>
-                        <td className="px-6 py-4">
-                            Laptop
-                        </td>
-                        <td className="px-6 py-4">
-                            $2999
-                        </td>
-                        <td className="px-6 py-4">
-                            <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        </td>
-                    </tr>
-                    <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Microsoft Surface Pro
-                        </th>
-                        <td className="px-6 py-4">
-                            White
-                        </td>
-                        <td className="px-6 py-4">
-                            Laptop PC
-                        </td>
-                        <td className="px-6 py-4">
-                            $1999
-                        </td>
-                        <td className="px-6 py-4">
-                            <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        </td>
-                    </tr>
-                    <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Magic Mouse 2
-                        </th>
-                        <td className="px-6 py-4">
-                            Black
-                        </td>
-                        <td className="px-6 py-4">
-                            Accessories
-                        </td>
-                        <td className="px-6 py-4">
-                            $99
-                        </td>
-                        <td className="px-6 py-4">
-                            <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        </td>
-                    </tr>
-                    <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Google Pixel Phone
-                        </th>
-                        <td className="px-6 py-4">
-                            Gray
-                        </td>
-                        <td className="px-6 py-4">
-                            Phone
-                        </td>
-                        <td className="px-6 py-4">
-                            $799
-                        </td>
-                        <td className="px-6 py-4">
-                            <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Apple Watch 5
-                        </th>
-                        <td className="px-6 py-4">
-                            Red
-                        </td>
-                        <td className="px-6 py-4">
-                            Wearables
-                        </td>
-                        <td className="px-6 py-4">
-                            $999
-                        </td>
-                        <td className="px-6 py-4">
-                            <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        </td>
-                    </tr>
+                    {
+                        userInfo.LendItem && userInfo.LendItem.map((item,index)=>{
+                            return (
+                                // state로 주는 item이 camping 용품 사이트에 올라온 item의 state와 동일해야겠네
+                                <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <Link to={`/detail/${item.id}`} state={{item : item}}>{item.name}</Link>
+                                    </th>
+                                    <td className="px-6 py-4">
+                                        {item.period}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {item.category}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {item.price}원
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {item.isLended === true ? "대여 중" : "대여 가능"}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                    </td>
+                                </tr>
+                            )
+                        })
+                    }
                 </tbody>
             </table>
         </div>

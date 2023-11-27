@@ -26,39 +26,39 @@ const yearOptions:dropwDownOption[] = [
     { value: 30, label: '5년 이상' },
 ];
 
+const headCountOptions:dropwDownOption[] = [
+    { value: 10, label: '1인' },
+    { value: 20, label: '2인' },
+    { value: 30, label: '3인' },
+    { value: 40, label: '4인' },
+    { value: 50, label: '5인 이상' },
+];
+
+const periodOptions:dropwDownOption[] = [
+    { value: 10, label: '1박 2일' },
+    { value: 20, label: '2박 3일' },
+    { value: 30, label: '3박 4일' },
+    { value: 40, label: '4박 5일' },
+    { value: 50, label: '5일 이상' },
+];
+
 interface propsType {
-    DetailItem : string,
     itemName : string,
+    itemBrand : string,
+    itemPeriod : string,
     onChange : (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement> | SelectChangeEvent<string>) => void,
     CategoryItem : string,
     usingYearItem : string,
+    headcountItem : string,
     handlePage : () => void,
 }
 
-export default function PostPageFirst({DetailItem, itemName, onChange, CategoryItem, usingYearItem, handlePage} : propsType) {
-    const [showDetailModal, setShowDetailModal] = useState<boolean>(false);
-    const [explanation, setExplnation] = useState<string>("입력하기...");
-
-    const handleClose = () => setShowDetailModal(false);
-
-    const checkDetail = () => {
-        if(DetailItem.length > 8) {
-            let strSlice = DetailItem.slice(0,8) + "...";
-            setExplnation(strSlice);
-        }
-        else if(!DetailItem) {
-            setExplnation("입력하기...")
-        }
-        else {
-            setExplnation(DetailItem);
-        }
-        handleClose();
-    }
+export default function PostPageFirst({itemName, headcountItem, itemPeriod, itemBrand, onChange, CategoryItem, usingYearItem, handlePage} : propsType) {
 
     return (
         <div className="flex flex-col w-6/12 float-right p-4 justify-around">
             <div className="flex h-full flex-col">
-                <div className="flex flex-col">
+                <div className="flex flex-col pb-2">
                     <strong className="text-base">상품 이름</strong>
                     <input
                         className="pt-3 text-sm bg-transparent border-b-2 border-solid border-gray-300 text-gray-500 box-border font-arvo h-50 w-400 focus:outline-none"
@@ -69,12 +69,18 @@ export default function PostPageFirst({DetailItem, itemName, onChange, CategoryI
                         placeholder="ex) 텐트"
                     />
                 </div>
-                <div className="flex flex-col pt-4">
-                    <strong className="text-base">상품 설명</strong>
-                    <button onClick={()=> setShowDetailModal(true)} className="mt-3 text-sm border rounded-md border-solid border-gray-300 px-4 py-2 text-gray-700">
-                        {explanation}
-                    </button>
+                <div className="flex flex-col pt-2">
+                    <strong className="text-base">브랜드</strong>
+                    <input
+                        className="pt-3 text-sm bg-transparent border-b-2 border-solid border-gray-300 text-gray-500 box-border font-arvo h-50 w-400 focus:outline-none"
+                        name="itemBrand"
+                        type="text"
+                        value={itemBrand}
+                        onChange={onChange}
+                        placeholder="ex) K2"
+                    />
                 </div>
+                <div className="pt-2"/>
                 <DropDownForm 
                     title="카테고리 설정"
                     label="Category"
@@ -83,6 +89,7 @@ export default function PostPageFirst({DetailItem, itemName, onChange, CategoryI
                     onChange={onChange}
                     options={categoryOptions}
                 />
+                <div className="pt-2"/>
                 <DropDownForm
                     title="사용 연수"
                     label="UsingYear"
@@ -91,18 +98,29 @@ export default function PostPageFirst({DetailItem, itemName, onChange, CategoryI
                     onChange={onChange}
                     options={yearOptions}
                 />
+                <div className="pt-2"/>
+                <DropDownForm
+                    title="기간 설정"
+                    label="period"
+                    name="PeriodItem"
+                    value={itemPeriod}
+                    onChange={onChange}
+                    options={periodOptions}
+                />
+                <div className="pt-2"/>
+                <DropDownForm
+                    title="인원수"
+                    label="headcount"
+                    name="headcountItem"
+                    value={headcountItem}
+                    onChange={onChange}
+                    options={headCountOptions}
+                />
             </div>
                 <Button 
                     variant="outlined"
                     onClick={()=> handlePage()}
                 ><FontAwesomeIcon className="text-[20px] text-black" icon={faArrowRight} /></Button>
-            <ItemDetailModal 
-                showDetailModal={showDetailModal}
-                handleClose={handleClose}
-                checkDetail={checkDetail}
-                DetailItem={DetailItem}
-                onChange={onChange}
-            />
         </div>
     )
 }

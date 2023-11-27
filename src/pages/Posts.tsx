@@ -12,10 +12,13 @@ import PostPageSec from '../components/PostPageSec';
 
 export default function Posts() {
     const [itemName, setItemName] = useState<string>("");
+    const [headcountItem, setHeadCountItem] = useState<string>("");
+    const [itemBrand, setItemBrand] = useState<string>("");
     const [DetailItem, setDetailItem] = useState<string>("");
     const [CategoryItem, setCategoryItem] = useState<string>("");
     const [usingYearItem, setUsingYearItem] = useState<string>("");
     const [itemPrice, setItemPrice] = useState<string>("");
+    const [tradeAddress, setTradeAddress] = useState<string>("");
     const [itemImage, setItemImage] = useState<File[]>([]);
     const [itemPeriod, setItemPeriod] = useState<string>("");
     const [page, setPage] = useState<number>(1);
@@ -27,6 +30,10 @@ export default function Posts() {
         else if(e.target.name === "itemName") setItemName(e.target.value);
         else if(e.target.name === "PriceItem") setItemPrice(e.target.value);
         else if(e.target.name === "PeriodItem") setItemPeriod(e.target.value);
+        else if(e.target.name === "itemBrand") setItemBrand(e.target.value);
+        else if(e.target.name === "headcountItem") setHeadCountItem(e.target.value);
+        else if(e.target.name === "itemTradeAddress") setHeadCountItem(e.target.value);
+        
     }
 
     const handlePage = () => {
@@ -44,18 +51,21 @@ export default function Posts() {
                     {
                         page === 1 ? 
                             <PostPageFirst 
-                                DetailItem = {DetailItem}
+                                headcountItem = {headcountItem}
                                 itemName = {itemName}
                                 onChange = {onChange}
                                 CategoryItem = {CategoryItem}
                                 usingYearItem = {usingYearItem}
                                 handlePage={handlePage}
+                                itemBrand={itemBrand}
+                                itemPeriod = {itemPeriod}
                             /> :
                             <PostPageSec
+                                DetailItem = {DetailItem}
+                                itemPrice = {itemPrice}
+                                tradeAddress = {tradeAddress}
                                 handlePage={handlePage}
                                 onChange = {onChange}
-                                itemPrice = {itemPrice}
-                                itemPeriod = {itemPeriod}
                             />
                     }
                 </div>

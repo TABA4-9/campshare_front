@@ -10,7 +10,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 import { Dropdown } from 'flowbite-react';
 
@@ -51,6 +51,7 @@ const itemFilterOption:dropwDownOption[] = [
 
 export default function Category() {
     const [campItem, setCampItem] = useRecoilState<CampingItemType[]>(campingItemAtom);
+    const [filterCampItem, setFilterCampItem] = useState<CampingItemType[]>([]);
 
     const [categoryfilter, setCategoryFilter] = useState<string>("");
     const [itemFilter, setItemFilter] = useState<string>("0");
@@ -62,6 +63,7 @@ export default function Category() {
 
     const handleFilter = (value: string) => {
         setCategoryFilter(value);
+        let newCampItem = 설정한 카테고리에 따른 필터 설정.
     };
 
     useEffect(()=>{
@@ -92,11 +94,15 @@ export default function Category() {
                     <div className="text-stone-900 text-[25px] font-medium font-['Poppins'] px-1">filter</div>
                     <div className="w-[200px] h-[0px] border border-black"/>
                     <div className="px-1 w-[200px]">
-                        <StyledDropDown label="categoryfilter" dismissOnClick={false} renderTrigger={() => <span className="text-stone-900 text-base font-light font-['Poppins']">Category<FontAwesomeIcon className="pt-3 pl-28 text-[14px] text-black" icon={faPlus} /></span>}>
+                        <StyledDropDown 
+                            label="categoryfilter" 
+                            dismissOnClick={false} renderTrigger={() => <span className="text-stone-900 text-base font-light font-['Poppins']">Category
+                            <FontAwesomeIcon className="pt-3 pl-28 text-[14px] text-black" icon={faPlus} />
+                        </span>}>
                         {
                             category.map((item,index)=>{
                                 return (
-                                    <StyledDropdownItem onClick={()=>handleFilter(`${item}`)}>{item}</StyledDropdownItem>
+                                    <StyledDropdownItem className={`${categoryfilter === item ? "font-bold" : null}`} onClick={()=>handleFilter(`${item}`)}>{item}</StyledDropdownItem>
                                 )
                             })
                         }

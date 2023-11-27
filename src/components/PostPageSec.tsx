@@ -5,31 +5,46 @@ import { SelectChangeEvent } from '@mui/material/Select';
 
 import Button from '@mui/material/Button';
 
+import DropDownForm from "./form/DropDownForm";
+import { useState } from "react";
+import ItemDetailModal from "./form/modal/ItemDetailModal";
+
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import DropDownForm from "./form/DropDownForm";
 
 
 interface propsType {
+    DetailItem : string,
     handlePage : () => void,
     onChange : (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement> | SelectChangeEvent<string>) => void,
-    itemPeriod : string,
     itemPrice : string,
+    tradeAddress : string,
 }
 
-const periodOptions:dropwDownOption[] = [
-    { value: 10, label: '1박 2일' },
-    { value: 20, label: '2박 3일' },
-    { value: 30, label: '3박 4일' },
-    { value: 40, label: '4박 5일' },
-    { value: 50, label: '5일 이상' },
-];
-
-export default function PostPageSec({handlePage, onChange, itemPrice, itemPeriod} : propsType) {
+export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange, tradeAddress} : propsType) {
     // 가격 => 적정 가격 보여주는 것도 따로
     // 사진
+
+    const [showDetailModal, setShowDetailModal] = useState<boolean>(false);
+    const [explanation, setExplnation] = useState<string>("입력하기...");
+
+    const handleClose = () => setShowDetailModal(false);
+
+    const checkDetail = () => {
+        if(DetailItem.length > 8) {
+            let strSlice = DetailItem.slice(0,8) + "...";
+            setExplnation(strSlice);
+        }
+        else if(!DetailItem) {
+            setExplnation("입력하기...")
+        }
+        else {
+            setExplnation(DetailItem);
+        }
+        handleClose();
+    }
 
     return (
         <div className="flex flex-col w-6/12 float-right p-4 justify-around">
@@ -48,8 +63,13 @@ export default function PostPageSec({handlePage, onChange, itemPrice, itemPeriod
                         {/* 이미지가 업로드 되었다면 해당 파일 명을 보여줄 것. */}
                 </div>
                 <div className="flex flex-col pt-4">
+                    <strong className="text-base">상품 설명</strong>
+                    <button onClick={()=> setShowDetailModal(true)} className="mt-3 text-sm border rounded-md border-solid border-gray-300 px-4 py-2 text-gray-700">
+                        {explanation}
+                    </button>
+                </div>
+                <div className="flex flex-col pt-4">
                     <strong className="text-base pb-3">가격</strong>
-                    {/* 가격을 받을 때, string만 받는데 여기서 숫자로 된 string만 받도록 검사하는 건 나중에 추가 */}
                     <FormControl size="small" variant="outlined">
                         <OutlinedInput
                             name="PriceItem"
@@ -65,25 +85,16 @@ export default function PostPageSec({handlePage, onChange, itemPrice, itemPeriod
                         <FormHelperText id="outlined-weight-helper-text">price</FormHelperText>
                     </FormControl>
                 </div>
-                <div className="flex flex-col pt-4">
-                    <DropDownForm
-                        title="기간 설정"
-                        label="period"
-                        name="PeriodItem"
-                        value={itemPeriod}
+                <div className="flex flex-col pt-3 pb-2">
+                    <strong className="text-base">거래 장소</strong>
+                    <input
+                        className="pt-3 text-sm bg-transparent border-b-2 border-solid border-gray-300 text-gray-500 box-border font-arvo h-50 w-400 focus:outline-none"
+                        name="itemTradeAddress"
+                        type="text"
+                        value={tradeAddress}
                         onChange={onChange}
-                        options={periodOptions}
+                        placeholder="ex) 수지구청"
                     />
-                    {/* 빌려주는 사람은 기간 설정을 그냥 1박 2일, 2박 3일 이렇게 약간 추상적으로 지정 하는 반면에
-                    빌리는 사람은 캘린더로 지정하면, 이후에 카테고리에서 기간 설정으로 filter를 하면
-                    빌리는 사람은 캘린더로 지정한 일정이 총 1박 2일인지, 2박 3일인지를 프론트에서 체크해서 그거를 따로
-                    빌려주는 사람의 기간 설정과 매칭해서 보여주겠다 이건가 */}
-
-                    {/* 일단 빌리는 사람이나 빌려주는 사람이나 드롭박스 형식으로 몇박 며칠을 원하는지 설정하게 만드는게
-                    일관성 있고 component 유지보수 하기에도 편해서 안 그러면 빌려주는 사람을 위한 component, 빌리는 사람을 위한 component 따로 만들어야 함
-                    + 알고리즘 적용 시에도 "빌리는 사람은 캘린더로 지정한 일정이 총 1박 2일인지, 2박 3일인지를 프론트에서 체크해서 그거를 따로
-                    빌려주는 사람의 기간 설정과 매칭해서 보여주겠다"를 적용해야 하기 때문에 시간 너무 잡아먹음
-                    */}
                 </div>
             </div>
             <div className="flex flex-col align-middle w-full ">
@@ -96,6 +107,13 @@ export default function PostPageSec({handlePage, onChange, itemPrice, itemPeriod
                     <FontAwesomeIcon className="text-[20px] text-black" icon={faArrowLeft} />
                 </Button>      
             </div>
+            <ItemDetailModal 
+                showDetailModal={showDetailModal}
+                handleClose={handleClose}
+                checkDetail={checkDetail}
+                DetailItem={DetailItem}
+                onChange={onChange}
+            />
         </div>
     )
 }
