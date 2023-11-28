@@ -10,8 +10,9 @@ type CampingItemType = {
     explanation : string,
     price : string,
     address : string,
-
+    userName : string,
     isLended : boolean,
+    recommandItem : CampingItemType[],
 }
 
 type dropwDownOption = {

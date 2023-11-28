@@ -32,7 +32,7 @@ export default function Posts() {
         else if(e.target.name === "PeriodItem") setItemPeriod(e.target.value);
         else if(e.target.name === "itemBrand") setItemBrand(e.target.value);
         else if(e.target.name === "headcountItem") setHeadCountItem(e.target.value);
-        else if(e.target.name === "itemTradeAddress") setHeadCountItem(e.target.value);
+        else if(e.target.name === "itemTradeAddress") setTradeAddress(e.target.value);
         
     }
 

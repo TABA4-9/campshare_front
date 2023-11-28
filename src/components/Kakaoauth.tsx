@@ -40,7 +40,7 @@ export default function Kakaoauth() {
                     headers:{"Content-Type": "application/json"}
                 }
             );
-            const accessToken = response.data.accessToken;
+            const accessToken = response.data.kakaoAccessToken;
             console.log("accessToken:", accessToken);
  
             setAccessTokenFetching(false); // Reset fetching to false

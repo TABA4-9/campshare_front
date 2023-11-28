@@ -21,10 +21,17 @@ const style = {
 interface propsType {
   showUploadFileModal : boolean,
   handleClose : () => void,
+  fileList : File[],
+  setFileList : React.Dispatch<React.SetStateAction<File[]>>,
 }
 
-export default function UploadFileModal({showUploadFileModal, handleClose}:propsType) {
-  
+export default function UploadFileModal({showUploadFileModal, handleClose, fileList, setFileList}:propsType) {
+  const DeleteUploadFile = (index:number) => {
+    let newFileList = [...fileList];
+    newFileList.splice(index,1);
+    setFileList(newFileList);
+  }
+
     return (
       <div>
         <Modal
@@ -46,7 +53,18 @@ export default function UploadFileModal({showUploadFileModal, handleClose}:props
                 업로드 파일 이름
               </Typography>
               <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                {
+                  fileList.map((item,index)=>{
+                    return (
+                      <div>
+                        {item?.name}
+                        {
+                          item?.name && <button className="ml-8" onClick={()=>DeleteUploadFile(index)}>X</button>
+                        }
+                      </div>
+                    )
+                  })
+                }
               </Typography>
             </Box>
           </Fade>

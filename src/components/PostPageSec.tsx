@@ -30,14 +30,12 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
     // 가격 => 적정 가격 보여주는 것도 따로
     // 사진
 
-    // 임의
+    // 임의 => 수정필요
     const [file,setFile] = useState<File>()
     const [fileList,setFileList] = useState<File[]>([])
     const [showDetailModal, setShowDetailModal] = useState<boolean>(false);
     const [showUploadFileModal, setShowUploadFileModal] = useState<boolean>(false);
     const [explanation, setExplnation] = useState<string>("입력하기...");
-
-    const thumbnailInput = useRef();
 
     const closeDetailModal = () => {
         setShowDetailModal(false);
@@ -46,14 +44,14 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
     const handleShowFile = () => {
         setShowUploadFileModal(true);
 
-        //formData 여러개로 보여주기.
-        const formDataList = new FormData();  // formDataList 생성
-        let testFileList = [...fileList];
-        for(const file of testFileList) {
-            formDataList.append('userFileList', file);
-            console.log("formDataList에 추가완료");
-        }
-        for(const listKeyValue of formDataList) console.log(listKeyValue);
+        // //formData 여러개로 보여주기.
+        // const formDataList = new FormData();  // formDataList 생성
+        // let testFileList = [...fileList];
+        // for(const file of testFileList) {
+        //     formDataList.append('userFileList', file);
+        //     console.log("formDataList에 추가완료");
+        // }
+        // for(const listKeyValue of formDataList) console.log(listKeyValue);
 
     }
 
@@ -152,7 +150,7 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
                         type="text"
                         value={tradeAddress}
                         onChange={onChange}
-                        placeholder="ex) 수지구청"
+                        placeholder="ex) 경기도 용인시 수지구 풍덕천동..."
                     />
                 </div>
             </div>
@@ -177,6 +175,8 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
             <UploadFileModal
                 showUploadFileModal = {showUploadFileModal}
                 handleClose={closeUploadFileModal}
+                fileList={fileList}
+                setFileList={setFileList}
             />
         </div>
     )
