@@ -1,6 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
 
+import {useRef} from "react";
+
 import { SelectChangeEvent } from '@mui/material/Select';
 
 import Button from '@mui/material/Button';
@@ -13,6 +15,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
 import OutlinedInput from '@mui/material/OutlinedInput';
+import UploadFileModal from "./form/modal/UploadFileModal";
 
 
 interface propsType {
@@ -27,10 +30,36 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
     // 가격 => 적정 가격 보여주는 것도 따로
     // 사진
 
+    // 임의
+    const [file,setFile] = useState<File>()
+    const [fileList,setFileList] = useState<File[]>([])
     const [showDetailModal, setShowDetailModal] = useState<boolean>(false);
+    const [showUploadFileModal, setShowUploadFileModal] = useState<boolean>(false);
     const [explanation, setExplnation] = useState<string>("입력하기...");
 
-    const handleClose = () => setShowDetailModal(false);
+    const thumbnailInput = useRef();
+
+    const closeDetailModal = () => {
+        setShowDetailModal(false);
+    }
+
+    const handleShowFile = () => {
+        setShowUploadFileModal(true);
+
+        //formData 여러개로 보여주기.
+        const formDataList = new FormData();  // formDataList 생성
+        let testFileList = [...fileList];
+        for(const file of testFileList) {
+            formDataList.append('userFileList', file);
+            console.log("formDataList에 추가완료");
+        }
+        for(const listKeyValue of formDataList) console.log(listKeyValue);
+
+    }
+
+    const closeUploadFileModal = () => {
+        setShowUploadFileModal(false);
+    }
 
     const checkDetail = () => {
         if(DetailItem.length > 8) {
@@ -43,8 +72,32 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
         else {
             setExplnation(DetailItem);
         }
-        handleClose();
+        closeDetailModal();
     }
+
+    const saveFileImage = async (e:any) => {
+        e.preventDefault();
+        const uploadFile = e.target.files[0];
+
+        try {
+          // 단일 formData
+          const formData = new FormData();  // formData 생성
+          formData.append('userFile', uploadFile);  // 이미지 파일 값 할당
+          setFile(uploadFile);
+
+          // DataList check
+          let newDataList = [...fileList, uploadFile];
+          setFileList(newDataList);
+
+          for(const data of newDataList) {
+            console.log("fileList set 완료");
+            console.log(data);
+          }
+          
+        } catch (error) {
+          console.log("error : " + error)
+        }
+      };
 
     return (
         <div className="flex flex-col w-6/12 float-right p-4 justify-around">
@@ -56,10 +109,16 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
                             <input
                                 style={{display:"none"}} 
                                 type="file" 
-                                id="file" 
+                                id="file"
+                                name="Upload_img"
                                 accept="image/*"
+                                onChange={saveFileImage}
+                                multiple
                             />
                         </div>
+                        <button onClick={()=> handleShowFile()} className="mt-3 text-sm border rounded-md border-solid border-gray-300 px-4 py-2 text-gray-700">
+                            업로드 파일 보기
+                        </button>
                         {/* 이미지가 업로드 되었다면 해당 파일 명을 보여줄 것. */}
                 </div>
                 <div className="flex flex-col pt-4">
@@ -107,12 +166,17 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
                     <FontAwesomeIcon className="text-[20px] text-black" icon={faArrowLeft} />
                 </Button>      
             </div>
+            
             <ItemDetailModal 
                 showDetailModal={showDetailModal}
-                handleClose={handleClose}
+                handleClose={closeDetailModal}
                 checkDetail={checkDetail}
                 DetailItem={DetailItem}
                 onChange={onChange}
+            />
+            <UploadFileModal
+                showUploadFileModal = {showUploadFileModal}
+                handleClose={closeUploadFileModal}
             />
         </div>
     )

@@ -10,7 +10,6 @@ export default function Detail() {
 
     useEffect(()=>{
         if(data) {
-            console.log("data있음.");
             setItemInfo(data);
         }
     },[])

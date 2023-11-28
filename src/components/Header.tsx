@@ -13,7 +13,7 @@ export default function Header() {
     const pathSegments:string[] = location.pathname.split('/');
     const path:string = `/${pathSegments[1]}`;
 
-    const [isLogged, setIsLogged] = useState<boolean>(true);
+    const [isLogged, setIsLogged] = useState<boolean>(false);
 
     return (
         <div className="flex px-5">

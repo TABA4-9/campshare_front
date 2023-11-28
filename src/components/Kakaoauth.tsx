@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import { FetchKakaoToken } from '../hooks/FetchKakaoToken';
 
 import { useNavigate } from "react-router"
 
@@ -7,12 +8,25 @@ import axios from 'axios';
 export default function Kakaoauth() {
     const navigate = useNavigate();
     const PARAMS = new URL(window.location.href).searchParams;
-    const KAKAO_CODE = PARAMS.get("code");
+    const KAKAO_CODE: string | null = PARAMS?.get("code");
     const [accessTokenFetching, setAccessTokenFetching] = useState<boolean>(false);
  
     console.log("KAKAO_CODE:", KAKAO_CODE);
+
+    // const getAccessToken = async () => {
+    //     FetchKakaoToken(KAKAO_CODE, accessTokenFetching, setAccessTokenFetching);
+    //     if(accessTokenFetching) {
+    //         console.log("FetchKakaoToken Success")
+    //         navigate("/")
+    //     }
+    //     else {
+    //         alert("FetchKakaoToken fail");
+    //         navigate("/")
+    //     }
+    // }
+    
  
-    // Access Token 받아오기
+    // 기존 getAccessToken
     const getAccessToken = async () => {
         if (accessTokenFetching) return; // Return early if fetching
         console.log("getAccessToken 호출");
@@ -39,12 +53,9 @@ export default function Kakaoauth() {
  
  
     useEffect(() => {
-        if(KAKAO_CODE) {
+        if (KAKAO_CODE) {
             getAccessToken();
         }
-        // if (KAKAO_CODE && !userInfo.accessToken) {
-        //     getAccessToken();
-        // }
     }, [KAKAO_CODE]);
  
     return (

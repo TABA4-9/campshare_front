@@ -63,7 +63,6 @@ export default function Category() {
 
     const handleFilter = (value: string) => {
         setCategoryFilter(value);
-        let newCampItem = 설정한 카테고리에 따른 필터 설정.
     };
 
     useEffect(()=>{
