@@ -1020,4 +1020,14 @@ export const handlers = [
       }
     )}
   ),
+
+
+  http.post('/detail/log', async ({ request }) => {
+    const requestBody : any  = await request.json();
+
+    return HttpResponse.json({
+      content : requestBody?.content,
+      createdAt : new Date().toLocaleString(),
+    })
+  })
 ]

@@ -1,26 +1,53 @@
 import { Link, useLocation } from "react-router-dom"
 
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+
 import { useState, useEffect } from "react";
 import { campingItemAtom } from "../data/campingItemAtom";
 import { useRecoilState } from "recoil";
+import axios from "axios";
+import { userInfoAtom } from "../data/userInfoAtom";
 
 export default function Detail() {
     const [campItem, setCampItem] = useRecoilState<CampingItemType[]>(campingItemAtom);
-    const [itemInfo, setItemInfo] = useState<CampingItemType>()
+    let [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
     const location = useLocation();
     const data = location.state.item;
-    
-    console.log(data);
 
-    // useEffect(()=>{
-    //     if(data) {
-    //         setItemInfo(data);
-    //     }
-    // },[])
+    const today = new Date();
+
+    const formattedDate = `${today.getFullYear()}년 ${today.getMonth() + 1}월 ${today.getDate()}일`;
+    
+    useEffect(()=>{
+        const postLog = async () => {
+            try {
+                // only front
+                await axios.post(`/detail/log`,{
+                    userId : userInfo.id,
+                    itemId : data.id,
+                    DetailPageLog : formattedDate,
+                })
+                .then(response=>{console.log(response)})
+
+                // front + back
+                // await axios.post(`http://localhost:8080/detail/${data.id}/log`,{
+                //     userId : userInfo.id,
+                //     itemId : data.id,
+                //     DetailPageLog : formattedDate,
+                // })
+                // .then(response=>{console.log(response)})
+            } catch (error) {
+                console.error('로그를 게시하는 중 오류 발생:', error);
+            }
+        };
+    
+        postLog();
+    },[])
 
     return (
         <div className="flex flex-col px-10">
-            <div className="flex rounded-md h-ful w-[60%] bg-slate-300">
+            <div className="flex justify-around rounded-md h-ful w-[60%] bg-slate-300">
                 <div className="flex flex-col m-4">
                     <div>
                         <img className="w-[200px] h-[200px]" src={data.image} alt="camping item img"/>
@@ -44,13 +71,17 @@ export default function Detail() {
                             {data.explanation}
                         </div>
                     </div>
-                    <div className="flex ">
-                        <div className="flex w-full justify-between">
-                            <div/>
-                            <div>
-                                <button>빌리기</button>
-                            </div>
-                        </div>
+                </div>
+                <div className="flex flex-col justify-between m-4">
+                    <div>대여 여부 : {data.isLended === true ? "불가능" : "가능"}</div>
+                    <div className="flex justify-center">
+                        <Stack spacing={2} direction="row">
+                            {
+                                data.isLended === true ?
+                                <Button variant="outlined" disabled>빌리기</Button> : 
+                                <Button variant="outlined">빌리기</Button>
+                            }
+                        </Stack>
                     </div>
                 </div>
             </div>
