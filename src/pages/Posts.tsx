@@ -49,55 +49,141 @@ export default function Posts() {
         else if(e.target.name === "itemTradeAddress") setTradeAddress(e.target.value);
     }
 
-    const productSubmit = async () => {
+    const productSubmit = async (e : React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();
+
+        const userData = {
+            itemName,
+            itemBrand,
+            CategoryItem,
+            itemPeriod,
+            usingYearItem,
+            headcountItem,
+            DetailItem,
+            itemPrice,
+            tradeAddress,
+        };
         // fileList to formData
         const formDataList = new FormData();  // formDataList 생성
+
+        // testing only one image file
+        // let testfile = fileList[0];
+        // console.log(testfile);
+        // formDataList.append('userFileList', testfile);
+
+        // try {
+        //     // axios를 이용한 post 요청. 헤더를 multipart/form-data 로 한다.
+        //     await axios.post('/post/submit', formDataList, {
+        //         headers: {'Content-Type': 'multipart/form-data', charset: 'utf-8'},
+        //     });
+        //     alert('게시글이 등록되었습니다');
+        // } catch (err) {
+        //     alert(err);
+        // }
         let testFileList = [...fileList];
         for(const file of testFileList) {
             formDataList.append('userFileList', file);
             console.log("formDataList에 추가완료");
         }
         for(const listKeyValue of formDataList) console.log(listKeyValue);
+        formDataList.append('userData', JSON.stringify(userData));
 
-        formDataList.append('itemName', new Blob([JSON.stringify(itemName)], {
-            type: "application/json"
-        }));
-        formDataList.append('itemBrand', new Blob([JSON.stringify(itemBrand)], {
-            type: "application/json"
-        }));
-        formDataList.append('CategoryItem', new Blob([JSON.stringify(CategoryItem)], {
-            type: "application/json"
-        }));
-        formDataList.append('itemPeriod', new Blob([JSON.stringify(itemPeriod)], {
-            type: "application/json"
-        }));
-        formDataList.append('usingYearItem', new Blob([JSON.stringify(usingYearItem)], {
-            type: "application/json"
-        }));
-        formDataList.append('headcountItem', new Blob([JSON.stringify(headcountItem)], {
-            type: "application/json"
-        }));
-        formDataList.append('DetailItem', new Blob([JSON.stringify(DetailItem)], {
-            type: "application/json"
-        }));
-        formDataList.append('itemPrice', new Blob([JSON.stringify(itemPrice)], {
-            type: "application/json"
-        }));
-        formDataList.append('tradeAddress', new Blob([JSON.stringify(tradeAddress)], {
-            type: "application/json"
-        }));
+        // formDataList.append('itemName', new Blob([JSON.stringify(itemName)], {
+        //     type: "application/json"
+        // }));
+        // formDataList.append('itemBrand', new Blob([JSON.stringify(itemBrand)], {
+        //     type: "application/json"
+        // }));
+        // formDataList.append('CategoryItem', new Blob([JSON.stringify(CategoryItem)], {
+        //     type: "application/json"
+        // }));
+        // formDataList.append('itemPeriod', new Blob([JSON.stringify(itemPeriod)], {
+        //     type: "application/json"
+        // }));
+        // formDataList.append('usingYearItem', new Blob([JSON.stringify(usingYearItem)], {
+        //     type: "application/json"
+        // }));
+        // formDataList.append('headcountItem', new Blob([JSON.stringify(headcountItem)], {
+        //     type: "application/json"
+        // }));
+        // formDataList.append('DetailItem', new Blob([JSON.stringify(DetailItem)], {
+        //     type: "application/json"
+        // }));
+        // formDataList.append('itemPrice', new Blob([JSON.stringify(itemPrice)], {
+        //     type: "application/json"
+        // }));
+        // formDataList.append('tradeAddress', new Blob([JSON.stringify(tradeAddress)], {
+        //     type: "application/json"
+        // }));
 
-        try {
-            // await axios.post("/post/submit", {
-            //     name : "씨발",
-            //     what : "이거 되면 님 뒤짐 씨발"
-            // }).then(response=>{console.log(response)})
-                await axios.post("/post/submit", formDataList, {
-                headers: { 'Content-Type': 'multipart/form-data' },
-            }).then(response=>{console.log(response)})
-        } catch (error) {
-            console.error('로그를 게시하는 중 오류 발생:', error);
-        }
+        // 확인 url : http://httpbin.org/post
+        // const results = await fetch('/post/submit', {
+        //     method : "POST",
+        //     body : formDataList,
+        //     headers : {
+        //         "Custom-Header" : "value",
+        //     }
+        // })
+        // .then(res=>{
+        //     if(!res.ok) {
+        //         throw new Error("Bad response");
+        //     }
+        //     return res.json();
+        // })
+        // .then(data => console.log(data))
+        // .catch(err => {
+        //     console.log(err);
+        // })
+
+        // console.log('results : ' + results)
+
+        // const url = 'http://localhost:3000/post/submit';
+        // axios.post(url, formDataList).then((res)=>{
+        //     console.log(res);
+        // })
+        
+        // await axios({
+        //     method: "post",
+        //     url: "http://localhost:3000/post/submit",
+        //     data: formDataList,
+        //     headers: { "Content-Type": "multipart/form-data" }
+        // }).then(function(response) {
+        //     console.log(response)
+        // }).catch((err) => {
+        //     console.log(err)
+        // })
+        // try {
+        //     // await axios.post("/post/submit", {
+        //     //     name : "씨발",
+        //     //     what : "이거 되면 님 뒤짐 씨발"
+        //     // }).then(response=>{console.log(response)})
+        //         await axios.post("/post/submit", formDataList, {
+        //         headers: { 'Content-Type': 'multipart/form-data' },
+        //     }).then(response=>{console.log(response)})
+        // } catch (error) {
+        //     console.error('로그를 게시하는 중 오류 발생:', error);
+        // }
+        const results = await fetch('/post/submit', {
+            method : "POST",
+            body : formDataList,
+            headers : {
+                "Custom-Header" : "value; charset=UTF-8"
+            },
+        })
+        .then(res=>{
+            if(!res.ok) {
+                throw new Error("Bad response");
+            }
+            return res.json();
+        })
+        .then(data => {
+            console.log(data)
+            // const blobData = data.blob();
+            // console.log(blobData);
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
     const handlePage = async () => {

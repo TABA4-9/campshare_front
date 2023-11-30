@@ -16,6 +16,7 @@ import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import UploadFileModal from "./form/modal/UploadFileModal";
+import axios from "axios";
 
 
 interface propsType {
@@ -24,7 +25,7 @@ interface propsType {
     onChange : (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement> | SelectChangeEvent<string>) => void,
     itemPrice : string,
     tradeAddress : string,
-    productSubmit : () => void,
+    productSubmit : (e : React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
     fileList : File[],
     setFileList : React.Dispatch<React.SetStateAction<File[]>>,
 
@@ -83,8 +84,8 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
 
         try {
           // 단일 formData
-        //   const formData = new FormData();  // formData 생성
-        //   formData.append('userFile', uploadFile);  // 이미지 파일 값 할당
+          const formData = new FormData();  // formData 생성
+          formData.append('userFileList', uploadFile);  // 이미지 파일 값 할당
         //   setFile(uploadFile);
 
           // DataList check
@@ -95,10 +96,32 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
             console.log("fileList set 완료");
             console.log(data);
           }
-          
-        } catch (error) {
-          console.log("error : " + error)
-        }
+            // // // axios를 이용한 post 요청. 헤더를 multipart/form-data 로 한다.
+            // const results = await fetch('/post/submit', {
+            //     method : "POST",
+            //     body : formData,
+            //     headers : {
+            //         "Custom-Header" : "value; charset=UTF-8"
+            //     },
+            // })
+            // .then(res=>{
+            //     if(!res.ok) {
+            //         throw new Error("Bad response");
+            //     }
+            //     return res.json();
+            // })
+            // .then(data => {
+            //     console.log(data);
+            //     // const blobData = data.blob();
+            //     // console.log(blobData);
+            // })
+            // .catch(err => {
+            //     console.log(err);
+            // })
+            
+            } catch (error) {
+                console.log("error : " + error)
+            }
       };
 
     return (
@@ -160,8 +183,7 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
             </div>
             <div className="flex flex-col align-middle w-full ">
                 <button 
-                    type="submit"
-                    onClick={()=>productSubmit()} 
+                    onClick={(e)=>productSubmit(e)} 
                     className="text-purple-700 w-full hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900">
                         상품 등록
                 </button>

@@ -1040,12 +1040,48 @@ export const handlers = [
     })
   }),
   
-  http.post('/post/submit', async ({ request }) => {
-    const requestBody : any  = await request.formData();
+  // http.post('/post/submit', async ({ request }) => {
+  //   const requestBody  = await request.formData();
+  //   const file = requestBody.get('userFileList');
+  //   const jsonFile = requestBody.get('itemName');
 
-    return HttpResponse.json({
-      content : requestBody?.content,
-      createdAt : new Date().toLocaleString(),
-    })
-  }),
+  //   const fileReader = new FileReader();
+  //   // const binaryFile = fileReader.readAsDataURL(file);
+ 
+  //   if (!(file || jsonFile)) {
+  //     return new HttpResponse('Missing document', { status: 400 })
+  //   }
+ 
+  //   if (!((file instanceof File) && (typeof jsonFile !== 'string'))) {
+  //     return new HttpResponse('Uploaded document is not a File', {
+  //       status: 400,
+  //     })
+  //   }
+ 
+  //   return HttpResponse.json({
+  //     contentsImage: await file.text(),
+  //     // contentsText : await requestBody,
+  //   })
+  // }),
+  http.post('/post/submit', async ({ request }) => {
+      const requestBody  = await request.formData();
+      const userData = requestBody.get('userData');
+  
+      // const binaryFile = fileReader.readAsDataURL(file);
+   
+      if (!(userData)) {
+        return new HttpResponse('Missing document', { status: 400 })
+      }
+   
+      // if (!(userData instanceof File)) {
+      //   return new HttpResponse('Uploaded document is not a File', {
+      //     status: 400,
+      //   })
+      // }
+   
+      return HttpResponse.json({
+        contentsImage: userData
+        // contentsText : await requestBody,
+      })
+    }),
 ]
