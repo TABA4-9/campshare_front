@@ -13,7 +13,6 @@ interface propsType {
 }
 
 export default function DropDownForm({title, label, name, value, onChange, options} : propsType) {
-    console.log("value : " + value)
     return (
         <div className="flex flex-col ">
             <strong className="text-base pb-3">{title}</strong>

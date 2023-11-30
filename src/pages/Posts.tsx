@@ -9,6 +9,7 @@ import { SelectChangeEvent } from '@mui/material/Select';
 
 import PostPageFirst from "../components/PostPageFirst";
 import PostPageSec from '../components/PostPageSec';
+import axios from 'axios';
 
 export default function Posts() {
     const [itemName, setItemName] = useState<string>("");
@@ -19,11 +20,24 @@ export default function Posts() {
     const [usingYearItem, setUsingYearItem] = useState<string>("");
     const [itemPrice, setItemPrice] = useState<string>("");
     const [tradeAddress, setTradeAddress] = useState<string>("");
-    const [itemImage, setItemImage] = useState<File[]>([]);
+    const [fileList, setFileList] = useState<File[]>([]);
     const [itemPeriod, setItemPeriod] = useState<string>("");
     const [page, setPage] = useState<number>(1);
-    
-    const onChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement> | SelectChangeEvent<string>) :void => {
+
+    // posts 변경 시, 실제로 state에 적용 되는가 확인
+    // console.log("itemName : " + itemName);
+    // console.log("headcountItem : " + headcountItem);
+    // console.log("itemBrand : " + itemBrand);
+    // console.log("CategoryItem : " + CategoryItem);
+    // console.log("usingYearItem : " + usingYearItem);
+    // console.log("itemPrice : " + itemPrice);
+    // console.log("tradeAddress : " + tradeAddress);
+    // console.log("itemPeriod : " + itemPeriod);
+    // for(const item of fileList) console.log(item?.name);
+    // console.log("DetailItem : " + DetailItem);
+
+    const onChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement> | SelectChangeEvent<string> ) :void => {
+        e.preventDefault();
         if(e.target.name === "DetailItem") setDetailItem(e.target.value);
         else if(e.target.name === "CategoryItem") setCategoryItem(e.target.value);
         else if(e.target.name === "usingYearItem") setUsingYearItem(e.target.value);
@@ -33,13 +47,85 @@ export default function Posts() {
         else if(e.target.name === "itemBrand") setItemBrand(e.target.value);
         else if(e.target.name === "headcountItem") setHeadCountItem(e.target.value);
         else if(e.target.name === "itemTradeAddress") setTradeAddress(e.target.value);
-        
     }
 
-    const handlePage = () => {
-        if(page === 1) setPage(2);
+    const productSubmit = async () => {
+        // fileList to formData
+        const formDataList = new FormData();  // formDataList 생성
+        let testFileList = [...fileList];
+        for(const file of testFileList) {
+            formDataList.append('userFileList', file);
+            console.log("formDataList에 추가완료");
+        }
+        for(const listKeyValue of formDataList) console.log(listKeyValue);
+
+        formDataList.append('itemName', new Blob([JSON.stringify(itemName)], {
+            type: "application/json"
+        }));
+        formDataList.append('itemBrand', new Blob([JSON.stringify(itemBrand)], {
+            type: "application/json"
+        }));
+        formDataList.append('CategoryItem', new Blob([JSON.stringify(CategoryItem)], {
+            type: "application/json"
+        }));
+        formDataList.append('itemPeriod', new Blob([JSON.stringify(itemPeriod)], {
+            type: "application/json"
+        }));
+        formDataList.append('usingYearItem', new Blob([JSON.stringify(usingYearItem)], {
+            type: "application/json"
+        }));
+        formDataList.append('headcountItem', new Blob([JSON.stringify(headcountItem)], {
+            type: "application/json"
+        }));
+        formDataList.append('DetailItem', new Blob([JSON.stringify(DetailItem)], {
+            type: "application/json"
+        }));
+        formDataList.append('itemPrice', new Blob([JSON.stringify(itemPrice)], {
+            type: "application/json"
+        }));
+        formDataList.append('tradeAddress', new Blob([JSON.stringify(tradeAddress)], {
+            type: "application/json"
+        }));
+
+        try {
+            // await axios.post("/post/submit", {
+            //     name : "씨발",
+            //     what : "이거 되면 님 뒤짐 씨발"
+            // }).then(response=>{console.log(response)})
+                await axios.post("/post/submit", formDataList, {
+                headers: { 'Content-Type': 'multipart/form-data' },
+            }).then(response=>{console.log(response)})
+        } catch (error) {
+            console.error('로그를 게시하는 중 오류 발생:', error);
+        }
+    }
+
+    const handlePage = async () => {
+        if(page === 1) {
+            setPage(2);
+            try {
+                // only front testing code
+                await axios.post('/post/nextPage',{
+                    name : itemName,
+                    period : itemPeriod,
+                    category : CategoryItem,
+                    headcount : headcountItem,
+                    usingYear : usingYearItem,
+                    brand : itemBrand,
+                })
+                .then(response=>{console.log(response)})
+
+                // front + back
+                // await axios.post(`http://localhost:8080/detail/${data.id}`,{
+                //     userId : userInfo.id,
+                //     detailPageLog : formattedDate,
+                // })
+                // .then(response=>{console.log(response)})
+            } catch (error) {
+                console.error('로그를 게시하는 중 오류 발생:', error);
+            }
+        }
         else setPage(1);
-        console.log(page)
     }
 
     return (
@@ -66,6 +152,9 @@ export default function Posts() {
                                 tradeAddress = {tradeAddress}
                                 handlePage={handlePage}
                                 onChange = {onChange}
+                                productSubmit = {productSubmit}
+                                fileList = {fileList}
+                                setFileList = {setFileList}
                             />
                     }
                 </div>

@@ -94,7 +94,7 @@ export const handlers = [
         // 그냥 유저 정보를 받아야 함.
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
-        recommandItem : [
+        recommandProduct : [
           {
             id : 2,
             name : "신형 텐트",
@@ -148,7 +148,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
-        recommandItem : [
+        recommandProduct : [
           {
             id : 2,
             name : "신형 텐트",
@@ -202,7 +202,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
-        recommandItem : [
+        recommandProduct : [
           {
             id : 2,
             name : "신형 텐트",
@@ -256,7 +256,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
-        recommandItem : [
+        recommandProduct : [
           {
             id : 2,
             name : "신형 텐트",
@@ -310,7 +310,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
-        recommandItem : [
+        recommandProduct : [
           {
             id : 2,
             name : "신형 텐트",
@@ -364,7 +364,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
-        recommandItem : [
+        recommandProduct : [
           {
             id : 2,
             name : "신형 텐트",
@@ -418,7 +418,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
-        recommandItem : [
+        recommandProduct : [
           {
             id : 2,
             name : "신형 텐트",
@@ -472,7 +472,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
-        recommandItem : [
+        recommandProduct : [
           {
             id : 2,
             name : "신형 텐트",
@@ -526,7 +526,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
-        recommandItem : [
+        recommandProduct : [
           {
             id : 2,
             name : "신형 텐트",
@@ -580,7 +580,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
-        recommandItem : [
+        recommandProduct : [
           {
             id : 2,
             name : "신형 텐트",
@@ -634,7 +634,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
-        recommandItem : [
+        recommandProduct : [
           {
             id : 2,
             name : "신형 텐트",
@@ -684,6 +684,7 @@ export const handlers = [
     return HttpResponse.json(
       {
         name: '함상억',
+        id : 2,
         email: 'hamsoo159@naver.com',
         accessToken: 'L1Mjs_s09jTR-gDBjmlCBBXbgV8JMsianSUKPXPsAAABi-9-KhTRDLJpR7eCqA',
         LendItem : [
@@ -700,7 +701,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "함상억",
             address : "경기도 용인시 수지구 풍덕천동",
-            recommandItem : [
+            recommandProduct : [
               {
                 id : 2,
                 name : "신형 텐트",
@@ -755,7 +756,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "함상억",
             address : "경기도 용인시 수지구 풍덕천동",
-            recommandItem : [
+            recommandProduct : [
               {
                 id : 2,
                 name : "신형 텐트",
@@ -810,7 +811,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "함상억",
             address : "경기도 용인시 수지구 풍덕천동",
-            recommandItem : [
+            recommandProduct : [
               {
                 id : 2,
                 name : "신형 텐트",
@@ -866,7 +867,7 @@ export const handlers = [
             postUserName : "홍길동",
             headcount : "2인용",
             address : "경기도 용인시 수지구 풍덕천동",
-            recommandItem : [
+            recommandProduct : [
               {
                 id : 2,
                 name : "신형 텐트",
@@ -920,7 +921,7 @@ export const handlers = [
             postUserName : "홍길동",
             headcount : "2인용",
             address : "경기도 용인시 수지구 풍덕천동",
-            recommandItem : [
+            recommandProduct : [
               {
                 id : 2,
                 name : "신형 텐트",
@@ -974,7 +975,7 @@ export const handlers = [
             postUserName : "홍길동",
             headcount : "2인용",
             address : "경기도 용인시 수지구 풍덕천동",
-            recommandItem : [
+            recommandProduct : [
               {
                 id : 2,
                 name : "신형 텐트",
@@ -1029,5 +1030,22 @@ export const handlers = [
       content : requestBody?.content,
       createdAt : new Date().toLocaleString(),
     })
-  })
+  }),
+  http.post('/post/nextPage', async ({ request }) => {
+    const requestBody : any  = await request.json();
+
+    return HttpResponse.json({
+      content : requestBody?.content,
+      createdAt : new Date().toLocaleString(),
+    })
+  }),
+  
+  http.post('/post/submit', async ({ request }) => {
+    const requestBody : any  = await request.formData();
+
+    return HttpResponse.json({
+      content : requestBody?.content,
+      createdAt : new Date().toLocaleString(),
+    })
+  }),
 ]

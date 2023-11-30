@@ -15,26 +15,30 @@ export default function Detail() {
     const location = useLocation();
     const data = location.state.item;
 
+    // utc time => kor time
     const today = new Date();
+    const utcTime = new Date().toISOString();
+    const kor = new Date(utcTime);
+    kor.setHours(kor.getHours()+9);
+    const formattedDate = today.toLocaleString('ko-KR',{
+        hour12 : false
+    });
 
-    const formattedDate = `${today.getFullYear()}년 ${today.getMonth() + 1}월 ${today.getDate()}일`;
     
     useEffect(()=>{
         const postLog = async () => {
             try {
-                // only front
+                // only front testing code
                 await axios.post(`/detail/log`,{
                     userId : userInfo.id,
-                    itemId : data.id,
-                    DetailPageLog : formattedDate,
+                    detailPageLog : formattedDate,
                 })
                 .then(response=>{console.log(response)})
 
                 // front + back
-                // await axios.post(`http://localhost:8080/detail/${data.id}/log`,{
+                // await axios.post(`http://localhost:8080/detail/${data.id}`,{
                 //     userId : userInfo.id,
-                //     itemId : data.id,
-                //     DetailPageLog : formattedDate,
+                //     detailPageLog : formattedDate,
                 // })
                 // .then(response=>{console.log(response)})
             } catch (error) {
@@ -47,7 +51,7 @@ export default function Detail() {
 
     return (
         <div className="flex flex-col px-10">
-            <div className="flex justify-around rounded-md h-ful w-[60%] bg-slate-300">
+            <div className="flex justify-around rounded-md h-ful w-[70%] bg-slate-300">
                 <div className="flex flex-col m-4">
                     <div>
                         <img className="w-[200px] h-[200px]" src={data.image} alt="camping item img"/>
@@ -94,7 +98,7 @@ export default function Detail() {
                     {
                         // 문제가 recommandItem은 그에 맞는 recommandItem을 가지지않음..
                         // 이에 따라 새롭게 찾아서 item을 할당해줘야 함.
-                        data.recommandItem.map((item:CampingItemType,index:number)=>{
+                        data.recommandProduct.map((item:CampingItemType,index:number)=>{
                             let findCampingItem = campItem.find((campItem)=>campItem.id===item.id)
                             return (
                                 <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

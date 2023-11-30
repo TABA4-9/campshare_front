@@ -13,33 +13,33 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight} from "@fortawesome/free-solid-svg-icons";
 
 const categoryOptions:dropwDownOption[] = [
-    { value: 10, label: '텐트' },
-    { value: 20, label: '타프' },
-    { value: 30, label: '캠핑의자' },
-    { value: 40, label: '화로대' },
-    { value: 50, label: '랜턴' },
+    { value: '텐트', label: '텐트' },
+    { value: '타프', label: '타프' },
+    { value: '캠핑의자', label: '캠핑의자' },
+    { value: '화로대', label: '화로대' },
+    { value: '랜턴', label: '랜턴' },
 ];
 
 const yearOptions:dropwDownOption[] = [
-    { value: 10, label: '1년 이하' },
-    { value: 20, label: '3년 이하' },
-    { value: 30, label: '5년 이상' },
+    { value: '1년 이하', label: '1년 이하' },
+    { value: '3년 이하', label: '3년 이하' },
+    { value: '5년 이상', label: '5년 이상' },
 ];
 
 const headCountOptions:dropwDownOption[] = [
-    { value: 10, label: '1인' },
-    { value: 20, label: '2인' },
-    { value: 30, label: '3인' },
-    { value: 40, label: '4인' },
-    { value: 50, label: '5인 이상' },
+    { value: '1인', label: '1인' },
+    { value: '2인', label: '2인' },
+    { value: '3인', label: '3인' },
+    { value: '4인', label: '4인' },
+    { value: '5인 이상', label: '5인 이상' },
 ];
 
 const periodOptions:dropwDownOption[] = [
-    { value: 10, label: '1박 2일' },
-    { value: 20, label: '2박 3일' },
-    { value: 30, label: '3박 4일' },
-    { value: 40, label: '4박 5일' },
-    { value: 50, label: '5일 이상' },
+    { value: '1박 2일', label: '1박 2일' },
+    { value: '2박 3일', label: '2박 3일' },
+    { value: '3박 4일', label: '3박 4일' },
+    { value: '4박 5일', label: '4박 5일' },
+    { value: '5일 이상', label: '5일 이상' },
 ];
 
 interface propsType {

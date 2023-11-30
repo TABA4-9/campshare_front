@@ -19,7 +19,7 @@ import { campingItemAtom } from "../data/campingItemAtom";
 import { Link } from "react-router-dom";
 
 const StyledDropDown = styled(Dropdown)`
-    border : none;
+    border : 0;
 
 `;
 
@@ -44,9 +44,9 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
 
 const itemFilterOption:dropwDownOption[] = [
-    { value: 0, label: 'None'},
-    { value: 10, label: '조회순' },
-    { value: 20, label: '최신순' },
+    { value: 'None', label: 'None'},
+    { value: '조회순', label: '조회순' },
+    { value: '최신순', label: '최신순' },
 ]
 
 export default function Category() {
@@ -54,7 +54,7 @@ export default function Category() {
     const [filterCampItem, setFilterCampItem] = useState<CampingItemType[]>([]);
 
     const [categoryfilter, setCategoryFilter] = useState<string>("");
-    const [itemFilter, setItemFilter] = useState<string>("0");
+    const [itemFilter, setItemFilter] = useState<string>("None");
     const category:string[] = ["텐트","캠핑 의자"];
 
     const onChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement> | SelectChangeEvent<string>) : void => {
