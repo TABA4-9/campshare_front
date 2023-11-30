@@ -1065,23 +1065,30 @@ export const handlers = [
   // }),
   http.post('/post/submit', async ({ request }) => {
       const requestBody  = await request.formData();
+      const file = requestBody.get('userFileList');
       const userData = requestBody.get('userData');
   
       // const binaryFile = fileReader.readAsDataURL(file);
    
-      if (!(userData)) {
+      if (!(userData && file)) {
         return new HttpResponse('Missing document', { status: 400 })
       }
    
-      // if (!(userData instanceof File)) {
-      //   return new HttpResponse('Uploaded document is not a File', {
-      //     status: 400,
-      //   })
-      // }
+      if (!(userData !== 'string')) {
+        return new HttpResponse('Uploaded document is not a File', {
+          status: 400,
+        })
+      }
+
+      if (!((file instanceof File))) {
+        return new HttpResponse('Uploaded document is not a File', {
+          status: 400,
+        })
+      }
    
       return HttpResponse.json({
-        contentsImage: userData
-        // contentsText : await requestBody,
+        contentsImage: await file.text(),
+        contentsText : userData
       })
     }),
 ]
