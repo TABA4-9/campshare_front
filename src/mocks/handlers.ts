@@ -1073,11 +1073,11 @@ export const handlers = [
         return new HttpResponse('Missing document', { status: 400 })
       }
    
-      // if (!(userData instanceof File)) {
-      //   return new HttpResponse('Uploaded document is not a File', {
-      //     status: 400,
-      //   })
-      // }
+       if (!(userData !== 'string')) {
+         return new HttpResponse('userData is not a String', {
+           status: 400,
+         })
+       }
    
       return HttpResponse.json({
         contentsImage: userData
