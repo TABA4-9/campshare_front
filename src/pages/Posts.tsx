@@ -24,18 +24,6 @@ export default function Posts() {
     const [itemPeriod, setItemPeriod] = useState<string>("");
     const [page, setPage] = useState<number>(1);
 
-    // posts 변경 시, 실제로 state에 적용 되는가 확인
-    // console.log("itemName : " + itemName);
-    // console.log("headcountItem : " + headcountItem);
-    // console.log("itemBrand : " + itemBrand);
-    // console.log("CategoryItem : " + CategoryItem);
-    // console.log("usingYearItem : " + usingYearItem);
-    // console.log("itemPrice : " + itemPrice);
-    // console.log("tradeAddress : " + tradeAddress);
-    // console.log("itemPeriod : " + itemPeriod);
-    // for(const item of fileList) console.log(item?.name);
-    // console.log("DetailItem : " + DetailItem);
-
     const onChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement> | SelectChangeEvent<string> ) :void => {
         e.preventDefault();
         if(e.target.name === "DetailItem") setDetailItem(e.target.value);
@@ -52,117 +40,25 @@ export default function Posts() {
     const productSubmit = async (e : React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
 
-        const userData = {
-            itemName,
-            itemBrand,
-            CategoryItem,
-            itemPeriod,
-            usingYearItem,
-            headcountItem,
-            DetailItem,
-            itemPrice,
-            tradeAddress,
-        };
         // fileList to formData
         const formDataList = new FormData();  // formDataList 생성
 
-        // testing only one image file
-        // let testfile = fileList[0];
-        // console.log(testfile);
-        // formDataList.append('userFileList', testfile);
-
-        // try {
-        //     // axios를 이용한 post 요청. 헤더를 multipart/form-data 로 한다.
-        //     await axios.post('/post/submit', formDataList, {
-        //         headers: {'Content-Type': 'multipart/form-data', charset: 'utf-8'},
-        //     });
-        //     alert('게시글이 등록되었습니다');
-        // } catch (err) {
-        //     alert(err);
-        // }
         let testFileList = [...fileList];
         for(const file of testFileList) {
             formDataList.append('userFileList', file);
             console.log("formDataList에 추가완료");
         }
         for(const listKeyValue of formDataList) console.log(listKeyValue);
-        formDataList.append('userData', JSON.stringify(userData));
 
-        // formDataList.append('itemName', new Blob([JSON.stringify(itemName)], {
-        //     type: "application/json"
-        // }));
-        // formDataList.append('itemBrand', new Blob([JSON.stringify(itemBrand)], {
-        //     type: "application/json"
-        // }));
-        // formDataList.append('CategoryItem', new Blob([JSON.stringify(CategoryItem)], {
-        //     type: "application/json"
-        // }));
-        // formDataList.append('itemPeriod', new Blob([JSON.stringify(itemPeriod)], {
-        //     type: "application/json"
-        // }));
-        // formDataList.append('usingYearItem', new Blob([JSON.stringify(usingYearItem)], {
-        //     type: "application/json"
-        // }));
-        // formDataList.append('headcountItem', new Blob([JSON.stringify(headcountItem)], {
-        //     type: "application/json"
-        // }));
-        // formDataList.append('DetailItem', new Blob([JSON.stringify(DetailItem)], {
-        //     type: "application/json"
-        // }));
-        // formDataList.append('itemPrice', new Blob([JSON.stringify(itemPrice)], {
-        //     type: "application/json"
-        // }));
-        // formDataList.append('tradeAddress', new Blob([JSON.stringify(tradeAddress)], {
-        //     type: "application/json"
-        // }));
+        formDataList.append('name', itemName);
+        formDataList.append('brand', itemBrand);
+        formDataList.append('category', CategoryItem);
+        formDataList.append('usingYear', usingYearItem);
+        formDataList.append('headcount', headcountItem);
+        formDataList.append('explanation', DetailItem);
+        formDataList.append('price', itemPrice);
+        formDataList.append('address', tradeAddress);
 
-        // 확인 url : http://httpbin.org/post
-        // const results = await fetch('/post/submit', {
-        //     method : "POST",
-        //     body : formDataList,
-        //     headers : {
-        //         "Custom-Header" : "value",
-        //     }
-        // })
-        // .then(res=>{
-        //     if(!res.ok) {
-        //         throw new Error("Bad response");
-        //     }
-        //     return res.json();
-        // })
-        // .then(data => console.log(data))
-        // .catch(err => {
-        //     console.log(err);
-        // })
-
-        // console.log('results : ' + results)
-
-        // const url = 'http://localhost:3000/post/submit';
-        // axios.post(url, formDataList).then((res)=>{
-        //     console.log(res);
-        // })
-        
-        // await axios({
-        //     method: "post",
-        //     url: "http://localhost:3000/post/submit",
-        //     data: formDataList,
-        //     headers: { "Content-Type": "multipart/form-data" }
-        // }).then(function(response) {
-        //     console.log(response)
-        // }).catch((err) => {
-        //     console.log(err)
-        // })
-        // try {
-        //     // await axios.post("/post/submit", {
-        //     //     name : "씨발",
-        //     //     what : "이거 되면 님 뒤짐 씨발"
-        //     // }).then(response=>{console.log(response)})
-        //         await axios.post("/post/submit", formDataList, {
-        //         headers: { 'Content-Type': 'multipart/form-data' },
-        //     }).then(response=>{console.log(response)})
-        // } catch (error) {
-        //     console.error('로그를 게시하는 중 오류 발생:', error);
-        // }
         const results = await fetch('/post/submit', {
             method : "POST",
             body : formDataList,
@@ -178,8 +74,8 @@ export default function Posts() {
         })
         .then(data => {
             console.log(data)
-            // const blobData = data.blob();
-            // console.log(blobData);
+            console.log(data.contentsImage);
+            console.log("응답")
         })
         .catch(err => {
             console.log(err);
@@ -200,13 +96,6 @@ export default function Posts() {
                     brand : itemBrand,
                 })
                 .then(response=>{console.log(response)})
-
-                // front + back
-                // await axios.post(`http://localhost:8080/detail/${data.id}`,{
-                //     userId : userInfo.id,
-                //     detailPageLog : formattedDate,
-                // })
-                // .then(response=>{console.log(response)})
             } catch (error) {
                 console.error('로그를 게시하는 중 오류 발생:', error);
             }
