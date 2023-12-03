@@ -34,7 +34,7 @@ interface propsType {
 export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange, tradeAddress, productSubmit, fileList, setFileList} : propsType) {
     const [showDetailModal, setShowDetailModal] = useState<boolean>(false);
     const [showUploadFileModal, setShowUploadFileModal] = useState<boolean>(false);
-    const [explanation, setExplnation] = useState<string>("입력하기...");
+    const [explanation, setExplnation] = useState<string>(DetailItem ? DetailItem.slice(0,8) + "..." : "입력하기...");
 
     const closeDetailModal = () => {
         setShowDetailModal(false);

@@ -1,19 +1,24 @@
 import { Link, useLocation } from "react-router-dom"
 
+import { useNavigate } from "react-router-dom";
+
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { campingItemAtom } from "../data/campingItemAtom";
 import { useRecoilState } from "recoil";
 import axios from "axios";
 import { userInfoAtom } from "../data/userInfoAtom";
 
 export default function Detail() {
+    const navigate = useNavigate();
     const [campItem, setCampItem] = useRecoilState<CampingItemType[]>(campingItemAtom);
-    let [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
+    const [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
     const location = useLocation();
     const data = location.state.item;
+
+    console.log(location)
 
     // utc time => kor time
     const today = new Date();
@@ -24,6 +29,28 @@ export default function Detail() {
         hour12 : false
     });
 
+    console.log("dataId : " +data.id)
+
+    const DeleteProduct = async () => {
+        try {
+            // only front testing code
+            await axios.post(`/product/delete`,{
+                productId : data.id
+            })
+            .then(response=>{console.log(response)})
+
+            // front + back
+            // await axios.post(`http://localhost:8080/product/delete`,{
+            //     productId : data.id
+            // })
+            // .then(response=>{console.log(response)})
+
+            alert("삭제가 완료되었습니다.")
+            navigate("/");
+        } catch (error) {
+            console.error('게시글 삭제 에러', error);
+        }
+    };
     
     useEffect(()=>{
         const postLog = async () => {
@@ -57,7 +84,9 @@ export default function Detail() {
                         <img className="w-[200px] h-[200px]" src={data.image} alt="camping item img"/>
                     </div>
                     <div className="mt-2">
-                        {data.name} ({data.brand && data.brand})
+                        <div>
+                            {data.name} ({data.brand && data.brand})
+                        </div>
                     </div>
                     <div className="mt-2">
                         {data.headcount}
@@ -66,10 +95,19 @@ export default function Detail() {
                         {data.price}원
                     </div>
                 </div>
-                <div className="flex justify-between flex-col m-4">
+                <div className="flex w-full justify-between flex-col m-4">
                     <div>
-                        <div>
-                            {data.postUserName} ({data.address})
+                        <div className="flex w-full justify-between">
+                            <div>{data.postUserName} ({data.address})</div>
+                            {
+                                data.postUserId === userInfo.id ? ( 
+                                <div className="flex">
+                                    <Link to={`/modify/${data.id}`} state={{item : data}}><div className="mr-3">수정</div></Link>
+                                    <button onClick={()=>DeleteProduct()}>삭제</button>
+                                </div> 
+                                ) :
+                                <div/>
+                            }                       
                         </div>
                         <div className="mt-2">
                             {data.explanation}

@@ -3,7 +3,7 @@ import * as React from 'react';
 import picture2 from "../assets/picture2.jpg"
 import picture3 from "../assets/picture3.jpg"
 
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 import { SelectChangeEvent } from '@mui/material/Select';
 
@@ -12,21 +12,28 @@ import moment from "moment";
 import PostPageFirst from "../components/PostPageFirst";
 import PostPageSec from '../components/PostPageSec';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 export default function Posts() {
-    const [itemName, setItemName] = useState<string>("");
-    const [headcountItem, setHeadCountItem] = useState<string>("");
-    const [itemBrand, setItemBrand] = useState<string>("");
-    const [DetailItem, setDetailItem] = useState<string>("");
-    const [CategoryItem, setCategoryItem] = useState<string>("");
-    const [usingYearItem, setUsingYearItem] = useState<string>("");
-    const [itemPrice, setItemPrice] = useState<string>("");
-    const [tradeAddress, setTradeAddress] = useState<string>("");
+    const urlLocation = useLocation();
+    const urlPathname:string = urlLocation.pathname;
+
+    console.log(urlLocation)
+
+    const [itemName, setItemName] = useState<string>(urlPathname === "/posts" ? "" : urlLocation.state.item.name);
+    const [headcountItem, setHeadCountItem] = useState<string>(urlPathname === "/posts" ? "" : urlLocation.state.item.headcount);
+    const [itemBrand, setItemBrand] = useState<string>(urlPathname === "/posts" ? "" : urlLocation.state.item.brand);
+    const [DetailItem, setDetailItem] = useState<string>(urlPathname === "/posts" ? "" : urlLocation.state.item.explanation);
+    const [CategoryItem, setCategoryItem] = useState<string>(urlPathname === "/posts" ? "" : urlLocation.state.item.category);
+    const [usingYearItem, setUsingYearItem] = useState<string>(urlPathname === "/posts" ? "" : urlLocation.state.item.usingYear);
+    const [itemPrice, setItemPrice] = useState<string>(urlPathname === "/posts" ? "" : urlLocation.state.item.price);
+    const [tradeAddress, setTradeAddress] = useState<string>(urlPathname === "/posts" ? "" : urlLocation.state.item.address);
     const [fileList, setFileList] = useState<File[]>([]);
-    const [itemPeriod, setItemPeriod] = useState<string>("");
-    const [startDate, setStartDate] = useState<string>("");
-    const [endDate, setEndDate] = useState<string>("");
+    const [startDate, setStartDate] = useState<string>(urlPathname === "/posts" ? "" : urlLocation.state.item.startDate);
+    const [endDate, setEndDate] = useState<string>(urlPathname === "/posts" ? "" : urlLocation.state.item.endDate);
     const [page, setPage] = useState<number>(1);
+
+    
 
     const onChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement> | SelectChangeEvent<string> ) :void => {
         e.preventDefault();
@@ -35,7 +42,6 @@ export default function Posts() {
         else if(e.target.name === "usingYearItem") setUsingYearItem(e.target.value);
         else if(e.target.name === "itemName") setItemName(e.target.value);
         else if(e.target.name === "PriceItem") setItemPrice(e.target.value);
-        else if(e.target.name === "PeriodItem") setItemPeriod(e.target.value);
         else if(e.target.name === "itemBrand") setItemBrand(e.target.value);
         else if(e.target.name === "headcountItem") setHeadCountItem(e.target.value);
         else if(e.target.name === "itemTradeAddress") setTradeAddress(e.target.value);
@@ -98,7 +104,8 @@ export default function Posts() {
                 // only front testing code
                 await axios.post('/post/nextPage',{
                     name : itemName,
-                    period : itemPeriod,
+                    startDate,
+                    endDate,
                     category : CategoryItem,
                     headcount : headcountItem,
                     usingYear : usingYearItem,
@@ -115,7 +122,7 @@ export default function Posts() {
     return (
         <div className="flex bg-slate-300">
             <div className="flex flex-col pb-3 items-center justify-center w-screen h-screen">
-                <div className="pb-3 text-lg font-bold">상품 등록</div>
+                <div className="pb-3 text-lg font-bold">{urlPathname === "/posts" ? "상품 등록" : "상품 수정"}</div>
                 <div className="flex w-[550px] h-[550px] bg-white shadow-sharp rounded-md">
                     <div className="flex w-6/12 float-left rounded-md" style={{ minHeight:"80%", backgroundImage: `url(${page === 1 ? picture2 : picture3})`, backgroundSize: 'cover', backgroundPosition: 'center' }}/>
                     {
@@ -128,7 +135,6 @@ export default function Posts() {
                                 usingYearItem = {usingYearItem}
                                 handlePage={handlePage}
                                 itemBrand={itemBrand}
-                                itemPeriod = {itemPeriod}
                                 startDate = {startDate}
                                 endDate = {endDate}
                                 onChangeDate = {onChangeDate}

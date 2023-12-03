@@ -12,6 +12,7 @@ type CampingItemType = {
     address : string,
     userName : string,
     isLended : boolean,
+    postUserId : number,
     recommandItem : CampingItemType[],
 }
 

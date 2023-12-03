@@ -11,11 +11,12 @@ import MyPage from "./pages/MyPage";
 
 export default function RouterWeb() {
     // 로그인 기능 구현 시, false로 바꿔서 로그인 유무에 따라 true, false로 바꿔줘야 함.
-    const [isLogged, setIsLogged] = useState<boolean>(true);
+    const [isLogged, setIsLogged] = useState<boolean>(false);
     return (
         <Routes>
             <Route path="/" element={<Home/>}></Route>
             <Route path="/detail/:id" element={<Detail/>}></Route>
+            <Route path="/modify/:id" element={<Posts/>}></Route>
             <Route path="/loginOauth2" element={<Login/>}/>
             <Route path="/login/oauth2/code/kakao" element={<Kakaoauth/>}></Route>
             <Route path="/category" element={<Category/>}></Route>

@@ -13,7 +13,7 @@ export default function Header() {
     const pathSegments:string[] = location.pathname.split('/');
     const path:string = `/${pathSegments[1]}`;
 
-    const [isLogged, setIsLogged] = useState<boolean>(true);
+    const [isLogged, setIsLogged] = useState<boolean>(false);
 
     return (
         <div className="flex px-5">
@@ -29,7 +29,6 @@ export default function Header() {
                 </div>
                 <div className="w-[71px] h-6 justify-start items-center gap-[23px] inline-flex mr-6">
                     <Link to="/posts"><div><FontAwesomeIcon icon={faPenToSquare} /></div></Link>
-                    {/* <div><FontAwesomeIcon icon={faHeart} /></div> */}
                     <Link to={`${isLogged ? '/mypage' : '/loginOauth2'}`}><div><FontAwesomeIcon icon={faUser} /></div></Link>
                 </div>
             </div>

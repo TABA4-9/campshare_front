@@ -2,11 +2,9 @@ import DropDownForm from "./form/DropDownForm";
 
 import {useState} from "react";
 
-import ItemDetailModal from "./form/modal/ItemDetailModal";
 
 import { SelectChangeEvent } from '@mui/material/Select';
 
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -46,7 +44,6 @@ const periodOptions:dropwDownOption[] = [
 interface propsType {
     itemName : string,
     itemBrand : string,
-    itemPeriod : string,
     onChange : (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement> | SelectChangeEvent<string>) => void,
     CategoryItem : string,
     usingYearItem : string,
@@ -57,9 +54,9 @@ interface propsType {
     onChangeDate : (e : any) => void,
 }
 
-export default function PostPageFirst({itemName, headcountItem, itemPeriod, itemBrand, onChange, CategoryItem, usingYearItem, handlePage, startDate, endDate, onChangeDate} : propsType) {
+export default function PostPageFirst({itemName, headcountItem, itemBrand, onChange, CategoryItem, usingYearItem, handlePage, startDate, endDate, onChangeDate} : propsType) {
     const [showCalendar, setShowCalendar] = useState<boolean>(false);
-    const [userPeriod, setUserPeriod] = useState<string>("설정하기");
+    const [userPeriod, setUserPeriod] = useState<string>(startDate ? `${startDate} ~ ${endDate}` : "설정하기");
 
     
 
