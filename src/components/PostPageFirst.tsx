@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight} from "@fortawesome/free-solid-svg-icons";
+import CalendarModal from "./form/modal/CalendarModal";
 
 const categoryOptions:dropwDownOption[] = [
     { value: '텐트', label: '텐트' },
@@ -51,9 +52,29 @@ interface propsType {
     usingYearItem : string,
     headcountItem : string,
     handlePage : () => void,
+    startDate : string,
+    endDate : string,
+    onChangeDate : (e : any) => void,
 }
 
-export default function PostPageFirst({itemName, headcountItem, itemPeriod, itemBrand, onChange, CategoryItem, usingYearItem, handlePage} : propsType) {
+export default function PostPageFirst({itemName, headcountItem, itemPeriod, itemBrand, onChange, CategoryItem, usingYearItem, handlePage, startDate, endDate, onChangeDate} : propsType) {
+    const [showCalendar, setShowCalendar] = useState<boolean>(false);
+    const [userPeriod, setUserPeriod] = useState<string>("설정하기");
+
+    
+
+    const handleUserPeriod = () => {
+        if(startDate) {
+            const newPeriod = `${startDate} ~ ${endDate}`;
+            setUserPeriod(newPeriod)
+            console.log(newPeriod)
+        }
+
+    }
+
+    const handleClose = () => {
+        setShowCalendar(false);
+    }
 
     return (
         <div className="flex flex-col w-6/12 float-right p-4 justify-around">
@@ -98,15 +119,15 @@ export default function PostPageFirst({itemName, headcountItem, itemPeriod, item
                     onChange={onChange}
                     options={yearOptions}
                 />
-                <div className="pt-2"/>
-                <DropDownForm
-                    title="기간 설정"
-                    label="period"
-                    name="PeriodItem"
-                    value={itemPeriod}
-                    onChange={onChange}
-                    options={periodOptions}
-                />
+                <div className="flex flex-col pt-2">
+                    <strong className="text-base">대여 기간</strong>
+                    <button onClick={()=> {
+                        setShowCalendar(true)
+                        handleUserPeriod()
+                    }} className="mt-3 text-sm border rounded-md border-solid border-gray-300 px-4 py-2 text-gray-700">
+                        {userPeriod}
+                    </button>
+                </div>
                 <div className="pt-2"/>
                 <DropDownForm
                     title="인원수"
@@ -117,10 +138,17 @@ export default function PostPageFirst({itemName, headcountItem, itemPeriod, item
                     options={headCountOptions}
                 />
             </div>
-                <Button 
-                    variant="outlined"
-                    onClick={()=> handlePage()}
-                ><FontAwesomeIcon className="text-[20px] text-black" icon={faArrowRight} /></Button>
+            <Button 
+                variant="outlined"
+                onClick={()=> handlePage()}
+            ><FontAwesomeIcon className="text-[20px] text-black" icon={faArrowRight} /></Button>
+            <CalendarModal
+                showCalendar = {showCalendar}
+                handleClose = {handleClose}
+                startDate = {startDate}
+                endDate = {endDate}
+                onChangeDate = {onChangeDate}
+            />
         </div>
     )
 }

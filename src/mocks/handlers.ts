@@ -94,6 +94,7 @@ export const handlers = [
         // 그냥 유저 정보를 받아야 함.
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
+        isRented : false,
         recommandProduct : [
           {
             id : 2,
@@ -107,6 +108,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 3,
@@ -120,6 +122,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 4,
@@ -133,6 +136,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
         ]
       },
@@ -148,6 +152,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
+        isRented : false,
         recommandProduct : [
           {
             id : 2,
@@ -161,6 +166,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 3,
@@ -174,6 +180,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 4,
@@ -187,6 +194,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
         ]
       },
@@ -202,6 +210,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
+        isRented : false,
         recommandProduct : [
           {
             id : 2,
@@ -215,6 +224,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 3,
@@ -228,6 +238,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 4,
@@ -241,6 +252,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
         ]
       },
@@ -256,6 +268,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
+        isRented : false,
         recommandProduct : [
           {
             id : 2,
@@ -269,6 +282,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 3,
@@ -282,6 +296,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 4,
@@ -295,6 +310,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
         ]
       },
@@ -310,6 +326,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
+        isRented : false,
         recommandProduct : [
           {
             id : 2,
@@ -323,6 +340,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 3,
@@ -336,6 +354,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 4,
@@ -349,6 +368,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
         ]
       },
@@ -364,6 +384,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
+        isRented : false,
         recommandProduct : [
           {
             id : 2,
@@ -377,6 +398,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 3,
@@ -390,6 +412,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 4,
@@ -403,6 +426,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
         ]
       },
@@ -418,6 +442,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
+        isRented : false,
         recommandProduct : [
           {
             id : 2,
@@ -431,6 +456,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 3,
@@ -444,6 +470,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 4,
@@ -457,6 +484,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
         ]
       },
@@ -472,6 +500,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
+        isRented : false,
         recommandProduct : [
           {
             id : 2,
@@ -485,6 +514,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 3,
@@ -498,6 +528,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 4,
@@ -511,6 +542,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
         ]
       },
@@ -526,6 +558,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
+        isRented : false,
         recommandProduct : [
           {
             id : 2,
@@ -539,6 +572,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 3,
@@ -552,6 +586,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 4,
@@ -565,6 +600,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
         ]
       },
@@ -580,6 +616,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
+        isRented : false,
         recommandProduct : [
           {
             id : 2,
@@ -593,6 +630,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 3,
@@ -606,6 +644,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 4,
@@ -619,6 +658,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
         ]
       },
@@ -634,6 +674,7 @@ export const handlers = [
         headcount : "2인용",
         postUserName : "홍길동",
         address : "경기도 용인시 수지구 풍덕천동",
+        isRented : false,
         recommandProduct : [
           {
             id : 2,
@@ -647,6 +688,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 3,
@@ -660,6 +702,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
           {
             id : 4,
@@ -673,6 +716,7 @@ export const handlers = [
             headcount : "2인용",
             postUserName : "홍길동",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
           },
         ]
       },
@@ -697,10 +741,10 @@ export const handlers = [
             price : 5000,
             explanation : "그냥 집에 남아서 내놓습니다. 사용한지는 1번이고 그냥 마구잡이로 쓰셔도 됩니다.",
             brand : "Nike",
-            isLended : true,
             headcount : "2인용",
             postUserName : "함상억",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
             recommandProduct : [
               {
                 id : 2,
@@ -714,6 +758,7 @@ export const handlers = [
                 headcount : "2인용",
                 postUserName : "홍길동",
                 address : "경기도 용인시 수지구 풍덕천동",
+                isRented : false,
               },
               {
                 id : 3,
@@ -727,6 +772,7 @@ export const handlers = [
                 headcount : "2인용",
                 postUserName : "홍길동",
                 address : "경기도 용인시 수지구 풍덕천동",
+                isRented : false,
               },
               {
                 id : 4,
@@ -740,6 +786,7 @@ export const handlers = [
                 headcount : "2인용",
                 postUserName : "홍길동",
                 address : "경기도 용인시 수지구 풍덕천동",
+                isRented : false,
               },
             ]
           },
@@ -752,7 +799,7 @@ export const handlers = [
             price : 10000,
             explanation : "신형입니다. 한 번도 사용하지 않았구요. 아껴서 써주세요.",
             brand : "Nike",
-            isLended : true,
+            isRented : false,
             headcount : "2인용",
             postUserName : "함상억",
             address : "경기도 용인시 수지구 풍덕천동",
@@ -769,6 +816,7 @@ export const handlers = [
                 headcount : "2인용",
                 postUserName : "홍길동",
                 address : "경기도 용인시 수지구 풍덕천동",
+                isRented : false,
               },
               {
                 id : 3,
@@ -782,6 +830,7 @@ export const handlers = [
                 headcount : "2인용",
                 postUserName : "홍길동",
                 address : "경기도 용인시 수지구 풍덕천동",
+                isRented : false,
               },
               {
                 id : 4,
@@ -795,6 +844,7 @@ export const handlers = [
                 headcount : "2인용",
                 postUserName : "홍길동",
                 address : "경기도 용인시 수지구 풍덕천동",
+                isRented : false,
               },
             ]
           },
@@ -807,7 +857,7 @@ export const handlers = [
             price : 12000,
             explanation : "구형입니다. 구형인데 부모님께 물려받은거라 아껴서 사용해주세요.",
             brand : "Nike",
-            isLended : false,
+            isRented : false,
             headcount : "2인용",
             postUserName : "함상억",
             address : "경기도 용인시 수지구 풍덕천동",
@@ -824,6 +874,7 @@ export const handlers = [
                 headcount : "2인용",
                 postUserName : "홍길동",
                 address : "경기도 용인시 수지구 풍덕천동",
+                isRented : false,
               },
               {
                 id : 3,
@@ -837,6 +888,7 @@ export const handlers = [
                 headcount : "2인용",
                 postUserName : "홍길동",
                 address : "경기도 용인시 수지구 풍덕천동",
+                isRented : false,
               },
               {
                 id : 4,
@@ -850,6 +902,7 @@ export const handlers = [
                 headcount : "2인용",
                 postUserName : "홍길동",
                 address : "경기도 용인시 수지구 풍덕천동",
+                isRented : false,
               },
             ]
           },
@@ -863,7 +916,7 @@ export const handlers = [
             image : tent2,
             price : 39000,
             explanation : "텐트 업그레이드 버전인 텐트 텐트입니다. 사용감 개구림.",
-            isLended : true,
+            isRented : false,
             postUserName : "홍길동",
             headcount : "2인용",
             address : "경기도 용인시 수지구 풍덕천동",
@@ -880,6 +933,7 @@ export const handlers = [
                 headcount : "2인용",
                 postUserName : "홍길동",
                 address : "경기도 용인시 수지구 풍덕천동",
+                isRented : false,
               },
               {
                 id : 3,
@@ -893,6 +947,7 @@ export const handlers = [
                 headcount : "2인용",
                 postUserName : "홍길동",
                 address : "경기도 용인시 수지구 풍덕천동",
+                isRented : false,
               },
               {
                 id : 4,
@@ -906,6 +961,7 @@ export const handlers = [
                 headcount : "2인용",
                 postUserName : "홍길동",
                 address : "경기도 용인시 수지구 풍덕천동",
+                isRented : false,
               },
             ]
           },
@@ -917,7 +973,7 @@ export const handlers = [
             image : tent3,
             price : 19000,
             explanation : "리얼 군용 텐트입니다. 뽀렸습니다.",
-            isLended : true,
+            isRented : false,
             postUserName : "홍길동",
             headcount : "2인용",
             address : "경기도 용인시 수지구 풍덕천동",
@@ -934,6 +990,7 @@ export const handlers = [
                 headcount : "2인용",
                 postUserName : "홍길동",
                 address : "경기도 용인시 수지구 풍덕천동",
+                isRented : false,
               },
               {
                 id : 3,
@@ -947,6 +1004,7 @@ export const handlers = [
                 headcount : "2인용",
                 postUserName : "홍길동",
                 address : "경기도 용인시 수지구 풍덕천동",
+                isRented : false,
               },
               {
                 id : 4,
@@ -960,6 +1018,7 @@ export const handlers = [
                 headcount : "2인용",
                 postUserName : "홍길동",
                 address : "경기도 용인시 수지구 풍덕천동",
+                isRented : false,
               },
             ]
           },
@@ -975,6 +1034,7 @@ export const handlers = [
             postUserName : "홍길동",
             headcount : "2인용",
             address : "경기도 용인시 수지구 풍덕천동",
+            isRented : false,
             recommandProduct : [
               {
                 id : 2,
@@ -988,6 +1048,7 @@ export const handlers = [
                 headcount : "2인용",
                 postUserName : "홍길동",
                 address : "경기도 용인시 수지구 풍덕천동",
+                isRented : false,
               },
               {
                 id : 3,
@@ -1001,6 +1062,7 @@ export const handlers = [
                 headcount : "2인용",
                 postUserName : "홍길동",
                 address : "경기도 용인시 수지구 풍덕천동",
+                isRented : false,
               },
               {
                 id : 4,
@@ -1014,6 +1076,7 @@ export const handlers = [
                 headcount : "2인용",
                 postUserName : "홍길동",
                 address : "경기도 용인시 수지구 풍덕천동",
+                isRented : false,
               },
             ]
           },
@@ -1039,56 +1102,30 @@ export const handlers = [
       createdAt : new Date().toLocaleString(),
     })
   }),
-  
-  // http.post('/post/submit', async ({ request }) => {
-  //   const requestBody  = await request.formData();
-  //   const file = requestBody.get('userFileList');
-  //   const jsonFile = requestBody.get('itemName');
-
-  //   const fileReader = new FileReader();
-  //   // const binaryFile = fileReader.readAsDataURL(file);
- 
-  //   if (!(file || jsonFile)) {
-  //     return new HttpResponse('Missing document', { status: 400 })
-  //   }
- 
-  //   if (!((file instanceof File) && (typeof jsonFile !== 'string'))) {
-  //     return new HttpResponse('Uploaded document is not a File', {
-  //       status: 400,
-  //     })
-  //   }
- 
-  //   return HttpResponse.json({
-  //     contentsImage: await file.text(),
-  //     // contentsText : await requestBody,
-  //   })
-  // }),
   http.post('/post/submit', async ({ request }) => {
       const requestBody  = await request.formData();
       const file = requestBody.get('userFileList');
-      const userData = requestBody.get('userData');
-  
-      // const binaryFile = fileReader.readAsDataURL(file);
+      const userData = requestBody.get('name');
    
-      if (!(userData && file)) {
+      if (!((userData) && (file))) {
         return new HttpResponse('Missing document', { status: 400 })
       }
    
-      if (!(userData !== 'string')) {
-        return new HttpResponse('Uploaded document is not a File', {
-          status: 400,
-        })
-      }
+       if (!(userData !== 'string')) {
+         return new HttpResponse('userData is not a String', {
+           status: 400,
+         })
+       }
 
-      if (!((file instanceof File))) {
-        return new HttpResponse('Uploaded document is not a File', {
+       if (!(file instanceof File)) {
+        return new HttpResponse('userFile is not a file', {
           status: 400,
         })
       }
    
       return HttpResponse.json({
         contentsImage: await file.text(),
-        contentsText : userData
+        contentsText : userData,
       })
     }),
 ]

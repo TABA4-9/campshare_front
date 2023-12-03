@@ -16,7 +16,7 @@ const style = {
 };
 
 interface propsType {
-    showDetailModal : boolean
+    showDetailModal : boolean,
     handleClose : () => void,
     checkDetail : () => void,
     DetailItem : string,

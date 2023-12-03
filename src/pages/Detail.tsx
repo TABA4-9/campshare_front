@@ -77,11 +77,11 @@ export default function Detail() {
                     </div>
                 </div>
                 <div className="flex flex-col justify-between m-4">
-                    <div>대여 여부 : {data.isLended === true ? "불가능" : "가능"}</div>
+                    <div>대여 여부 : {data.isRented === true ? "불가능" : "가능"}</div>
                     <div className="flex justify-center">
                         <Stack spacing={2} direction="row">
                             {
-                                data.isLended === true ?
+                                data.isRented === true ?
                                 <Button variant="outlined" disabled>빌리기</Button> : 
                                 <Button variant="outlined">빌리기</Button>
                             }

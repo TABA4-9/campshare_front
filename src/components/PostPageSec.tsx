@@ -32,12 +32,6 @@ interface propsType {
 }
 
 export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange, tradeAddress, productSubmit, fileList, setFileList} : propsType) {
-    // 가격 => 적정 가격 보여주는 것도 따로
-    // 사진
-
-    // 임의 => 수정필요
-    const [file,setFile] = useState<File>()
-    // const [fileList,setFileList] = useState<File[]>([])
     const [showDetailModal, setShowDetailModal] = useState<boolean>(false);
     const [showUploadFileModal, setShowUploadFileModal] = useState<boolean>(false);
     const [explanation, setExplnation] = useState<string>("입력하기...");
@@ -48,16 +42,6 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
 
     const handleShowFile = () => {
         setShowUploadFileModal(true);
-
-        // //formData 여러개로 보여주기.
-        // const formDataList = new FormData();  // formDataList 생성
-        // let testFileList = [...fileList];
-        // for(const file of testFileList) {
-        //     formDataList.append('userFileList', file);
-        //     console.log("formDataList에 추가완료");
-        // }
-        // for(const listKeyValue of formDataList) console.log(listKeyValue);
-
     }
 
     const closeUploadFileModal = () => {
@@ -81,47 +65,8 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
     const saveFileImage = async (e:any) => {
         e.preventDefault();
         const uploadFile = e.target.files[0];
-
-        try {
-          // 단일 formData
-          const formData = new FormData();  // formData 생성
-          formData.append('userFileList', uploadFile);  // 이미지 파일 값 할당
-        //   setFile(uploadFile);
-
-          // DataList check
-          let newDataList = [...fileList, uploadFile];
-          setFileList(newDataList);
-
-          for(const data of newDataList) {
-            console.log("fileList set 완료");
-            console.log(data);
-          }
-            // // // axios를 이용한 post 요청. 헤더를 multipart/form-data 로 한다.
-            // const results = await fetch('/post/submit', {
-            //     method : "POST",
-            //     body : formData,
-            //     headers : {
-            //         "Custom-Header" : "value; charset=UTF-8"
-            //     },
-            // })
-            // .then(res=>{
-            //     if(!res.ok) {
-            //         throw new Error("Bad response");
-            //     }
-            //     return res.json();
-            // })
-            // .then(data => {
-            //     console.log(data);
-            //     // const blobData = data.blob();
-            //     // console.log(blobData);
-            // })
-            // .catch(err => {
-            //     console.log(err);
-            // })
-            
-            } catch (error) {
-                console.log("error : " + error)
-            }
+        let newDataList = [...fileList, uploadFile];
+        setFileList(newDataList);
       };
 
     return (
