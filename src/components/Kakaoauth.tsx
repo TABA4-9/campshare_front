@@ -44,39 +44,6 @@ export default function Kakaoauth() {
             setAccessTokenFetching(false); // Reset fetching even in case of error
         }
     };
-
-    const getProfile = async () => {
-        try {
-            console.log("getProfile 호출");
-            // Check if accessToken is available
-            if (userInfo.kakaoAccessToken) {
-                console.log("accessToken in getProfile:", userInfo.kakaoAccessToken);
-                const response = await axios.get(
-                    "/login",
-                    {
-                        headers: {
-                            Authorization: `${userInfo.kakaoAccessToken}`,
-                        },
-                    }
-                );
-                console.log(response);
-                // setUserInfo({
-                //     ...userInfo,
-                //     id: response.data.result.id,
-                //     name: response.data.result.name,
-                //     email: response.data.result.email,
-                //     nickname: response.data.result.nickname,
-                //     profileImage: response.data.result.profile_image_url,
-                //     isLogin: true,
-                // });
-                navigate("/");
-            } else {
-                console.log("No accessToken available");
-            }
-        } catch (error) {
-            console.error("Error:", error);
-        }
-    };
  
  
     useEffect(() => {
