@@ -6,7 +6,7 @@ export const userInfoAtom = atom<UserInfoType>({
         id : 0,
         name: '',
         email: '',
-        accessToken: '',
+        kakaoAccessToken: '',
         // other properties based on your UserInfoType
     },
 })

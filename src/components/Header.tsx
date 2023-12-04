@@ -6,14 +6,17 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 
 import {Link, useLocation} from "react-router-dom";
+import { useRecoilState } from 'recoil';
+import { userInfoAtom } from '../data/userInfoAtom';
 
 
 export default function Header() {
     const location = useLocation();
     const pathSegments:string[] = location.pathname.split('/');
     const path:string = `/${pathSegments[1]}`;
+    let [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
 
-    const [isLogged, setIsLogged] = useState<boolean>(false);
+    // const [isLogged, setIsLogged] = useState<boolean>(false);
 
     return (
         <div className="flex px-5">
@@ -29,7 +32,7 @@ export default function Header() {
                 </div>
                 <div className="w-[71px] h-6 justify-start items-center gap-[23px] inline-flex mr-6">
                     <Link to="/posts"><div><FontAwesomeIcon icon={faPenToSquare} /></div></Link>
-                    <Link to={`${isLogged ? '/mypage' : '/loginOauth2'}`}><div><FontAwesomeIcon icon={faUser} /></div></Link>
+                    <Link to={`${userInfo.name === '' ? '/loginOauth2' : '/mypage'}`}><div><FontAwesomeIcon icon={faUser} /></div></Link>
                 </div>
             </div>
         </div>

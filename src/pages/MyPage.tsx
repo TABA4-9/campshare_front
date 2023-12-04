@@ -7,6 +7,9 @@ import { useRecoilState } from 'recoil';
 export default function MyPage() {
     let [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
     const [myPageComponent, setMyPageComponent] = useState<string>("등록 상품");
+
+    console.log("userInfo check");
+    console.log(userInfo);
     
     return (
         <div className="flex">

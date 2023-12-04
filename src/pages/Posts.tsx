@@ -62,7 +62,7 @@ export default function Posts() {
 
         let testFileList = [...fileList];
         for(const file of testFileList) {
-            formDataList.append('userFileList', file);
+            formDataList.append('image', file);
             console.log("formDataList에 추가완료");
         }
         for(const listKeyValue of formDataList) console.log(listKeyValue);

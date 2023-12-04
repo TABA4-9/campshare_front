@@ -8,10 +8,13 @@ import Login from "./pages/Login";
 import Kakaoauth from "./components/Kakaoauth";
 import Category from "./pages/Category";
 import MyPage from "./pages/MyPage";
+import { userInfoAtom } from "./data/userInfoAtom";
+import { useRecoilState } from "recoil";
 
 export default function RouterWeb() {
     // 로그인 기능 구현 시, false로 바꿔서 로그인 유무에 따라 true, false로 바꿔줘야 함.
-    const [isLogged, setIsLogged] = useState<boolean>(false);
+    let [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
+
     return (
         <Routes>
             <Route path="/" element={<Home/>}></Route>
@@ -21,9 +24,9 @@ export default function RouterWeb() {
             <Route path="/login/oauth2/code/kakao" element={<Kakaoauth/>}></Route>
             <Route path="/category" element={<Category/>}></Route>
             {
-                isLogged 
-                ? <Route path="/mypage" element={<MyPage/>}></Route> 
-                : <Route path="/login" element={<Login/>}></Route>
+                userInfo.name === '' 
+                ? <Route path="/login" element={<Login/>}></Route>
+                : <Route path="/mypage" element={<MyPage/>}></Route> 
             }
             <Route path="/posts" element={<Posts/>}></Route>
         </Routes>
