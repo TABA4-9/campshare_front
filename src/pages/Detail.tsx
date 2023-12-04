@@ -18,7 +18,7 @@ export default function Detail() {
     const location = useLocation();
     const data = location.state.item;
 
-    console.log(location)
+    console.log(data);
 
     // utc time => kor time
     const today = new Date();
@@ -29,7 +29,18 @@ export default function Detail() {
         hour12 : false
     });
 
-    console.log("dataId : " +data.id)
+    const checkLogin = () => {
+        if (userInfo.name === '') {
+            alert("로그인 후 이용 가능한 서비스입니다.");
+            return ;
+        }
+        else {
+            navigate(`/payment/${data.id}`, {
+                // props로 받는 list 스테이트를 넘겨준다.
+                state:{item : data}
+            })
+        }
+    }
 
     const DeleteProduct = async () => {
         try {
@@ -121,10 +132,11 @@ export default function Detail() {
                             {
                                 data.isRented === true ?
                                 <Button variant="outlined" disabled>빌리기</Button> : 
-                                <Button variant="outlined">빌리기</Button>
+                                <Button onClick={()=>checkLogin()} variant="outlined">빌리기</Button>
                             }
                         </Stack>
                     </div>
+
                 </div>
             </div>
 
