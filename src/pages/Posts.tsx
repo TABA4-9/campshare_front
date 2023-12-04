@@ -31,6 +31,7 @@ export default function Posts() {
     const [fileList, setFileList] = useState<File[]>([]);
     const [startDate, setStartDate] = useState<string>(urlPathname === "/posts" ? "" : urlLocation.state.item.startDate);
     const [endDate, setEndDate] = useState<string>(urlPathname === "/posts" ? "" : urlLocation.state.item.endDate);
+    const [modifyFilePath, setModifyFilePath] = useState<string[]>(urlPathname === "/posts" ? "" : urlLocation.state.item.imagePath);
     const [page, setPage] = useState<number>(1);
 
     
@@ -59,13 +60,20 @@ export default function Posts() {
 
         // fileList to formData
         const formDataList = new FormData();  // formDataList 생성
-
         let testFileList = [...fileList];
         for(const file of testFileList) {
             formDataList.append('image', file);
             console.log("formDataList에 추가완료");
         }
-        for(const listKeyValue of formDataList) console.log(listKeyValue);
+
+        // 이전에 이미 있던 사진이라면 그것도 formData에 넣어줌.
+        if(modifyFilePath) {
+            let testFilePath = [...modifyFilePath];
+            for(const file of testFilePath) {
+                formDataList.append('image', file);
+                console.log("formDataList에 이전 사진 추가완료")
+            }
+        }
 
         formDataList.append('name', itemName);
         formDataList.append('brand', itemBrand);
@@ -148,6 +156,8 @@ export default function Posts() {
                                 productSubmit = {productSubmit}
                                 fileList = {fileList}
                                 setFileList = {setFileList}
+                                modifyFilePath = {modifyFilePath}
+                                setModifyFilePath = {setModifyFilePath}
                             />
                     }
                 </div>

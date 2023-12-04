@@ -12,13 +12,29 @@ import { campingItemAtom } from '../data/campingItemAtom';
 import picture1 from '../assets/picture1.jpg';
 import { userInfoAtom } from '../data/userInfoAtom';
 
+import { useNavigate } from 'react-router-dom';
+
 export default function Home() {
     let [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
     let [userSearch, setUserSearch] = useState<string>();
     let [campItem, setCampItem] = useRecoilState<CampingItemType[]>(campingItemAtom);
 
+    const navigate = useNavigate();
+
     const onChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
         setUserSearch(e.target.value)
+    }
+
+    const onSubmitSearch = (e : React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === "Enter") {
+          //키를 눌렀을 때 동작할 코드
+          // /search?searchInput={userSearch}로 navigate
+          navigate(`/search?searchInput=${userSearch}`)
+        }
+    };
+
+    const handleIconClick = () => {
+        navigate(`/search?searchInput=${userSearch}`)
     }
 
     useEffect(()=>{
@@ -30,19 +46,9 @@ export default function Home() {
         })
     }, [])
 
-    console.log(userInfo)
-
-    // useEffect(()=>{
-    //     // 
-    //     fetch("/login")
-    //     .then((res)=>res.json())
-    //     .then(data=>{
-    //         setUserInfo(data)
-    //     } )
-    // }, [])
-
     return (
         <div className="flex flex-col px-10">
+            {/* 이 부분은 무조건 컴포넌트 하나로 빼야겠네 */}
             <div className="flex flex-col justify-between rounded-3xl bg-black shrink-0 bg-contain text-white" style={{ minHeight:"80%", backgroundImage: `url(${picture1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div/>
                 <div className="flex flex-col align-middle pt-20 pl-20">
@@ -55,13 +61,14 @@ export default function Home() {
                             <div/>
                             <div className="ml-3">
                                 <input 
-                                    className="w-64 text-black text-lg outline-none"
+                                    className="w-64 mb-1 text-black text-lg outline-none"
                                     type="text"
                                     value={userSearch}
                                     onChange={onChange}
+                                    onKeyDown={onSubmitSearch}
                                 />
                                 {/* 아이콘을 눌렀을 때 해당 페이지로 이동하도록.. 수정... */}
-                                <FontAwesomeIcon className="text-[24px] text-black pl-4" icon={faSearch} />
+                                <FontAwesomeIcon className="cursor-pointer text-[24px] text-black pl-4" icon={faSearch} onClick={handleIconClick}/>
                             </div>
                             <div/>
                         </div>

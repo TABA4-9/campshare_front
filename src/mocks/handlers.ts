@@ -33,6 +33,9 @@ export const handlers = [
         usingYear : "1년 이하",
         startDate : "2023/12/8",
         endDate : "2023/12/16",
+        imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
         recommandProduct : [
           {
             id : 3,
@@ -51,6 +54,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 4,
@@ -69,6 +75,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 5,
@@ -87,6 +96,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           }
         ]
       },
@@ -107,6 +119,9 @@ export const handlers = [
         usingYear : "1년 이하",
         startDate : "2023/12/8",
         endDate : "2023/12/16",
+        imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
         recommandProduct : [
           {
             id : 3,
@@ -125,6 +140,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 4,
@@ -143,6 +161,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 5,
@@ -161,6 +182,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           }
         ]
       },
@@ -181,6 +205,9 @@ export const handlers = [
         usingYear : "1년 이하",
         startDate : "2023/12/8",
         endDate : "2023/12/16",
+        imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
         recommandProduct : [
           {
             id : 3,
@@ -198,6 +225,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
             postUserId : 5,
           },
           {
@@ -216,6 +246,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
             postUserId : 5,
           },
           {
@@ -234,6 +267,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
             postUserId : 5,
           }
         ]
@@ -267,6 +303,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
             recommandProduct : [
               {
                 id : 3,
@@ -285,6 +324,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 4,
@@ -303,6 +345,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 5,
@@ -321,6 +366,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               }
             ]
           },
@@ -341,6 +389,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
             recommandProduct : [
               {
                 id : 3,
@@ -359,6 +410,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 4,
@@ -377,6 +431,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 5,
@@ -395,6 +452,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               }
             ]
           },
@@ -415,6 +475,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
             recommandProduct : [
               {
                 id : 3,
@@ -433,6 +496,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 4,
@@ -451,6 +517,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 5,
@@ -469,6 +538,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               }
             ]
           },
@@ -490,6 +562,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
             recommandProduct : [
               {
                 id : 3,
@@ -508,6 +583,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 4,
@@ -526,6 +604,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 5,
@@ -544,6 +625,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               }
             ]
           },
@@ -563,6 +647,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
             recommandProduct : [
               {
                 id : 3,
@@ -581,6 +668,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 4,
@@ -599,6 +689,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 5,
@@ -617,6 +710,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               }
             ]
           },
@@ -637,6 +733,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
             recommandProduct : [
               {
                 id : 3,
@@ -655,6 +754,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 4,
@@ -673,6 +775,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 5,
@@ -691,6 +796,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               }
             ]
           },
@@ -719,6 +827,9 @@ export const handlers = [
         usingYear : "1년 이하",
         startDate : "2023/12/8",
         endDate : "2023/12/16",
+        imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
         recommandProduct : [
           {
             id : 3,
@@ -737,6 +848,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 4,
@@ -755,6 +869,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 5,
@@ -773,6 +890,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           }
         ]
       },
@@ -793,6 +913,9 @@ export const handlers = [
         usingYear : "1년 이하",
         startDate : "2023/12/8",
         endDate : "2023/12/16",
+        imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
         recommandProduct : [
           {
             id : 3,
@@ -811,6 +934,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 4,
@@ -829,6 +955,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 5,
@@ -847,6 +976,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           }
         ]
       },
@@ -867,6 +999,9 @@ export const handlers = [
         usingYear : "1년 이하",
         startDate : "2023/12/8",
         endDate : "2023/12/16",
+        imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
         recommandProduct : [
           {
             id : 3,
@@ -884,6 +1019,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
             postUserId : 5,
           },
           {
@@ -902,6 +1040,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
             postUserId : 5,
           },
           {
@@ -920,6 +1061,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
             postUserId : 5,
           }
         ]
@@ -941,6 +1085,9 @@ export const handlers = [
         usingYear : "1년 이하",
         startDate : "2023/12/8",
         endDate : "2023/12/16",
+        imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
         recommandProduct : [
           {
             id : 3,
@@ -959,6 +1106,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 4,
@@ -977,6 +1127,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 5,
@@ -995,6 +1148,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           }
         ]
       },
@@ -1015,6 +1171,9 @@ export const handlers = [
         usingYear : "1년 이하",
         startDate : "2023/12/8",
         endDate : "2023/12/16",
+        imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
         recommandProduct : [
           {
             id : 3,
@@ -1033,6 +1192,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 4,
@@ -1051,6 +1213,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 5,
@@ -1069,6 +1234,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           }
         ]
       },
@@ -1089,6 +1257,9 @@ export const handlers = [
         usingYear : "1년 이하",
         startDate : "2023/12/8",
         endDate : "2023/12/16",
+        imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
         recommandProduct : [
           {
             id : 3,
@@ -1107,6 +1278,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 4,
@@ -1125,6 +1299,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 5,
@@ -1143,6 +1320,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           }
         ]
       },
@@ -1163,6 +1343,9 @@ export const handlers = [
         usingYear : "1년 이하",
         startDate : "2023/12/8",
         endDate : "2023/12/16",
+        imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
         recommandProduct : [
           {
             id : 3,
@@ -1181,6 +1364,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 4,
@@ -1199,6 +1385,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 5,
@@ -1217,6 +1406,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           }
         ]
       },
@@ -1237,6 +1429,9 @@ export const handlers = [
         usingYear : "1년 이하",
         startDate : "2023/12/8",
         endDate : "2023/12/16",
+        imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
         recommandProduct : [
           {
             id : 3,
@@ -1255,6 +1450,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 4,
@@ -1273,6 +1471,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 5,
@@ -1291,6 +1492,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           }
         ]
       },
@@ -1311,6 +1515,9 @@ export const handlers = [
         usingYear : "1년 이하",
         startDate : "2023/12/8",
         endDate : "2023/12/16",
+        imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
         recommandProduct : [
           {
             id : 3,
@@ -1329,6 +1536,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 4,
@@ -1347,6 +1557,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 5,
@@ -1365,6 +1578,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           }
         ]
       },
@@ -1385,6 +1601,9 @@ export const handlers = [
         usingYear : "1년 이하",
         startDate : "2023/12/8",
         endDate : "2023/12/16",
+        imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
         recommandProduct : [
           {
             id : 3,
@@ -1403,6 +1622,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 4,
@@ -1421,6 +1643,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 5,
@@ -1439,13 +1664,16 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           }
         ]
       },
       {
         id : 11,
         name : "뒷집 의자",
-        category : "텐트",
+        category : "캠핑 의자",
         period : "1박 2일",
         image : chair2,
         price : 9000,
@@ -1459,6 +1687,9 @@ export const handlers = [
         usingYear : "1년 이하",
         startDate : "2023/12/8",
         endDate : "2023/12/16",
+        imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
         recommandProduct : [
           {
             id : 3,
@@ -1477,6 +1708,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 4,
@@ -1495,6 +1729,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           },
           {
             id : 5,
@@ -1513,6 +1750,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
           }
         ]
       },
@@ -1545,6 +1785,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
             recommandProduct : [
               {
                 id : 3,
@@ -1563,6 +1806,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 4,
@@ -1581,6 +1827,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 5,
@@ -1599,6 +1848,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               }
             ]
           },
@@ -1619,6 +1871,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
             recommandProduct : [
               {
                 id : 3,
@@ -1637,6 +1892,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 4,
@@ -1655,6 +1913,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 5,
@@ -1673,6 +1934,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               }
             ]
           },
@@ -1693,6 +1957,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
             recommandProduct : [
               {
                 id : 3,
@@ -1711,6 +1978,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 4,
@@ -1729,6 +1999,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 5,
@@ -1747,6 +2020,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               }
             ]
           },
@@ -1768,6 +2044,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
             recommandProduct : [
               {
                 id : 3,
@@ -1786,6 +2065,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 4,
@@ -1804,6 +2086,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 5,
@@ -1822,6 +2107,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               }
             ]
           },
@@ -1841,6 +2129,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
             recommandProduct : [
               {
                 id : 3,
@@ -1859,6 +2150,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 4,
@@ -1877,6 +2171,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 5,
@@ -1895,6 +2192,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               }
             ]
           },
@@ -1915,6 +2215,9 @@ export const handlers = [
             usingYear : "1년 이하",
             startDate : "2023/12/8",
             endDate : "2023/12/16",
+            imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
             recommandProduct : [
               {
                 id : 3,
@@ -1933,6 +2236,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 4,
@@ -1951,6 +2257,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               },
               {
                 id : 5,
@@ -1969,6 +2278,9 @@ export const handlers = [
                 usingYear : "1년 이하",
                 startDate : "2023/12/8",
                 endDate : "2023/12/16",
+                imagePath : [
+            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0|spring.jpg",
+            ],
               }
             ]
           },

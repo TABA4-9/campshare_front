@@ -16,8 +16,6 @@ export default function Header() {
     const path:string = `/${pathSegments[1]}`;
     let [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
 
-    // const [isLogged, setIsLogged] = useState<boolean>(false);
-
     return (
         <div className="flex px-5">
             <div className="flex w-screen justify-between padding p-10">

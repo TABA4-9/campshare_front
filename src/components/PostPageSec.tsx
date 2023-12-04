@@ -28,10 +28,12 @@ interface propsType {
     productSubmit : (e : React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
     fileList : File[],
     setFileList : React.Dispatch<React.SetStateAction<File[]>>,
+    modifyFilePath : string[],
+    setModifyFilePath : React.Dispatch<React.SetStateAction<string[]>>,
 
 }
 
-export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange, tradeAddress, productSubmit, fileList, setFileList} : propsType) {
+export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange, tradeAddress, productSubmit, fileList, setFileList, modifyFilePath, setModifyFilePath} : propsType) {
     const [showDetailModal, setShowDetailModal] = useState<boolean>(false);
     const [showUploadFileModal, setShowUploadFileModal] = useState<boolean>(false);
     const [explanation, setExplnation] = useState<string>(DetailItem ? DetailItem.slice(0,8) + "..." : "입력하기...");
@@ -149,6 +151,8 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
                 handleClose={closeUploadFileModal}
                 fileList={fileList}
                 setFileList={setFileList}
+                modifyFilePath ={modifyFilePath}
+                setModifyFilePath = {setModifyFilePath}
             />
         </div>
     )

@@ -14,6 +14,7 @@ type CampingItemType = {
     isLended : boolean,
     postUserId : number,
     recommandItem : CampingItemType[],
+    imagePath : string[],
 }
 
 type dropwDownOption = {

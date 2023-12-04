@@ -23,13 +23,23 @@ interface propsType {
   handleClose : () => void,
   fileList : File[],
   setFileList : React.Dispatch<React.SetStateAction<File[]>>,
+  modifyFilePath : string[],
+  setModifyFilePath : React.Dispatch<React.SetStateAction<string[]>>,
 }
 
-export default function UploadFileModal({showUploadFileModal, handleClose, fileList, setFileList}:propsType) {
-  const DeleteUploadFile = (index:number) => {
-    let newFileList = [...fileList];
-    newFileList.splice(index,1);
-    setFileList(newFileList);
+export default function UploadFileModal({showUploadFileModal, handleClose, fileList, setFileList, modifyFilePath, setModifyFilePath}:propsType) {
+  const DeleteUploadFile = (index:number, splitName:string = "imageFile") => {
+    if(splitName === "imageFile") {
+      let newFileList = [...fileList];
+      newFileList.splice(index,1);
+      setFileList(newFileList);
+    }
+    // imagePath인 경우
+    else {
+      let newModifyFilePath = [...modifyFilePath];
+      newModifyFilePath.splice(index,1);
+      setModifyFilePath(newModifyFilePath);
+    }
   }
 
     return (
@@ -53,6 +63,19 @@ export default function UploadFileModal({showUploadFileModal, handleClose, fileL
                 업로드 파일 이름
               </Typography>
               <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+                {
+                  modifyFilePath && modifyFilePath.map((item,index)=>{
+                    const splitArray = item.split("|");
+                    const splitName = splitArray[1];
+                    return (
+                      <div>
+                        {splitName}
+                        {
+                          splitName && <button className="ml-8" onClick={()=>DeleteUploadFile(index, splitName)}>X</button>
+                        }
+                      </div>
+                    )})
+                }
                 {
                   fileList.map((item,index)=>{
                     return (
