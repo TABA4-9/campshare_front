@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 
 import picture1 from '../assets/picture1.jpg';
+import picture4 from '../assets/picture4.jpg';
 import DropDownForm from '../components/form/DropDownForm';
 
 import { SelectChangeEvent } from '@mui/material/Select';
@@ -17,6 +18,7 @@ import { Dropdown } from 'flowbite-react';
 import { useRecoilState } from "recoil";
 import { campingItemAtom } from "../data/campingItemAtom";
 import { Link } from "react-router-dom";
+import SearchItem from "../components/SearchItem";
 
 const StyledDropDown = styled(Dropdown)`
     border : 0;
@@ -76,19 +78,7 @@ export default function Category() {
 
     return (
         <div className="flex flex-col px-10">
-            {/* 이 부분은 무조건 컴포넌트 하나로 빼야겠네 */}
-            <div className="flex flex-col justify-between rounded-3xl bg-black shrink-0 bg-contain text-white" style={{ minHeight:"80%", backgroundImage: `url(${picture1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                <div></div>
-                <div className="flex flex-col align-middle pt-20 pl-20">
-                    <div className="text-5xl">
-                        CampShare
-                    </div>
-                    <div className="flex flex-col min-h-[4/12] max-w-[6/12] text-2xl pt-8 pb-40">
-                        <strong className="pb-5">캠핑, 부담은 감소하고 즐거움은 증가하다.</strong>
-                    </div>
-                </div>
-                <div/>
-            </div>
+            <SearchItem/>
             <div className="flex justify-between py-16">
                 <div className="flex flex-col">
                     <div className="text-stone-900 text-[25px] font-medium font-['Poppins'] px-1">filter</div>

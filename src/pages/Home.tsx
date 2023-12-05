@@ -13,6 +13,7 @@ import picture1 from '../assets/picture1.jpg';
 import { userInfoAtom } from '../data/userInfoAtom';
 
 import { useNavigate } from 'react-router-dom';
+import SearchItem from '../components/SearchItem';
 
 export default function Home() {
     let [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
@@ -49,33 +50,7 @@ export default function Home() {
     return (
         <div className="flex flex-col px-10">
             {/* 이 부분은 무조건 컴포넌트 하나로 빼야겠네 */}
-            <div className="flex flex-col justify-between rounded-3xl bg-black shrink-0 bg-contain text-white" style={{ minHeight:"80%", backgroundImage: `url(${picture1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                <div/>
-                <div className="flex flex-col align-middle pt-20 pl-20">
-                    <div className="text-5xl">
-                        CampShare
-                    </div>
-                    <div className="flex flex-col min-h-[4/12] max-w-[6/12] text-2xl pt-8 pb-40">
-                        <strong className="pb-5">캠핑, 부담은 감소하고 즐거움은 증가하다.</strong>
-                        <div className="flex flex-col justify-between min-h-[42px] max-w-xs bg-white rounded-md">
-                            <div/>
-                            <div className="ml-3">
-                                <input 
-                                    className="w-64 mb-1 text-black text-lg outline-none"
-                                    type="text"
-                                    value={userSearch}
-                                    onChange={onChange}
-                                    onKeyDown={onSubmitSearch}
-                                />
-                                {/* 아이콘을 눌렀을 때 해당 페이지로 이동하도록.. 수정... */}
-                                <FontAwesomeIcon className="cursor-pointer text-[24px] text-black pl-4" icon={faSearch} onClick={handleIconClick}/>
-                            </div>
-                            <div/>
-                        </div>
-                    </div>
-                </div>
-                <div/>
-            </div>
+            <SearchItem/>
 
             <div className="flex justify-center mt-16">
                 <div className="flex flex-col">

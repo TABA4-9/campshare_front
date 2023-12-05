@@ -13,12 +13,14 @@ import PostPageFirst from "../components/PostPageFirst";
 import PostPageSec from '../components/PostPageSec';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { userInfoAtom } from '../data/userInfoAtom';
 
 export default function Posts() {
     const urlLocation = useLocation();
     const urlPathname:string = urlLocation.pathname;
 
-    console.log(urlLocation)
+    const [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
 
     const [itemName, setItemName] = useState<string>(urlPathname === "/posts" ? "" : urlLocation.state.item.name);
     const [headcountItem, setHeadCountItem] = useState<string>(urlPathname === "/posts" ? "" : urlLocation.state.item.headcount);
@@ -33,8 +35,6 @@ export default function Posts() {
     const [endDate, setEndDate] = useState<string>(urlPathname === "/posts" ? "" : urlLocation.state.item.endDate);
     const [modifyFilePath, setModifyFilePath] = useState<string[]>(urlPathname === "/posts" ? "" : urlLocation.state.item.imagePath);
     const [page, setPage] = useState<number>(1);
-
-    
 
     const onChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement> | SelectChangeEvent<string> ) :void => {
         e.preventDefault();
@@ -83,6 +83,12 @@ export default function Posts() {
         formDataList.append('explanation', DetailItem);
         formDataList.append('price', itemPrice);
         formDataList.append('address', tradeAddress);
+        formDataList.append('startDate', startDate);
+        formDataList.append('endDate', endDate);
+
+        // string or blob 형태만 보낼 수 있음.
+        formDataList.append('postUserId', String(userInfo?.id));
+        formDataList.append('isRented', String(false));
 
         await fetch('/post/submit', {
             method : "POST",

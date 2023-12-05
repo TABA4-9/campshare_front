@@ -1,7 +1,4 @@
-import { useState } from 'react';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 
@@ -20,11 +17,10 @@ export default function Header() {
         <div className="flex px-5">
             <div className="flex w-screen justify-between padding p-10">
                 <div className="flex">
-                    <div className="text-stone-900 text-base font-normal font-['Asar']"><Link to="/">CAMPSHARE</Link></div>
+                    <div className="text-stone-900 text-xl text-base font-normal font-['Asar']"><Link to="/">CAMPSHARE</Link></div>
                     <div className="flex pl-14">
                     <div className="w-[372px] h-[27px] justify-start items-start gap-[50px] inline-flex">
-                        <div className={`text-stone-900 text-base font-medium font-['Poppins'] ${path === "/" ? "font-bold" : "text-opacity-50"}`}><Link to="/">Home</Link></div>
-                        <div className={`text-stone-900 text-base font-medium font-['Poppins'] ${path === "/category" ? "font-bold" : "text-opacity-50"}`}><Link to="/category">Categories</Link></div>
+                        <div className={`text-stone-900 text-base font-medium font-['Poppins'] ${path === "/product" ? "font-bold" : "text-opacity-50"}`}><Link to="/product">Product</Link></div>
                         </div>
                     </div>
                 </div>

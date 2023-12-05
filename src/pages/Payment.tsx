@@ -3,18 +3,47 @@ import { userInfoAtom } from "../data/userInfoAtom";
 import { useRecoilState } from "recoil";
 import { useLocation } from "react-router-dom";
 
+import axios from "axios";
+
 import Checkbox from '@mui/material/Checkbox';
+
+import { Link } from "react-router-dom";
 
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 
 export default function Payment() {
+    // 확장성을 위한 임시 페이지
     const location = useLocation();
     const data = location.state.item;
 
     console.log(data);
 
     const [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
+
+    const rentCheck = async () => {
+        // 확인을 누르면 서버에 rent되었음을 전송해야겠네
+        // id값을 기반으로 찾아서 isRented 값을 true로 변경(이건 서버에서 하는 일이고 나는 그냥 해당 상품 id 보내면 될듯)
+        try {
+            // only front testing code
+            await axios.post(`/product/matching`,{
+                productId : data.id,
+                rentUserId : userInfo.id,
+                postUserId : data.postUserId,
+            })
+            .then(response=>{console.log(response)})
+
+            // front + back
+            // await axios.post(`http://localhost:8080/product/matching`,{
+            //     productId : data.id,
+            //     postUserId : data.postUserId,
+            //     rentUserId : userInfo.id,
+            // })
+            // .then(response=>{console.log(response)})
+        } catch (error) {
+            console.error(':', error);
+        }
+    }
 
     return (
         <div className="flex flex-col pb-3 items-center justify-center w-screen h-screen">
@@ -27,7 +56,10 @@ export default function Payment() {
                     <strong>상품 정보</strong>
                     <div className="flex mt-2">
                         <img className="w-[100px] h-[100px]" src={data.image} alt="camping item img"/>
-                        <div className="flex h-full ml-4 items-center text-sm font-bold">{data.name}</div>
+                        <div className="flex flex-col">
+                            <div className="flex h-full ml-4 items-center text-sm font-bold">{data.name}</div>
+                            <div className="flex h-full ml-4 items-center text-sm font-bold">대여기간 : {data.startDate} ~ {data.endDate}</div>
+                        </div>
                     </div>
                 </div>
                 <div className="flex mt-4 justify-center w-[550px] h-[0px] border border-zinc-400"/>
@@ -73,7 +105,7 @@ export default function Payment() {
                 <div className="flex mt-4 justify-center w-[550px] h-[0px] border border-zinc-400"/>
                 <div className="flex h-full items-center justify-center w-full">
                     <div className="h-[50px] w-[300px] bg-gray-300" style={{borderRadius : "30px"}}>
-                        <div className="text-center mt-3 font-medium"><strong>{data.price}원 결제하기</strong></div>
+                        <div onClick={()=>{rentCheck()}} className="text-center mt-3 font-medium"><Link to='/completePay'><strong>{data.price}원 결제하기</strong></Link></div>
                     </div>
                 </div>
             </div>

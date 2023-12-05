@@ -27,6 +27,6 @@ type UserInfoType = {
     name : string,
     email : string,
     kakaoAccessToken : string,
-    LendItem? : CampingItemType[],
-    RentItem? : CampingItemType[],
+    lendItem? : CampingItemType[],
+    rentItem? : CampingItemType[],
 }

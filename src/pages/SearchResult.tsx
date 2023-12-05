@@ -8,11 +8,10 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
-import { Dropdown } from 'flowbite-react';
-
 import { useRecoilState } from "recoil";
 import { campingItemAtom } from "../data/campingItemAtom";
 import { Link, useSearchParams } from "react-router-dom";
+import SearchItem from "../components/SearchItem";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -42,30 +41,18 @@ export default function SearchResult() {
 
     return (
         <div className="flex flex-col px-10">
-            {/* 이 부분은 무조건 컴포넌트 하나로 빼야겠네 */}
-            <div className="flex flex-col justify-between rounded-3xl bg-black shrink-0 bg-contain text-white" style={{ minHeight:"80%", backgroundImage: `url(${picture1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                <div></div>
-                <div className="flex flex-col align-middle pt-20 pl-20">
-                    <div className="text-5xl">
-                        CampShare
-                    </div>
-                    <div className="flex flex-col min-h-[4/12] max-w-[6/12] text-2xl pt-8 pb-40">
-                        <strong className="pb-5">캠핑, 부담은 감소하고 즐거움은 증가하다.</strong>
-                    </div>
-                </div>
-                <div/>
-            </div>
+            <SearchItem/>
             {
                 newCampingItem.length !== 0 ? (
                     <div className="text-center my-16">
                         <p className="text-3xl font-semibold">
-                        {searchFilter} 로 검색된 결과가 총 {newCampingItem.length} 건 있습니다.
+                        {searchFilter}{`(으)`}로 검색된 결과가 총 {newCampingItem.length} 건 있습니다.
                         </p>
                     </div>
                 ) : (
                     <div className="text-center my-16">
                         <p className="text-3xl font-semibold">
-                        {searchFilter} 로 검색된 결과가 존재하지 않습니다.
+                        {searchFilter}{`(으)`}로 검색된 결과가 존재하지 않습니다.
                         </p>
                     </div>
                 )

@@ -65,7 +65,7 @@ export default function UploadFileModal({showUploadFileModal, handleClose, fileL
               <Typography id="transition-modal-description" sx={{ mt: 2 }}>
                 {
                   modifyFilePath && modifyFilePath.map((item,index)=>{
-                    const splitArray = item.split("|");
+                    const splitArray = item.split("~");
                     const splitName = splitArray[1];
                     return (
                       <div>

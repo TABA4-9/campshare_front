@@ -14,8 +14,7 @@ export default function Footer() {
                             <a href ="https://www.dankook.ac.kr/web/kor"><FontAwesomeIcon className="pl-5" icon={faGraduationCap} /></a>
                         </div>
                     </div>
-                    <div className="pt-3 text-stone-900 text-opacity-50 text-base font-medium font-['Poppins']">2023 all Right Reserved Term of use TABA_9</div>
-                                    
+                    <div className="pt-3 text-stone-900 text-opacity-50 text-base font-medium font-['Poppins']">2023 all Right Reserved Term of use TABA_9</div>                   
                 </div>
             </div>
         </div>
