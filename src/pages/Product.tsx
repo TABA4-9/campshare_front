@@ -75,8 +75,8 @@ export default function Category() {
     }
 
     // 이게 잘 동작하는지부터 확인해야겠네 씨부렐
-    const filterDate = () => {
-        return campItem.filter(item => {
+    const filterDate = (filteredItems:CampingItemType[]) => {
+        return filteredItems.filter(item => {
             let formattedItemStartDate:string = item.startDate.replace(/년|월/g, '-').replace('일', '');
             let formattedItemEndDate:string = item.endDate.replace(/년|월/g, '-').replace('일', '');
             let formattedUserStartDate:string = startDate.replace(/년|월/g, '-').replace('일', '');
@@ -102,16 +102,14 @@ export default function Category() {
         const endDateFormat = moment(e[1]).format("YYYY[년] MM[월] DD[일]");
         setStartDate(startDateFormat);
         setEndDate(endDateFormat);
-
-        filterDate();
     }
 
-    // 여기다가 날짜 필터 넣으면 되겠네 흠
+    // 문제 => 필터 누적이 안됨
     const filteredCampItems = () => {
         let categoryFilterCheck = categoryfilter !== "";
         let dateFilterCheck = endDate !== "";
         
-        let filteredItems = campItem;
+        let filteredItems = campItem.slice(); // 새로운 배열을 만들어 복사
 
         if (categoryFilterCheck) {
             filteredItems = filteredItems.filter(value => value.category === categoryfilter);
@@ -119,7 +117,7 @@ export default function Category() {
     
         // 날짜 필터 적용
         if (dateFilterCheck) {
-            filteredItems = filterDate();
+            filteredItems = filterDate(filteredItems);
         }
 
         console.log(filteredItems);
