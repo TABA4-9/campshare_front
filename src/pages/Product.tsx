@@ -19,6 +19,8 @@ import { useRecoilState } from "recoil";
 import { campingItemAtom } from "../data/campingItemAtom";
 import { Link } from "react-router-dom";
 import SearchItem from "../components/SearchItem";
+import CalendarModal from "../components/form/modal/CalendarModal";
+import moment from "moment";
 
 const StyledDropDown = styled(Dropdown)`
     border : 0;
@@ -53,16 +55,80 @@ const itemFilterOption:dropwDownOption[] = [
 
 export default function Category() {
     const [campItem, setCampItem] = useRecoilState<CampingItemType[]>(campingItemAtom);
+    const [showCalendar, setShowCalendar] = useState<boolean>(false);
+
+    const [startDate, setStartDate] = useState<string>(moment(new Date()).format("YYYY[년] MM[월] DD[일]"));
+    const [endDate, setEndDate] = useState<string>("");
 
     const [categoryfilter, setCategoryFilter] = useState<string>("");
     const [itemFilter, setItemFilter] = useState<string>("None");
     const category:string[] = ["텐트","캠핑 의자"];
 
-    const onChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement> | SelectChangeEvent<string>) : void => {
-        setItemFilter(e.target.value);
+    // const onChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement> | SelectChangeEvent<string>) : void => {
+    //     setItemFilter(e.target.value);
+    // }
+
+    // console.log(moment(new Date()).format("YYYY[년] MM[월] DD[일]"));
+
+    const handleClose = () => {
+        setShowCalendar(false);
     }
 
-    const filteredCampItems = categoryfilter === "" ? campItem : campItem.filter(value => value.category === categoryfilter);
+    // 이게 잘 동작하는지부터 확인해야겠네 씨부렐
+    const filterDate = () => {
+        return campItem.filter(item => {
+            let formattedItemStartDate:string = item.startDate.replace(/년|월/g, '-').replace('일', '');
+            let formattedItemEndDate:string = item.endDate.replace(/년|월/g, '-').replace('일', '');
+            let formattedUserStartDate:string = startDate.replace(/년|월/g, '-').replace('일', '');
+            let formattedUserEndDate:string = endDate.replace(/년|월/g, '-').replace('일', '');
+
+
+            const itemStartDate = new Date(formattedItemStartDate);
+            const itemEndDate = new Date(formattedItemEndDate);
+
+            const userStartDate = new Date(formattedUserStartDate);
+            const userEndDate = new Date(formattedUserEndDate);
+
+            console.log("userStartDate보다 itemStartDate가 더 큰가");
+            console.log(itemStartDate.getTime() >= userStartDate.getTime())
+
+            // formatted 하기 전에 문자 구조 자체가 일치해야함(띄어쓰기 조차 일치해야 비교 가능)
+            return ((itemStartDate <= userStartDate) && (userStartDate <= itemEndDate)) && ((userEndDate >= itemStartDate) && (userEndDate <=itemEndDate));
+        })
+    }
+
+    const onChangeDate = (e:any) :void => {
+        const startDateFormat = moment(e[0]).format("YYYY[년] MM[월] DD[일]");
+        const endDateFormat = moment(e[1]).format("YYYY[년] MM[월] DD[일]");
+        setStartDate(startDateFormat);
+        setEndDate(endDateFormat);
+
+        filterDate();
+    }
+
+    // 여기다가 날짜 필터 넣으면 되겠네 흠
+    const filteredCampItems = () => {
+        let categoryFilterCheck = categoryfilter !== "";
+        let dateFilterCheck = endDate !== "";
+        
+        let filteredItems = campItem;
+
+        if (categoryFilterCheck) {
+            filteredItems = filteredItems.filter(value => value.category === categoryfilter);
+        }
+    
+        // 날짜 필터 적용
+        if (dateFilterCheck) {
+            filteredItems = filterDate();
+        }
+
+        console.log(filteredItems);
+    
+        // 최종 필터된 배열 반환
+        return filteredItems;
+        
+    }
+    
 
     const handleFilter = (value: string) => {
         setCategoryFilter(value);
@@ -100,6 +166,10 @@ export default function Category() {
                     </div>
                 </div>
                 <div className="flex flex-col">
+                    <strong>날짜 설정</strong>
+                    <button onClick={()=>setShowCalendar(true)} className="w-[300px] h-[50px] bg-gray-300 rounded-lg">{startDate} ~ {endDate}</button>
+                </div>
+                {/* <div className="flex flex-col">
                     <StyledDropDownForm
                         title=""
                         label="Sort"
@@ -108,7 +178,7 @@ export default function Category() {
                         onChange={onChange}
                         options={itemFilterOption}
                     />
-                </div>
+                </div> */}
             </div>
 
             {/* content */}
@@ -117,7 +187,7 @@ export default function Category() {
                     <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                             {    
-                                filteredCampItems.map((item, index) => {
+                                filteredCampItems().length !== 0 ? (filteredCampItems().map((item, index) => {
                                     return (
                                         <Grid item xs={2} sm={4} md={3} key={index}>
                                             <Item>
@@ -131,12 +201,18 @@ export default function Category() {
                                             </Item>
                                         </Grid>
                                     )
-                                })
+                                })) : (<div className="flex w-full justify-center my-20 mr-52"><strong>조회된 결과가 존재하지 않습니다.</strong></div>)
                             }
                         </Grid>
                     </Box>
                 </div>
             </div>
+
+            <CalendarModal
+                showCalendar={showCalendar}
+                handleClose={handleClose}
+                onChangeDate={onChangeDate}
+            />
         </div>
     )
 }

@@ -58,15 +58,12 @@ export default function PostPageFirst({itemName, headcountItem, itemBrand, onCha
     const [showCalendar, setShowCalendar] = useState<boolean>(false);
     const [userPeriod, setUserPeriod] = useState<string>(startDate ? `${startDate} ~ ${endDate}` : "설정하기");
 
-    
-
     const handleUserPeriod = () => {
         if(startDate) {
             const newPeriod = `${startDate} ~ ${endDate}`;
             setUserPeriod(newPeriod)
             console.log(newPeriod)
         }
-
     }
 
     const handleClose = () => {
@@ -76,6 +73,7 @@ export default function PostPageFirst({itemName, headcountItem, itemBrand, onCha
     return (
         <div className="flex flex-col w-6/12 float-right p-4 justify-around">
             <div className="flex h-full flex-col">
+                {/* 이 부분도 겹치니까 빼면 좋긴 하겠다 */}
                 <div className="flex flex-col pb-2">
                     <strong className="text-base">상품 이름</strong>
                     <input
@@ -142,8 +140,6 @@ export default function PostPageFirst({itemName, headcountItem, itemBrand, onCha
             <CalendarModal
                 showCalendar = {showCalendar}
                 handleClose = {handleClose}
-                startDate = {startDate}
-                endDate = {endDate}
                 onChangeDate = {onChangeDate}
             />
         </div>

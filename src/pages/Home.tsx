@@ -1,42 +1,18 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch,faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 import {useEffect} from "react";
-import {useState} from "react";
 
 import {Link} from "react-router-dom";
 
 import { useRecoilState } from 'recoil';
 import { campingItemAtom } from '../data/campingItemAtom';
 
-import picture1 from '../assets/picture1.jpg';
-import { userInfoAtom } from '../data/userInfoAtom';
-
-import { useNavigate } from 'react-router-dom';
 import SearchItem from '../components/SearchItem';
 
 export default function Home() {
-    let [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
-    let [userSearch, setUserSearch] = useState<string>();
+    // 여기서 다 받아야겠네 detail page까지 하려면
     let [campItem, setCampItem] = useRecoilState<CampingItemType[]>(campingItemAtom);
-
-    const navigate = useNavigate();
-
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
-        setUserSearch(e.target.value)
-    }
-
-    const onSubmitSearch = (e : React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === "Enter") {
-          //키를 눌렀을 때 동작할 코드
-          // /search?searchInput={userSearch}로 navigate
-          navigate(`/search?searchInput=${userSearch}`)
-        }
-    };
-
-    const handleIconClick = () => {
-        navigate(`/search?searchInput=${userSearch}`)
-    }
 
     useEffect(()=>{
         // 따로 3개의 item만 받는 것으로 변경.
@@ -49,7 +25,6 @@ export default function Home() {
 
     return (
         <div className="flex flex-col px-10">
-            {/* 이 부분은 무조건 컴포넌트 하나로 빼야겠네 */}
             <SearchItem/>
 
             <div className="flex justify-center mt-16">

@@ -11,14 +11,11 @@ export default function RentItem() {
             <strong>대여 상품</strong>
             </div>
             {
-                <RentItemTable/>
-            }
-            {/* { 아래로 바꿔줘야 함.
-                userInfo?.name === '' ? 
+                userInfo?.rentItem === null ? 
                 <div className="flex w-full pt-16">
                     <strong>현재 대여 중인 상품이 없습니다.</strong>
                 </div> : <RentItemTable/>
-            } */}
+            }
         </div>
     )
 }

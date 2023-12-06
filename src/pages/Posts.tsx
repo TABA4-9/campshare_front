@@ -49,8 +49,8 @@ export default function Posts() {
     }
 
     const onChangeDate = (e:any) :void => {
-        const startDateFormat = moment(e[0]).format("YYYY/MM/DD");
-        const endDateFormat = moment(e[1]).format("YYYY/MM/DD");
+        const startDateFormat = moment(e[0]).format("YYYY[년] MM[월] DD[일]");
+        const endDateFormat = moment(e[1]).format("YYYY[년] MM[월] DD[일]");
         setStartDate(startDateFormat);
         setEndDate(endDateFormat);
     }

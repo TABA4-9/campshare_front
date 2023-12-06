@@ -15,6 +15,8 @@ type CampingItemType = {
     postUserId : number,
     recommandItem : CampingItemType[],
     imagePath : string[],
+    startDate : string,
+    endDate : string,
 }
 
 type dropwDownOption = {

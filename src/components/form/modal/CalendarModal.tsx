@@ -15,8 +15,6 @@ type Value = ValuePiece | [ValuePiece, ValuePiece];
 interface propsType {
     showCalendar : boolean,
     handleClose : () => void,
-    startDate : string,
-    endDate : string,
     onChangeDate : (e:any) => void,
 }
 
@@ -32,10 +30,9 @@ const style = {
     p: 4,
   };
 
-export default function CalendarModal({handleClose, showCalendar, startDate, endDate, onChangeDate} : propsType) {
+export default function CalendarModal({handleClose, showCalendar, onChangeDate} : propsType) {
   const [nowDate, setNowDate] = useState<Value>(new Date());
 
-  
   return (
     <div>
         <Modal

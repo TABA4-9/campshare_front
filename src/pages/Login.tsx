@@ -2,7 +2,6 @@ import KakaoLogin from "../components/KakaoLogin"
 
 import {useState} from "react";
 
-import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import ServiceAgreeModal from "../components/form/modal/ServiceAgreeModal";

@@ -18,8 +18,6 @@ export default function Detail() {
     const location = useLocation();
     const data = location.state.item;
 
-    console.log(data);
-
     // utc time => kor time
     const today = new Date();
     const utcTime = new Date().toISOString();
