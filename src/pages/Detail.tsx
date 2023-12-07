@@ -29,7 +29,7 @@ export default function Detail() {
     });
 
     const checkLogin = () => {
-        if (userInfo.name === '') {
+        if (userInfo.account.name === '') {
             alert("로그인 후 이용 가능한 서비스입니다.");
             return ;
         }
@@ -67,7 +67,7 @@ export default function Detail() {
             try {
                 // only front testing code
                 await axios.post(`/detail/log`,{
-                    userId : userInfo.id,
+                    userId : userInfo.account.id,
                     detailPageLog : formattedDate,
                 })
                 .then(response=>{setRecommandItem(response.data.recommandProduct)})
@@ -110,7 +110,7 @@ export default function Detail() {
                         <div className="flex w-full justify-between">
                             <div>{data.postUserName} ({data.address})</div>
                             {
-                                data.postUserId === userInfo.id ? ( 
+                                data.postUserId === userInfo.account.id ? ( 
                                 <div className="flex">
                                     <Link to={`/modify/${data.id}`} state={{item : data}}><div className="mr-3">수정</div></Link>
                                     <button onClick={()=>DeleteProduct()}>삭제</button>

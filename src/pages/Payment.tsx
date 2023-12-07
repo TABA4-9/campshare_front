@@ -26,7 +26,7 @@ export default function Payment() {
             // only front testing code
             await axios.post(`/product/matching`,{
                 productId : data.id,
-                rentUserId : userInfo.id,
+                rentUserId : userInfo.account.id,
             })
             .then(response=>{console.log(response)})
 
@@ -62,8 +62,8 @@ export default function Payment() {
                 <div className="flex text-base ml-4 mt-4">
                     <div className="flex flex-col">
                         <strong>내 정보</strong>
-                        <div className="text-sm">이름 : {userInfo.name}</div>
-                        <div className="text-sm">이메일 : {userInfo.email}</div>
+                        <div className="text-sm">이름 : {userInfo.account.name}</div>
+                        <div className="text-sm">이메일 : {userInfo.account.email}</div>
                     </div>
                     <div className="flex flex-col ml-8">
                         <strong>대여자 정보</strong>

@@ -31,11 +31,13 @@ export default function Kakaoauth() {
                     headers:{"Content-Type": "application/json"}
                 }
             );
+            console.log("response");
+            console.log(response)
             const accessToken = response.data.kakaoAccessToken;
             console.log("accessToken:", accessToken);
-            console.log(response.data);
+            console.log(response.data.account);
 
-            setUserInfo(response.data[0])
+            setUserInfo(response.data);
  
             setAccessTokenFetching(false); // Reset fetching to false
             navigate("/");

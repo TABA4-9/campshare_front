@@ -38,7 +38,7 @@ export default function SearchResult() {
         try {
             let encodedSearchFilter:any;
             if(searchFilter !== null) {
-                const encodedSearchFilter = encodeURIComponent(searchFilter);
+                encodedSearchFilter = encodeURIComponent(searchFilter);
             }
             const response = await axios.get(`/product/data/search?searchInput=${encodedSearchFilter}`);
             const data = response.data;

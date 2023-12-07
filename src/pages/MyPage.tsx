@@ -13,7 +13,7 @@ export default function MyPage() {
             <div className="w-[25vw] flex flex-col pl-8">
                 <div className="text-lg font-semibold">My page</div>
                 <div className="w-[200px] h-[0px] border border-black my-4 "/>
-                <strong className="mb-1">{userInfo.name}님. 반갑습니다.</strong>
+                <strong className="mb-1">{userInfo.account.name}님. 반갑습니다.</strong>
                 <div onClick={()=>setMyPageComponent("등록 상품")} className={`mb-1 cursor-pointer ${myPageComponent === "등록 상품" ? "font-bold" : null}`}>등록 상품</div>
                 <div onClick={()=>setMyPageComponent("대여 상품")} className={`mb-1 cursor-pointer ${myPageComponent === "대여 상품" ? "font-bold" : null}`}>대여 상품</div>
             </div>

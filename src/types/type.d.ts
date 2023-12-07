@@ -25,10 +25,14 @@ type dropwDownOption = {
 }
 
 type UserInfoType = {
-    id : number,
-    name : string,
-    email : string,
+    account : userAccount,
     kakaoAccessToken : string,
     lendItem? : CampingItemType[],
     rentItem? : CampingItemType[],
+}
+
+type userAccount = {
+    id : number,
+    name : string,
+    email : string,
 }

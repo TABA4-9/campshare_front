@@ -1,13 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
 
-import {useRef} from "react";
-
 import { SelectChangeEvent } from '@mui/material/Select';
 
 import Button from '@mui/material/Button';
 
-import DropDownForm from "./form/DropDownForm";
 import { useState } from "react";
 import ItemDetailModal from "./form/modal/ItemDetailModal";
 
@@ -16,7 +13,6 @@ import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import UploadFileModal from "./form/modal/UploadFileModal";
-import axios from "axios";
 
 
 interface propsType {
@@ -29,11 +25,11 @@ interface propsType {
     fileList : File[],
     setFileList : React.Dispatch<React.SetStateAction<File[]>>,
     modifyFilePath : string[],
+    recommandPrice : number | undefined,
     setModifyFilePath : React.Dispatch<React.SetStateAction<string[]>>,
-
 }
 
-export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange, tradeAddress, productSubmit, fileList, setFileList, modifyFilePath, setModifyFilePath} : propsType) {
+export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange, tradeAddress, productSubmit, fileList, setFileList, modifyFilePath, setModifyFilePath, recommandPrice} : propsType) {
     const [showDetailModal, setShowDetailModal] = useState<boolean>(false);
     const [showUploadFileModal, setShowUploadFileModal] = useState<boolean>(false);
     const [explanation, setExplnation] = useState<string>(DetailItem ? DetailItem.slice(0,8) + "..." : "입력하기...");
@@ -63,6 +59,9 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
         }
         closeDetailModal();
     }
+
+    console.log("추천 가격")
+    console.log(recommandPrice);
 
     const saveFileImage = async (e:any) => {
         e.preventDefault();
@@ -105,6 +104,7 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
                         <OutlinedInput
                             name="PriceItem"
                             id="outlined-adornment-weight"
+                            placeholder={`추천 가격 ${recommandPrice !== undefined ? recommandPrice : ""}`}
                             endAdornment={<InputAdornment position="end">원</InputAdornment>}
                             aria-describedby="outlined-weight-helper-text"
                             inputProps={{
