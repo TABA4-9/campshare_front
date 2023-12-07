@@ -749,7 +749,7 @@ export const handlers = [
   /// /product/data/
 
   // http.get('/product/data/category', () => {
-    // /product/data/search?searchInput=%ED%85%90%ED%8A%B8
+  // /product/data/search?searchInput=%ED%85%90%ED%8A%B8
 
   http.get('/product/data/search', ({ request }) => {
     const url = new URL(request.url)
@@ -873,6 +873,9 @@ export const handlers = [
                   ],
               },
       ])
+    }
+    else {
+      return HttpResponse.json("없음");
     }
   }),
     // return HttpResponse.json({ userInput })

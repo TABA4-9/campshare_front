@@ -93,6 +93,7 @@ export default function Posts() {
         formDataList.append('isRented', String(false));
 
         // await fetch('http://localhost:8080/post/submit', {
+        
         await fetch('/post/submit', {
             method : "POST",
             body : formDataList,
@@ -118,6 +119,7 @@ export default function Posts() {
         if(page === 1) {
             setPage(2);
             try {
+                // await fetch('http://localhost:8080//post/nextPage', {
                 // only front testing code
                 await axios.post('/post/nextPage',{
                     name : itemName,

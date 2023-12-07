@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+
 import { userInfoAtom } from "../data/userInfoAtom";
 import { useRecoilState } from "recoil";
 import { useLocation } from "react-router-dom";
@@ -28,14 +28,26 @@ export default function Payment() {
                 productId : data.id,
                 rentUserId : userInfo.account.id,
             })
-            .then(response=>{console.log(response)})
+            .then(response => {
+                setUserInfo(prev => ({
+                    ...prev,
+                    rentItem: response.data.rentItem
+                }));
+            })
+
+            console.log(userInfo.rentItem);
 
             // front + back
-            // await axios.post(`http://localhost:8080/product/matching`,{
+            // await axios.post(`/product/matching`,{
             //     productId : data.id,
-            //     rentUserId : userInfo.id,
+            //     rentUserId : userInfo.account.id,
             // })
-            // .then(response=>{console.log(response)})
+            // .then(response => {
+            //     setUserInfo(prev => ({
+            //         ...prev,
+            //         rentItem: response.data.rentItem  // 여기를 수정
+            //     }));
+            // })
         } catch (error) {
             console.error(':', error);
         }

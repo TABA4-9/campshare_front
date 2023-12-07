@@ -13,6 +13,7 @@ import { campingItemAtom } from "../data/campingItemAtom";
 import { Link, useSearchParams } from "react-router-dom";
 import SearchItem from "../components/SearchItem";
 import axios from "axios";
+import { userInfoAtom } from "../data/userInfoAtom";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -24,6 +25,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function SearchResult() {
     const [campItem, setCampItem] = useState<CampingItemType[]>([]);
+    const [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
 
     const [searchParams, setSearchParams] = useSearchParams();
     const searchFilter: string|null = searchParams?.get('searchInput');
@@ -36,13 +38,9 @@ export default function SearchResult() {
 
     const fetchData = async () => {
         try {
-            let encodedSearchFilter:any;
-            if(searchFilter !== null) {
-                encodedSearchFilter = encodeURIComponent(searchFilter);
-            }
-            const response = await axios.get(`/product/data/search?searchInput=${encodedSearchFilter}`);
+            // const response = await axios.get(`http://localhost:8080/product/data/search?searchInput=${searchFilter}`);
+            const response = await axios.get(`/product/data/search?searchInput=${searchFilter}`);
             const data = response.data;
-            console.log("텐트", data);
             setCampItem(data);
         } catch (error) {
             console.error("데이터를 가져오는 중 오류 발생:", error);

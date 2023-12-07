@@ -60,9 +60,6 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
         closeDetailModal();
     }
 
-    console.log("추천 가격")
-    console.log(recommandPrice);
-
     const saveFileImage = async (e:any) => {
         e.preventDefault();
         const uploadFile = e.target.files[0];
