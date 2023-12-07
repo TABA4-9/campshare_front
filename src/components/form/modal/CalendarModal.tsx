@@ -31,7 +31,6 @@ const style = {
   };
 
 export default function CalendarModal({handleClose, showCalendar, onChangeDate} : propsType) {
-  const [nowDate, setNowDate] = useState<Value>(new Date());
 
   return (
     <div>

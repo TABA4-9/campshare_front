@@ -69,11 +69,14 @@ export default function Posts() {
         }
 
         // 이전에 이미 있던 사진이라면 그것도 formData에 넣어줌.
+        // 근데 이건 url이라 위처럼 image와 동일하게 보내는 것은 맞지 않음.
+        // 위는 type이 file이고 아래는 string임.
         if(modifyFilePath) {
             let testFilePath = [...modifyFilePath];
             for(const file of testFilePath) {
-                formDataList.append('image', file);
+                formDataList.append('imageUrl', file);
                 console.log("formDataList에 이전 사진 추가완료")
+                console.log(String(file));
             }
         }
 
@@ -92,10 +95,18 @@ export default function Posts() {
         formDataList.append('postUserId', String(userInfo?.account.id));
         formDataList.append('isRented', String(false));
 
+        let apiUrl = '/post/submit';
+        let method = 'POST';
+
+        if(urlPathname !== "/posts") {
+            apiUrl = '/product/update';
+            method = 'PUT';
+        }
+
+
         // await fetch('http://localhost:8080/post/submit', {
-        
-        await fetch('/post/submit', {
-            method : "POST",
+        await fetch(apiUrl, {
+            method : method,
             body : formDataList,
             headers : {
                 "Custom-Header" : "value; charset=UTF-8"

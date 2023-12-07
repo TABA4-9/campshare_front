@@ -53,7 +53,7 @@ export default function LendItemTable() {
                                         {item.isLended === true ? "대여 중" : "대여 가능"}
                                     </td>
                                     <td className="px-6 py-4">
-                                        <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                        <Link to={`/modify/${item.id}`} state={{item : item}}><div className="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-3">Edit</div></Link>
                                     </td>
                                 </tr>
                             )

@@ -119,7 +119,7 @@ export default function PostPageFirst({itemName, headcountItem, itemBrand, onCha
                     <button onClick={()=> {
                         setShowCalendar(true)
                         handleUserPeriod()
-                    }} className="mt-3 text-sm border rounded-md border-solid border-gray-300 px-4 py-2 text-gray-700">
+                    }} className="mt-3 text-xs border rounded-md border-solid border-gray-300 px-4 py-2 text-gray-700">
                         {userPeriod}
                     </button>
                 </div>

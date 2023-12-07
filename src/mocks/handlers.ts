@@ -718,39 +718,6 @@ export const handlers = [
     )}
   ),
 
-  // http.get(`/product/data/search?searchInput=의자`, () => {
-  //   return HttpResponse.json([
-  //     {
-  //       id : 6,
-  //       name : "개쓰레기 의자",
-  //       category : "캠핑 의자",
-  //       period : "1박 2일",
-  //       image : chair1,
-  //       price : 19000,
-  //       explanation : "텐트 업그레이드 버전인 텐트 텐트입니다. 사용감 미쳤구요 1번 사용했습니다.",
-  //       brand : "Nike",
-  //       headcount : "2인",
-  //       postUserName : "홍길동",
-  //       postUserEmail : "Hong@naver.com",
-  //       address : "경기도 용인시 수지구 풍덕천동 박스집",
-  //       isRented : false,
-  //       postUserId : 8,
-  //       usingYear : "1년 이하",
-  //       startDate : "2023년 12월 8일",
-  //       endDate : "2023년 12월 16일",
-  //       imagePath : [
-  //           ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0~spring.jpg",
-  //           ],
-        
-  //     },
-  //   ])
-  // }),
-
-  /// /product/data/
-
-  // http.get('/product/data/category', () => {
-  // /product/data/search?searchInput=%ED%85%90%ED%8A%B8
-
   http.get('/product/data/search', ({ request }) => {
     const url = new URL(request.url)
     const userInput = url.searchParams.get('searchInput')
@@ -878,245 +845,57 @@ export const handlers = [
       return HttpResponse.json("없음");
     }
   }),
-    // return HttpResponse.json({ userInput })
-
-    // return HttpResponse.json([
-    //   {
-    //     id : 1,
-    //     name : "A형 텐트",
-    //     category : "텐트",
-    //     period : "1박 2일",
-    //     image : tent1,
-    //     price : 5000,
-    //     explanation : "그냥 집에 남아서 내놓습니다. 사용한지는 1번이고 그냥 마구잡이로 쓰셔도 됩니다.",
-    //     brand : "Nike",
-    //     headcount : "2인",
-    //     // 그냥 유저 정보를 받아야 함.
-    //     postUserName : "함상억",
-    //     postUserEmail : "hamsoo159@naver.com",
-    //     address : "경기도 용인시 수지구 풍덕천동 허경영궁",
-    //     isRented : false,
-    //     postUserId : 5,
-    //     usingYear : "1년 이하",
-    //     startDate : "2023년 12월 8일",
-    //     endDate : "2023년 12월 16일",
-    //     imagePath : [
-    //         ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0~spring.jpg",
-    //     ],
-    //   },
-    //   {
-    //     id : 2,
-    //     name : "신형 텐트",
-    //     period : "1박 2일",
-    //     category : "텐트",
-    //     image : tent2,
-    //     price : 10000,
-    //     explanation : "신형입니다. 한 번도 사용하지 않았구요. 아껴서 써주세요.",
-    //     brand : "Nike",
-    //     headcount : "2인",
-    //     postUserName : "함상억",
-    //     postUserEmail : "hamsoo159@naver.com",
-    //     address : "경기도 용인시 수지구 풍덕천동 허경영궁",
-    //     isRented : false,
-    //     postUserId : 5,
-    //     usingYear : "1년 이하",
-    //     startDate : "2023년 12월 8일",
-    //     endDate : "2023년 12월 16일",
-    //     imagePath : [
-    //         ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0~spring.jpg",
-    //         ],
-        
-    //   },
-    //   {
-    //     id : 3,
-    //     name : "구형 텐트",
-    //     category : "텐트",
-    //     period : "1박 2일",
-    //     image : tent3,
-    //     price : 12000,
-    //     explanation : "구형입니다. 구형인데 부모님께 물려받은거라 아껴서 사용해주세요.",
-    //     brand : "Nike",
-    //     headcount : "2인",
-    //     postUserName : "함상억",
-    //     postUserEmail : "hamsoo159@naver.com",
-    //     address : "경기도 용인시 수지구 풍덕천동 허경영궁",
-    //     isRented : true,
-    //     postUserId : 5,
-    //     usingYear : "1년 이하",
-    //     startDate : "2023년 12월 8일",
-    //     endDate : "2023년 12월 16일",
-    //     imagePath : [
-    //         ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0~spring.jpg",
-    //         ],
-    //   },
-    //   {
-    //     id : 4,
-    //     name : "O형 텐트",
-    //     category : "텐트",
-    //     period : "1박 2일",
-    //     image : tent4,
-    //     price : 17000,
-    //     explanation : "O형 텐트입니다. 혈액형이 O인 분들이 사용하면 좋더라구요.",
-    //     brand : "Nike",
-    //     headcount : "2인",
-    //     postUserName : "홍길동",
-    //     postUserEmail : "Hong@naver.com",
-    //     address : "경기도 용인시 수지구 풍덕천동 박스집",
-    //     isRented : true,
-    //     postUserId : 8,
-    //     usingYear : "1년 이하",
-    //     startDate : "2023년 12월 8일",
-    //     endDate : "2023년 12월 16일",
-    //     imagePath : [
-    //         ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0~spring.jpg",
-    //         ],
-    //   },
-    //   {
-    //     id : 5,
-    //     name : "무슨 텐트",
-    //     category : "텐트",
-    //     period : "1박 2일",
-    //     image : tent5,
-    //     price : 14000,
-    //     explanation : "무슨 텐트인지 모르겠습니다. 집구석에 먼지쌓여서 돌아다니길래 내놓습니다.",
-    //     brand : "Nike",
-    //     headcount : "2인",
-    //     postUserName : "홍길동",
-    //     postUserEmail : "Hong@naver.com",
-    //     address : "경기도 용인시 수지구 풍덕천동 박스집",
-    //     isRented : false,
-    //     postUserId : 8,
-    //     usingYear : "1년 이하",
-    //     startDate : "2023년 12월 8일",
-    //     endDate : "2023년 12월 16일",
-    //     imagePath : [
-    //         ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0~spring.jpg",
-    //         ],
-    //     },
-    //   ])
-    // return HttpResponse.json({
-    //   content : "success"
-    // })
-      // {
-      //   id : 1,
-      //   name : "A형 텐트",
-      //   category : "텐트",
-      //   period : "1박 2일",
-      //   image : tent1,
-      //   price : 5000,
-      //   explanation : "그냥 집에 남아서 내놓습니다. 사용한지는 1번이고 그냥 마구잡이로 쓰셔도 됩니다.",
-      //   brand : "Nike",
-      //   headcount : "2인",
-      //   // 그냥 유저 정보를 받아야 함.
-      //   postUserName : "함상억",
-      //   postUserEmail : "hamsoo159@naver.com",
-      //   address : "경기도 용인시 수지구 풍덕천동 허경영궁",
-      //   isRented : false,
-      //   postUserId : 5,
-      //   usingYear : "1년 이하",
-      //   startDate : "2023년 12월 8일",
-      //   endDate : "2023년 12월 16일",
-      //   imagePath : [
-      //       ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0~spring.jpg",
-      //   ],
-        
-      // },
-      // {
-      //   id : 2,
-      //   name : "신형 텐트",
-      //   period : "1박 2일",
-      //   category : "텐트",
-      //   image : tent2,
-      //   price : 10000,
-      //   explanation : "신형입니다. 한 번도 사용하지 않았구요. 아껴서 써주세요.",
-      //   brand : "Nike",
-      //   headcount : "2인",
-      //   postUserName : "함상억",
-      //   postUserEmail : "hamsoo159@naver.com",
-      //   address : "경기도 용인시 수지구 풍덕천동 허경영궁",
-      //   isRented : false,
-      //   postUserId : 5,
-      //   usingYear : "1년 이하",
-      //   startDate : "2023년 12월 8일",
-      //   endDate : "2023년 12월 16일",
-      //   imagePath : [
-      //       ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0~spring.jpg",
-      //       ],
-        
-      // },
-      // {
-      //   id : 3,
-      //   name : "구형 텐트",
-      //   category : "텐트",
-      //   period : "1박 2일",
-      //   image : tent3,
-      //   price : 12000,
-      //   explanation : "구형입니다. 구형인데 부모님께 물려받은거라 아껴서 사용해주세요.",
-      //   brand : "Nike",
-      //   headcount : "2인",
-      //   postUserName : "함상억",
-      //   postUserEmail : "hamsoo159@naver.com",
-      //   address : "경기도 용인시 수지구 풍덕천동 허경영궁",
-      //   isRented : true,
-      //   postUserId : 5,
-      //   usingYear : "1년 이하",
-      //   startDate : "2023년 12월 8일",
-      //   endDate : "2023년 12월 16일",
-      //   imagePath : [
-      //       ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0~spring.jpg",
-      //       ],
-      // },
-      // {
-      //   id : 4,
-      //   name : "O형 텐트",
-      //   category : "텐트",
-      //   period : "1박 2일",
-      //   image : tent4,
-      //   price : 17000,
-      //   explanation : "O형 텐트입니다. 혈액형이 O인 분들이 사용하면 좋더라구요.",
-      //   brand : "Nike",
-      //   headcount : "2인",
-      //   postUserName : "홍길동",
-      //   postUserEmail : "Hong@naver.com",
-      //   address : "경기도 용인시 수지구 풍덕천동 박스집",
-      //   isRented : true,
-      //   postUserId : 8,
-      //   usingYear : "1년 이하",
-      //   startDate : "2023년 12월 8일",
-      //   endDate : "2023년 12월 16일",
-      //   imagePath : [
-      //       ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0~spring.jpg",
-      //       ],
-      // },
-      // {
-      //   id : 5,
-      //   name : "무슨 텐트",
-      //   category : "텐트",
-      //   period : "1박 2일",
-      //   image : tent5,
-      //   price : 14000,
-      //   explanation : "무슨 텐트인지 모르겠습니다. 집구석에 먼지쌓여서 돌아다니길래 내놓습니다.",
-      //   brand : "Nike",
-      //   headcount : "2인",
-      //   postUserName : "홍길동",
-      //   postUserEmail : "Hong@naver.com",
-      //   address : "경기도 용인시 수지구 풍덕천동 박스집",
-      //   isRented : false,
-      //   postUserId : 8,
-      //   usingYear : "1년 이하",
-      //   startDate : "2023년 12월 8일",
-      //   endDate : "2023년 12월 16일",
-      //   imagePath : [
-      //       ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0~spring.jpg",
-      //       ],
-        
-      // },
 
   http.post('/product/matching', async ({ request }) => {
-    const requestBody : any  = await request.json();
 
     return HttpResponse.json({
-      content : "success"
+      content : "success",
+      rentItem : [
+        {
+          id : 1,
+          name : "A형 텐트",
+          period : "1박 2일",
+          category : "텐트",
+          image : tent1,
+          price : 5000,
+          explanation : "그냥 집에 남아서 내놓습니다. 사용한지는 1번이고 그냥 마구잡이로 쓰셔도 됩니다.",
+          brand : "Nike",
+          headcount : "2인",
+          postUserName : "함상억",
+          postUserEmail : "hamsoo159@naver.com",
+          address : "경기도 용인시 수지구 풍덕천동 허경영궁",
+          isRented : false,
+          postUserId : 5,
+          usingYear : "1년 이하",
+          startDate : "2023년 12월 8일",
+          endDate : "2023년 12월 16일",
+          imagePath : [
+          ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0~spring.jpg",
+          ],
+        },
+        {
+          id : 2,
+          name : "신형 텐트",
+          category : "텐트",
+          period : "1박 2일",
+          image : tent2,
+          price : 10000,
+          explanation : "신형입니다. 한 번도 사용하지 않았구요. 아껴서 써주세요.",
+          brand : "Nike",
+          isRented : false,
+          headcount : "2인",
+          postUserName : "함상억",
+          postUserEmail : "hamsoo159@naver.com",
+          address : "경기도 용인시 수지구 풍덕천동 허경영궁",
+          postUserId : 5,
+          usingYear : "1년 이하",
+          startDate : "2023년 12월 8일",
+          endDate : "2023년 12월 16일",
+          imagePath : [
+          ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0~spring.jpg",
+          ],
+        },
+      ],
     })
   }),
   http.post('/product/delete', async ({ request }) => {
@@ -1238,6 +1017,32 @@ export const handlers = [
         contentsText : userData,
       })
     }),
-]
+    http.put('/product/update', async ({ request }) => {
+      const requestBody  = await request.formData();
+      const file = requestBody.get('image');
+      const fileUrl = requestBody.get('imageUrl');
+      const userData = requestBody.get('name');
+   
+      if (!((userData) || (file))) {
+        return new HttpResponse('Missing document', { status: 400 })
+      }
+   
+       if (!((userData && fileUrl) !== 'string')) {
+         return new HttpResponse('userData or fileUrl is not a String', {
+           status: 400,
+         })
+       }
 
-{}
+       if (!(file instanceof File)) {
+        return new HttpResponse('userFile is not a file', {
+          status: 400,
+        })
+      }
+   
+      return HttpResponse.json({
+        contentsImage: await file.text(),
+        contentsImageUrl : fileUrl,
+        contentsText : userData,
+      })
+    }),
+]
