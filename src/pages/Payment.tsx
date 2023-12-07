@@ -17,8 +17,6 @@ export default function Payment() {
     const location = useLocation();
     const data = location.state.item;
 
-    console.log(data);
-
     const [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
 
     const rentCheck = async () => {
@@ -29,14 +27,12 @@ export default function Payment() {
             await axios.post(`/product/matching`,{
                 productId : data.id,
                 rentUserId : userInfo.id,
-                postUserId : data.postUserId,
             })
             .then(response=>{console.log(response)})
 
             // front + back
             // await axios.post(`http://localhost:8080/product/matching`,{
             //     productId : data.id,
-            //     postUserId : data.postUserId,
             //     rentUserId : userInfo.id,
             // })
             // .then(response=>{console.log(response)})

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { campingItemAtom } from "../data/campingItemAtom";
 import { useRecoilState } from "recoil";
 import axios from "axios";
@@ -15,6 +15,7 @@ export default function Detail() {
     const navigate = useNavigate();
     const [campItem, setCampItem] = useRecoilState<CampingItemType[]>(campingItemAtom);
     const [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
+    const [recommandItem, setRecommandItem] = useState<CampingItemType[]>([]);
     const location = useLocation();
     const data = location.state.item;
 
@@ -69,7 +70,7 @@ export default function Detail() {
                     userId : userInfo.id,
                     detailPageLog : formattedDate,
                 })
-                .then(response=>{console.log(response)})
+                .then(response=>{setRecommandItem(response.data.recommandProduct)})
 
                 // front + back
                 // await axios.post(`http://localhost:8080/detail/${data.id}`,{
@@ -137,7 +138,8 @@ export default function Detail() {
 
                 </div>
             </div>
-
+            
+            
             <div className="flex w-full flex-col mt-8">
                 <div>
                     이런게 필요하진 않으세요?
@@ -146,7 +148,7 @@ export default function Detail() {
                     {
                         // 문제가 recommandItem은 그에 맞는 recommandItem을 가지지않음..
                         // 이에 따라 새롭게 찾아서 item을 할당해줘야 함.
-                        data.recommandProduct.map((item:CampingItemType,index:number)=>{
+                        recommandItem.map((item:CampingItemType,index:number)=>{
                             let findCampingItem = campItem.find((campItem)=>campItem.id===item.id)
                             return (
                                 <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
