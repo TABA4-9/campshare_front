@@ -26,7 +26,7 @@ export default function Header() {
                 </div>
                 <div className="w-[71px] h-6 justify-start items-center gap-[23px] inline-flex mr-6">
                     <Link to="/posts"><div><FontAwesomeIcon icon={faPenToSquare} /></div></Link>
-                    <Link to={`${userInfo.name === '' ? '/loginOauth2' : '/mypage'}`}><div><FontAwesomeIcon icon={faUser} /></div></Link>
+                    <Link to={`${userInfo.account.name === '' ? '/loginOauth2' : '/mypage'}`}><div><FontAwesomeIcon icon={faUser} /></div></Link>
                 </div>
             </div>
         </div>

@@ -20,6 +20,8 @@ export default function Posts() {
     const urlLocation = useLocation();
     const urlPathname:string = urlLocation.pathname;
 
+    const [recommandPrice, setRecommandPrice] = useState<number>();
+
     const [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
 
     const [itemName, setItemName] = useState<string>(urlPathname === "/posts" ? "" : urlLocation.state.item.name);
@@ -87,9 +89,11 @@ export default function Posts() {
         formDataList.append('endDate', endDate);
 
         // string or blob 형태만 보낼 수 있음.
-        formDataList.append('postUserId', String(userInfo?.id));
+        formDataList.append('postUserId', String(userInfo?.account.id));
         formDataList.append('isRented', String(false));
 
+        // await fetch('http://localhost:8080/post/submit', {
+        
         await fetch('/post/submit', {
             method : "POST",
             body : formDataList,
@@ -115,6 +119,7 @@ export default function Posts() {
         if(page === 1) {
             setPage(2);
             try {
+                // await fetch('http://localhost:8080//post/nextPage', {
                 // only front testing code
                 await axios.post('/post/nextPage',{
                     name : itemName,
@@ -125,7 +130,7 @@ export default function Posts() {
                     usingYear : usingYearItem,
                     brand : itemBrand,
                 })
-                .then(response=>{console.log(response)})
+                .then(response=>{setRecommandPrice(response?.data)})
             } catch (error) {
                 console.error('로그를 게시하는 중 오류 발생:', error);
             }
@@ -164,6 +169,7 @@ export default function Posts() {
                                 setFileList = {setFileList}
                                 modifyFilePath = {modifyFilePath}
                                 setModifyFilePath = {setModifyFilePath}
+                                recommandPrice={recommandPrice}
                             />
                     }
                 </div>

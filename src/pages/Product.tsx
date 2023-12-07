@@ -133,6 +133,7 @@ export default function Category() {
     };
 
     useEffect(()=>{
+        // fetch("http://localhost:8080/product/data/category")
         fetch("/product/data/category")
         .then(res=>res.json())
         .then(data=>{

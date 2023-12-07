@@ -30,7 +30,7 @@ export default function RouterWeb() {
             <Route path="/payment/:id" element={<Payment/>}></Route>
             <Route path="completePay" element={<CompletePay/>}></Route>
             {
-                userInfo.name === '' 
+                userInfo.account.name === '' 
                 ? <Route path="/login" element={<Login/>}></Route>
                 : <Route path="/mypage" element={<MyPage/>}></Route> 
             }

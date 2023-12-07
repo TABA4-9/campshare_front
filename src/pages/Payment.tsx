@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+
 import { userInfoAtom } from "../data/userInfoAtom";
 import { useRecoilState } from "recoil";
 import { useLocation } from "react-router-dom";
@@ -17,8 +17,6 @@ export default function Payment() {
     const location = useLocation();
     const data = location.state.item;
 
-    console.log(data);
-
     const [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
 
     const rentCheck = async () => {
@@ -28,18 +26,28 @@ export default function Payment() {
             // only front testing code
             await axios.post(`/product/matching`,{
                 productId : data.id,
-                rentUserId : userInfo.id,
-                postUserId : data.postUserId,
+                rentUserId : userInfo.account.id,
             })
-            .then(response=>{console.log(response)})
+            .then(response => {
+                setUserInfo(prev => ({
+                    ...prev,
+                    rentItem: response.data.rentItem
+                }));
+            })
+
+            console.log(userInfo.rentItem);
 
             // front + back
-            // await axios.post(`http://localhost:8080/product/matching`,{
+            // await axios.post(`/product/matching`,{
             //     productId : data.id,
-            //     postUserId : data.postUserId,
-            //     rentUserId : userInfo.id,
+            //     rentUserId : userInfo.account.id,
             // })
-            // .then(response=>{console.log(response)})
+            // .then(response => {
+            //     setUserInfo(prev => ({
+            //         ...prev,
+            //         rentItem: response.data.rentItem  // 여기를 수정
+            //     }));
+            // })
         } catch (error) {
             console.error(':', error);
         }
@@ -66,8 +74,8 @@ export default function Payment() {
                 <div className="flex text-base ml-4 mt-4">
                     <div className="flex flex-col">
                         <strong>내 정보</strong>
-                        <div className="text-sm">이름 : {userInfo.name}</div>
-                        <div className="text-sm">이메일 : {userInfo.email}</div>
+                        <div className="text-sm">이름 : {userInfo.account.name}</div>
+                        <div className="text-sm">이메일 : {userInfo.account.email}</div>
                     </div>
                     <div className="flex flex-col ml-8">
                         <strong>대여자 정보</strong>
