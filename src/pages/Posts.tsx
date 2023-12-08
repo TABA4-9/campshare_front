@@ -76,7 +76,6 @@ export default function Posts() {
             for(const file of testFilePath) {
                 formDataList.append('imageUrl', file);
                 console.log("formDataList에 이전 사진 추가완료")
-                console.log(String(file));
             }
         }
 
@@ -95,18 +94,21 @@ export default function Posts() {
         formDataList.append('postUserId', String(userInfo?.account.id));
         formDataList.append('isRented', String(false));
 
-        let apiUrl = '/post/submit';
-        let method = 'POST';
 
+        // let apiUrl = 'http://localhost:8080/post/submit';
+        let apiUrl = '/post/submit';
+
+        
         if(urlPathname !== "/posts") {
+            // apiUrl = 'http://localhost:8080/product/update';
             apiUrl = '/product/update';
-            method = 'PUT';
+            formDataList.append('id', String(urlLocation.state.item.id));
         }
 
 
         // await fetch('http://localhost:8080/post/submit', {
         await fetch(apiUrl, {
-            method : method,
+            method : "POST",
             body : formDataList,
             headers : {
                 "Custom-Header" : "value; charset=UTF-8"
@@ -130,7 +132,7 @@ export default function Posts() {
         if(page === 1) {
             setPage(2);
             try {
-                // await fetch('http://localhost:8080//post/nextPage', {
+                // await axios.post('http://localhost:8080/post/nextPage', {
                 // only front testing code
                 await axios.post('/post/nextPage',{
                     name : itemName,

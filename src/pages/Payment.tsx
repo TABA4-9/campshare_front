@@ -3,6 +3,8 @@ import { userInfoAtom } from "../data/userInfoAtom";
 import { useRecoilState } from "recoil";
 import { useLocation } from "react-router-dom";
 
+import picture1 from '../assets/picture1.jpg';
+
 import axios from "axios";
 
 import Checkbox from '@mui/material/Checkbox';
@@ -35,10 +37,8 @@ export default function Payment() {
                 }));
             })
 
-            console.log(userInfo.rentItem);
-
             // front + back
-            // await axios.post(`/product/matching`,{
+            // await axios.post(`http://localhost:8080/product/matching`,{
             //     productId : data.id,
             //     rentUserId : userInfo.account.id,
             // })
@@ -54,7 +54,7 @@ export default function Payment() {
     }
 
     return (
-        <div className="flex flex-col pb-3 items-center justify-center w-screen h-screen">
+        <div className="flex flex-col pb-3 items-center justify-center w-screen h-screen bg-gray-400" style={{ backgroundImage: `url(${picture1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className="flex flex-col w-[550px] h-[550px] bg-white shadow-sharp rounded-md">
                 <div className="flex text-xl justify-center mt-8">
                     <strong>주문서</strong>

@@ -127,7 +127,7 @@ export const handlers = [
         startDate : "2023년 12월 8일",
         endDate : "2023년 12월 16일",
         imagePath : [
-            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0~spring.jpg",
+          "../assets/mockPicture/tent1.jpg",
             ],
         
       },
@@ -150,7 +150,7 @@ export const handlers = [
         startDate : "2023년 12월 8일",
         endDate : "2023년 12월 16일",
         imagePath : [
-            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0~spring.jpg",
+            "../assets/mockPicture/tent2.jpg",
             ],
         
       },
@@ -173,7 +173,7 @@ export const handlers = [
         startDate : "2023년 12월 8일",
         endDate : "2023년 12월 16일",
         imagePath : [
-            ".\\image\\2023\\12\\01\\fa110ccd-9e3e-4f83-bb12-9d8aff68fbf0~spring.jpg",
+            "../assets/mockPicture/tent3.jpg",
             ],
       },
     ])

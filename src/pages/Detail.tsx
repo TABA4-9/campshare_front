@@ -11,6 +11,8 @@ import { useRecoilState } from "recoil";
 import axios from "axios";
 import { userInfoAtom } from "../data/userInfoAtom";
 
+import moment from "moment";
+
 export default function Detail() {
     const navigate = useNavigate();
     const [campItem, setCampItem] = useRecoilState<CampingItemType[]>(campingItemAtom);
@@ -20,13 +22,8 @@ export default function Detail() {
     const data = location.state.item;
 
     // utc time => kor time
-    const today = new Date();
-    const utcTime = new Date().toISOString();
-    const kor = new Date(utcTime);
-    kor.setHours(kor.getHours()+9);
-    const formattedDate = today.toLocaleString('ko-KR',{
-        hour12 : false
-    });
+    const currentDateTime = new Date();
+    const formattedDateTime = moment(currentDateTime).format('YYYY-MM-DD HH:mm:ss');
 
     const checkLogin = () => {
         if (userInfo.account.name === '') {
@@ -68,7 +65,7 @@ export default function Detail() {
                 // only front testing code
                 await axios.post(`/detail/log`,{
                     userId : userInfo.account.id,
-                    detailPageLog : formattedDate,
+                    detailPageLog : formattedDateTime,
                 })
                 .then(response=>{setRecommandItem(response.data.recommandProduct)})
 
@@ -93,13 +90,17 @@ export default function Detail() {
                     <div>
                         <img className="w-[200px] h-[200px]" src={data.image} alt="camping item img"/>
                     </div>
-                    <div className="mt-2">
+                    <div className="flex flex-col mt-2">
                         <div>
-                            {data.name} ({data.brand && data.brand})
+                            {data.name}
+                            {data.brand && 
+                                (
+                                    <div>
+                                        {'('}{data.brand}{')'}
+                                    </div>
+                                )
+                            }
                         </div>
-                    </div>
-                    <div className="mt-2">
-                        {data.headcount}
                     </div>
                     <div className="mt-2">
                         {data.price}원
@@ -108,7 +109,7 @@ export default function Detail() {
                 <div className="flex w-full justify-between flex-col m-4">
                     <div>
                         <div className="flex w-full justify-between">
-                            <div>{data.postUserName} ({data.address})</div>
+                            <div> 대여자 : {data.postUserName} ({data.address})</div>
                             {
                                 data.postUserId === userInfo.account.id ? ( 
                                 <div className="flex">
@@ -120,16 +121,19 @@ export default function Detail() {
                             }                       
                         </div>
                         <div className="mt-2">
-                            {data.explanation}
+                            대여기간 : {data.startDate} ~ {data.endDate}
                         </div>
-                    </div>
+                            <div className="mt-2">
+                                {data.explanation}
+                            </div>
+                        </div>
                 </div>
                 <div className="flex flex-col justify-between m-4">
                     <div>대여 여부 : {data.isRented === true ? "불가능" : "가능"}</div>
                     <div className="flex justify-center">
                         <Stack spacing={2} direction="row">
                             {
-                                data.isRented === true ?
+                                ( data.isRented === true || data.postUserId === userInfo.account.id) ?
                                 <Button variant="outlined" disabled>빌리기</Button> : 
                                 <Button onClick={()=>checkLogin()} variant="outlined">빌리기</Button>
                             }

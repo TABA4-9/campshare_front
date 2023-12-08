@@ -14,7 +14,7 @@ export default function RentItemTable() {
                             상품 이름
                         </th>
                         <th scope="col" className="px-6 py-3">
-                            기간
+                            대여 기간
                         </th>
                         <th scope="col" className="px-6 py-3">
                             카테고리
@@ -33,7 +33,7 @@ export default function RentItemTable() {
                                         <Link to={`/detail/${item.id}`} state={{item : item}}>{item.name}</Link>
                                     </th>
                                     <td className="px-6 py-4">
-                                        {item.period}
+                                        {item.startDate} ~ {item.endDate}
                                     </td>
                                     <td className="px-6 py-4">
                                         {item.category}
