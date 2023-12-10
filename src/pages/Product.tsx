@@ -1,7 +1,5 @@
 import {useState, useEffect} from "react";
 
-import picture1 from '../assets/picture1.jpg';
-import picture4 from '../assets/picture4.jpg';
 import DropDownForm from '../components/form/DropDownForm';
 
 import { SelectChangeEvent } from '@mui/material/Select';
@@ -47,11 +45,11 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
-const itemFilterOption:dropwDownOption[] = [
-    { value: 'None', label: 'None'},
-    { value: '조회순', label: '조회순' },
-    { value: '최신순', label: '최신순' },
-]
+// const itemFilterOption:dropwDownOption[] = [
+//     { value: 'None', label: 'None'},
+//     { value: '조회순', label: '조회순' },
+//     { value: '최신순', label: '최신순' },
+// ]
 
 export default function Category() {
     const [campItem, setCampItem] = useRecoilState<CampingItemType[]>(campingItemAtom);
@@ -166,7 +164,7 @@ export default function Category() {
                 </div>
                 <div className="flex flex-col">
                     <strong>날짜 설정</strong>
-                    <button onClick={()=>setShowCalendar(true)} className="w-[300px] h-[50px] bg-gray-300 rounded-lg">{startDate} ~ {endDate}</button>
+                    <button onClick={()=>setShowCalendar(true)} className="w-[300px] h-[50px] bg-gray-300 rounded-lg mt-2">{startDate} ~ {endDate}</button>
                 </div>
                 {/* <div className="flex flex-col">
                     <StyledDropDownForm
@@ -185,13 +183,14 @@ export default function Category() {
                 <div className="flex flex-col ml-52 mb-16">
                     <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                            {    
+                            {   
                                 filteredCampItems().length !== 0 ? (filteredCampItems().map((item, index) => {
                                     return (
                                         <Grid item xs={2} sm={4} md={3} key={index}>
                                             <Item>
                                                 <div className="flex">
                                                     <div className="flex-col justify-start items-start flex">
+                                                        {/* <Link to={`/detail/${item.id}`} state={{item : item}}><img className="w-full h-[200px]" src={item.imagePath[0]} alt="camping item img"/></Link> */}
                                                         <Link to={`/detail/${item.id}`} state={{item : item}}><img className="w-full h-[200px]" src={item.image} alt="camping item img"/></Link>
                                                         <div className="text-stone-900 text-lg font-medium font-['Poppins']">{item.name}</div>
                                                         <div className="text-stone-900 text-opacity-50 text-lg font-medium font-['Poppins']">{item.price} ₩ / 일</div>

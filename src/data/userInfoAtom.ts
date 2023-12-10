@@ -9,6 +9,8 @@ export const userInfoAtom = atom<UserInfoType>({
             email : '',
         },
         kakaoAccessToken: '',
+        rentItem : [],
+        lendItem : [],
         // other properties based on your UserInfoType
     },
 })

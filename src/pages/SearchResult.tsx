@@ -9,7 +9,6 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
 import { useRecoilState } from "recoil";
-import { campingItemAtom } from "../data/campingItemAtom";
 import { Link, useSearchParams } from "react-router-dom";
 import SearchItem from "../components/SearchItem";
 import axios from "axios";
@@ -21,7 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-  }));
+}));
 
 export default function SearchResult() {
     const [campItem, setCampItem] = useState<CampingItemType[]>([]);
@@ -29,12 +28,6 @@ export default function SearchResult() {
 
     const [searchParams, setSearchParams] = useSearchParams();
     const searchFilter: string|null = searchParams?.get('searchInput');
-
-    console.log(searchFilter);
-
-    // const newCampingItem:CampingItemType[] = campItem.filter((item) => {
-    //     return searchFilter !== null ? item.name.includes(searchFilter) : false
-    // });
 
     const fetchData = async () => {
         try {
@@ -49,7 +42,7 @@ export default function SearchResult() {
 
     useEffect(()=>{
         fetchData();
-    }, [searchFilter])
+    }, [])
 
     return (
         <div className="flex flex-col px-10">

@@ -63,6 +63,7 @@ export default function Payment() {
                 <div className="flex flex-col w-full h-[130px] ml-4 mt-4">
                     <strong>상품 정보</strong>
                     <div className="flex mt-2">
+                        {/* <img className="w-[100px] h-[100px]" src={data.imagePath[0]} alt="camping item img"/> */}
                         <img className="w-[100px] h-[100px]" src={data.image} alt="camping item img"/>
                         <div className="flex flex-col">
                             <div className="flex h-full ml-4 items-center text-sm font-bold">{data.name}</div>
