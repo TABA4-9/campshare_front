@@ -45,12 +45,6 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
-// const itemFilterOption:dropwDownOption[] = [
-//     { value: 'None', label: 'None'},
-//     { value: '조회순', label: '조회순' },
-//     { value: '최신순', label: '최신순' },
-// ]
-
 export default function Category() {
     const [campItem, setCampItem] = useRecoilState<CampingItemType[]>(campingItemAtom);
     const [showCalendar, setShowCalendar] = useState<boolean>(false);
@@ -59,14 +53,7 @@ export default function Category() {
     const [endDate, setEndDate] = useState<string>("");
 
     const [categoryfilter, setCategoryFilter] = useState<string>("");
-    const [itemFilter, setItemFilter] = useState<string>("None");
     const category:string[] = ["텐트","캠핑 의자"];
-
-    // const onChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement> | SelectChangeEvent<string>) : void => {
-    //     setItemFilter(e.target.value);
-    // }
-
-    // console.log(moment(new Date()).format("YYYY[년] MM[월] DD[일]"));
 
     const handleClose = () => {
         setShowCalendar(false);
@@ -165,16 +152,6 @@ export default function Category() {
                     <strong>날짜 설정</strong>
                     <button onClick={()=>setShowCalendar(true)} className="w-[300px] h-[50px] bg-gray-300 rounded-lg mt-2">{startDate} ~ {endDate}</button>
                 </div>
-                {/* <div className="flex flex-col">
-                    <StyledDropDownForm
-                        title=""
-                        label="Sort"
-                        name="정렬"
-                        value={itemFilter}
-                        onChange={onChange}
-                        options={itemFilterOption}
-                    />
-                </div> */}
             </div>
 
             {/* content */}

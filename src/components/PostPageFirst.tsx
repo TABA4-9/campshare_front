@@ -58,15 +58,12 @@ export default function PostPageFirst({itemName, headcountItem, itemBrand, onCha
     const [showCalendar, setShowCalendar] = useState<boolean>(false);
     const [userPeriod, setUserPeriod] = useState<string>(startDate ? `${startDate} ~ ${endDate}` : "설정하기");
 
-    const handleUserPeriod = () => {
+    const handleClose = () => {
         if(startDate) {
             const newPeriod = `${startDate} ~ ${endDate}`;
             setUserPeriod(newPeriod)
             console.log(newPeriod)
         }
-    }
-
-    const handleClose = () => {
         setShowCalendar(false);
     }
 
@@ -118,7 +115,6 @@ export default function PostPageFirst({itemName, headcountItem, itemBrand, onCha
                     <strong className="text-base">대여 기간</strong>
                     <button onClick={()=> {
                         setShowCalendar(true)
-                        handleUserPeriod()
                     }} className="mt-3 text-xs border rounded-md border-solid border-gray-300 px-4 py-2 text-gray-700">
                         {userPeriod}
                     </button>
