@@ -113,7 +113,7 @@ export default function Posts() {
         }
 
 
-        await fetch('http://localhost:8080/post/submit', {
+        await fetch(apiUrl, {
             method : "POST",
             body : formDataList,
             headers : {
