@@ -189,8 +189,8 @@ export default function Category() {
                                             <Item>
                                                 <div className="flex">
                                                     <div className="flex-col justify-start items-start flex">
-                                                        {/* <Link to={`/detail/${item.id}`} state={{item : item}}><img className="w-full h-[200px]" src={item.imagePath[0]} alt="camping item img"/></Link> */}
-                                                        <Link to={`/detail/${item.id}`} state={{item : item}}><img className="w-full h-[200px]" src={item.image} alt="camping item img"/></Link>
+                                                        {
+                                                        <Link to={`/detail/${item.id}`} state={{item : item}}><img className="w-full h-[200px]" src={item.imagePath[0]} alt="camping item img"/></Link>}
                                                         <div className="text-stone-900 text-lg font-medium font-['Poppins']">{item.name}</div>
                                                         <div className="text-stone-900 text-opacity-50 text-lg font-medium font-['Poppins']">{item.price} ₩ / 일</div>
                                                     </div>
