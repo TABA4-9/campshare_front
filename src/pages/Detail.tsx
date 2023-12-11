@@ -48,8 +48,7 @@ export default function Detail() {
                 productId : data.id
             })
             .then(response => {
-                console.log(response);
-                setUserInfo(prev => ({    
+                setUserInfo(prev => ({
                     ...prev,
                     lendItem: response.data.lendItem
                 }));
@@ -69,7 +68,7 @@ export default function Detail() {
                     userId : userInfo.account.id,
                     detailPageLog : formattedDateTime,
                 })
-                .then(response=>{setRecommandItem(response.data.recommandProduct)})
+                .then(response=>{console.log(response); setRecommandItem(response.data)})
             } catch (error) {
                 console.error('로그를 게시하는 중 오류 발생:', error);
             }
