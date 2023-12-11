@@ -51,6 +51,7 @@ import chair3 from "../assets/mockPicture/chair3.jpg"
             endDate : "2023년 12월 16일",
             imagePath : [
             "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+            "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
             ],
           },
           {
@@ -73,6 +74,7 @@ import chair3 from "../assets/mockPicture/chair3.jpg"
             endDate : "2023년 12월 16일",
             imagePath : [
                 "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+                "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
                 ],
           },
           {
@@ -95,6 +97,7 @@ import chair3 from "../assets/mockPicture/chair3.jpg"
             endDate : "2023년 12월 16일",
             imagePath : [
             "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+            "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
             ],
           }
         ]
@@ -128,6 +131,7 @@ export const handlers = [
         endDate : "2023년 12월 16일",
         imagePath : [
             "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+            "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
             ],
         
       },
@@ -151,6 +155,7 @@ export const handlers = [
         endDate : "2023년 12월 16일",
         imagePath : [
             "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+            "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
             ],
         
       },
@@ -174,6 +179,7 @@ export const handlers = [
         endDate : "2023년 12월 16일",
         imagePath : [
             "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+            "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
             ],
       },
     ])
@@ -210,6 +216,7 @@ export const handlers = [
             endDate : "2023년 12월 16일",
             imagePath : [
             "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+            "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
             ],
             recommandProduct : [
               {
@@ -233,7 +240,8 @@ export const handlers = [
                 endDate : "2023년 12월 16일",
                 imagePath : [
                 "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
-                ],
+   
+   "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",           ],
               },
               {
                 id : 4,
@@ -277,7 +285,8 @@ export const handlers = [
                 endDate : "2023년 12월 16일",
                 imagePath : [
                 "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
-                ],
+   
+   "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",           ],
               }
             ],
           },
@@ -301,6 +310,7 @@ export const handlers = [
             endDate : "2023년 12월 16일",
             imagePath : [
             "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+            "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
             ],
           },
           {
@@ -323,6 +333,7 @@ export const handlers = [
             endDate : "2023년 12월 16일",
             imagePath : [
             "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+            "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
             ],
           },
         ],
@@ -347,6 +358,7 @@ export const handlers = [
             endDate : "2023년 12월 16일",
             imagePath : [
                 "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+                "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
                 ],
                 
           },
@@ -401,6 +413,7 @@ export const handlers = [
         endDate : "2023년 12월 16일",
         imagePath : [
             "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+            "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
             ],
         
       },
@@ -424,6 +437,7 @@ export const handlers = [
         endDate : "2023년 12월 16일",
         imagePath : [
             "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+            "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
             ],
       },
       {
@@ -446,6 +460,7 @@ export const handlers = [
         endDate : "2023년 12월 16일",
         imagePath : [
             "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+            "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
             ],
       },
       {
@@ -468,6 +483,7 @@ export const handlers = [
         endDate : "2023년 12월 16일",
         imagePath : [
             "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+            "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
             ],
         
       },
@@ -491,6 +507,7 @@ export const handlers = [
         endDate : "2023년 12월 16일",
         imagePath : [
             "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+            "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
             ],
         
       },
@@ -643,6 +660,7 @@ export const handlers = [
             endDate : "2023년 12월 16일",
             imagePath : [
             "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+            "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
             ],
           },
           {
@@ -665,6 +683,7 @@ export const handlers = [
             endDate : "2023년 12월 16일",
             imagePath : [
             "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+            "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
             ],
           },
           {
@@ -687,6 +706,7 @@ export const handlers = [
             endDate : "2023년 12월 16일",
             imagePath : [
             "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+            "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
             ],
           },
         ],
@@ -711,6 +731,7 @@ export const handlers = [
             endDate : "2023년 12월 16일",
             imagePath : [
                 "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/08/436de0f3-320e-4157-886a-8951b9c4065e~compressed_camp_icon.jpg",
+                "https://campshareimg.s3.ap-northeast-2.amazonaws.com/2023/12/10/c26575a5-6e8b-4525-8b2b-51b44f328cc5~spring.jpg",
                 ],
           },
         ],

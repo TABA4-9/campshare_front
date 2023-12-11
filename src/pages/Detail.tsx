@@ -104,6 +104,15 @@ export default function Detail() {
                     <div className="flex flex-col mt-2">
                         <div className="text-base">
                             <strong>{data.name}</strong>
+                            {
+                                data.postUserId === userInfo.account.id ? ( 
+                                <div className="flex">
+                                    <Link to={`/modify/${data.id}`} state={{item : data}}><div className="mr-3">수정</div></Link>
+                                    <button onClick={()=>DeleteProduct()}>삭제</button>
+                                </div> 
+                                ) :
+                                <div/>
+                            }
                         </div>
                         <div className="flex w-[400px] justify-between text-sm mt-4">
                             <div className=""><strong>대여자</strong></div>

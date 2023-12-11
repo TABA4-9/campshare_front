@@ -36,12 +36,11 @@ export default function Home() {
                 <div>
                     <div className="flex px-10">
                         {
-            
                             // 만약 index가 홀수라면 사진 padding or margin을 다르게 줘서 위아래로 만들기
                             campItem.map((item,index)=>{
                                 return (
                                     <div className={`w-[299px] h-[380px] bg-white border border-white flex-col justify-start items-start gap-3 inline-flex ${index % 2 === 0 && 'pt-14'}`}>
-                                        <Link to={`/detail/${item.id}`} state={{item : item}}><img className="w-[200px] h-[200px]" src={item.imagePath[0]} alt="camping item img"/></Link>
+                                        <Link to={`/detail/${item.id}`} state={{item : item}}><img className="w-[200px] h-[200px]" src={item.image} alt="camping item img"/></Link>
                                         <div className="flex-col justify-start items-start flex">
                                             <div className="text-stone-900 text-lg font-medium font-['Poppins']">{item.name}</div>
                                             <div className="text-stone-900 text-opacity-50 text-lg font-medium font-['Poppins']">{item.price} ₩ / 일</div>
