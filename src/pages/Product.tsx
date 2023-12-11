@@ -78,7 +78,7 @@ export default function Category() {
             let formattedItemStartDate:string = item.startDate.replace(/년|월/g, '-').replace('일', '');
             let formattedItemEndDate:string = item.endDate.replace(/년|월/g, '-').replace('일', '');
             let formattedUserStartDate:string = startDate.replace(/년|월/g, '-').replace('일', '');
-            let formattedUserEndDate:string = endDate.replace(/년|월/g, '-').replace('일', '');
+            let formattedUserEndDate:string = endDate?.replace(/년|월/g, '-').replace('일', '');
 
 
             const itemStartDate = new Date(formattedItemStartDate);

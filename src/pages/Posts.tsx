@@ -7,6 +7,8 @@ import {useState, useEffect} from "react";
 
 import { SelectChangeEvent } from '@mui/material/Select';
 
+import {useNavigate } from 'react-router-dom';
+
 import moment from "moment";
 
 import PostPageFirst from "../components/PostPageFirst";
@@ -17,6 +19,7 @@ import { useRecoilState } from 'recoil';
 import { userInfoAtom } from '../data/userInfoAtom';
 
 export default function Posts() {
+    const navigate = useNavigate();
     const urlLocation = useLocation();
     const urlPathname:string = urlLocation.pathname;
 
@@ -59,6 +62,11 @@ export default function Posts() {
 
     const productSubmit = async (e : React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
+
+        if(!modifyFilePath && fileList.length === 0) {
+            alert("사진을 등록해주세요.");
+            return ;
+         }
 
         // fileList to formData
         const formDataList = new FormData();  // formDataList 생성
@@ -119,11 +127,12 @@ export default function Posts() {
             return res.json();
         })
         .then(data => {
-            console.log(data)
             setUserInfo(prev => ({
                 ...prev,
                 lendItem: data.lendItem  // 여기를 수정
             }));
+            alert("상품 등록이 완료되었습니다.");
+            navigate("/");
         })
         .catch(err => {
             console.log(err);
