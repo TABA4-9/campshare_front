@@ -41,7 +41,7 @@ export default function SearchResult() {
 
     useEffect(()=>{
         fetchData();
-    }, [])
+    }, [campItem])
 
     return (
         <div className="flex flex-col px-10">
