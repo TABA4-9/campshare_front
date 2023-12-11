@@ -18,7 +18,6 @@ import moment from "moment";
 
 export default function Detail() {
     const navigate = useNavigate();
-    const [campItem, setCampItem] = useRecoilState<CampingItemType[]>(campingItemAtom);
     const [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
     const [recommandItem, setRecommandItem] = useState<CampingItemType[]>([]);
     const location = useLocation();
@@ -27,6 +26,10 @@ export default function Detail() {
     // utc time => kor time
     const currentDateTime = new Date();
     const formattedDateTime = moment(currentDateTime).format('YYYY-MM-DD HH:mm:ss');
+
+    const newImagePathArr: string[] = data.imagePath.filter((element: string) => element !== null);
+    console.log("이미지 몇개")
+    console.log(newImagePathArr.length);
 
     const checkLogin = () => {
         if (userInfo.account.name === '') {
@@ -48,7 +51,8 @@ export default function Detail() {
                 productId : data.id
             })
             .then(response => {
-                setUserInfo(prev => ({
+                console.log(response);
+                setUserInfo(prev => ({    
                     ...prev,
                     lendItem: response.data.lendItem
                 }));
@@ -68,7 +72,7 @@ export default function Detail() {
                     userId : userInfo.account.id,
                     detailPageLog : formattedDateTime,
                 })
-                .then(response=>{console.log(response); setRecommandItem(response.data)})
+                .then(response=>{console.log(response.data); setRecommandItem(response.data)})
             } catch (error) {
                 console.error('로그를 게시하는 중 오류 발생:', error);
             }
@@ -82,13 +86,17 @@ export default function Detail() {
             <div className="flex justify-around w-full h-full">
                 <div className="flex flex-col m-4">
                     <div>
-                        <Carousel navButtonsAlwaysInvisible={data.imagePath.length < 2}  className="w-[500px] h-[500px]">
                         {
-                            data.imagePath.map((item:string, index:number) => (
-                                <img className="w-[500px] h-[500px]" src={item} alt="camping item img" key={index} />
-                            ))
-                        } 
-                        </Carousel>
+                            newImagePathArr.length >= 2 ? (
+                                <Carousel autoPlay={false} className="w-[500px] h-[500px]">
+                                {
+                                    newImagePathArr.map((item:string, index:number) => (
+                                        <img className="w-[500px] h-[500px]" src={item} alt="camping item img" key={index} />
+                                    ))
+                                }
+                                </Carousel>
+                            ) : <img className="w-[500px] h-[500px]" src={data.imagePath[0]} alt="camping item img" />
+                        }
                     </div>
                 </div>
                 <div className="flex mt-16 w-[40%] h-full flex-col m-4 pr-8">
