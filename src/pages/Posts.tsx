@@ -120,6 +120,10 @@ export default function Posts() {
         })
         .then(data => {
             console.log(data)
+            setUserInfo(prev => ({
+                ...prev,
+                lendItem: data.lendItem  // 여기를 수정
+            }));
         })
         .catch(err => {
             console.log(err);
