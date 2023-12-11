@@ -147,7 +147,7 @@ export default function Detail() {
                                 <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                     <Link to={`/detail/${item.id}`} state={{item : item}}><img className="rounded-t-lg" src={`${item.imagePath[0]}`} alt="recommandImage" /></Link>
                                     <div className="p-5">
-                                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.name} ({data.brand && data.brand})</h5>
+                                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.name}</h5>
                                         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.headcount}</p>
                                         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.price}원</p>
                                     </div>
