@@ -84,7 +84,7 @@ export default function Detail() {
                                 <img className="w-[500px] h-[500px]" src={item} alt="camping item img" key={index} />
                             ))
                         } 
-                         </Carousel>
+                        </Carousel>
                     </div>
                 </div>
                 <div className="flex mt-16 w-[40%] h-full flex-col m-4 pr-8">
