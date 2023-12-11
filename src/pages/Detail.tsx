@@ -47,9 +47,14 @@ export default function Detail() {
             await axios.post(`http://localhost:8080/product/delete`,{
                 productId : data.id
             })
-            .then(response=>{console.log(response)})
-
-            alert("삭제가 완료되었습니다.")
+            .then(response => {
+                console.log(response);
+                setUserInfo(prev => ({    
+                    ...prev,
+                    lendItem: response.data.lendItem
+                }));
+            })
+            alert("삭제가 완료되었습니다.");
             navigate("/");
         } catch (error) {
             console.error('게시글 삭제 에러', error);
