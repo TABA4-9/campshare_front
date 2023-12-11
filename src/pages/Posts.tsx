@@ -95,19 +95,17 @@ export default function Posts() {
         formDataList.append('isRented', String(false));
 
 
-        // let apiUrl = 'http://localhost:8080/post/submit';
-        let apiUrl = '/post/submit';
+        let apiUrl = 'http://localhost:8080/post/submit';
+
 
         
         if(urlPathname !== "/posts") {
-            // apiUrl = 'http://localhost:8080/product/update';
-            apiUrl = '/product/update';
+            apiUrl = 'http://localhost:8080/product/update';
             formDataList.append('id', String(urlLocation.state.item.id));
         }
 
 
-        // await fetch('http://localhost:8080/post/submit', {
-        await fetch(apiUrl, {
+        await fetch('http://localhost:8080/post/submit', {
             method : "POST",
             body : formDataList,
             headers : {
@@ -132,9 +130,7 @@ export default function Posts() {
         if(page === 1) {
             setPage(2);
             try {
-                // await axios.post('http://localhost:8080/post/nextPage', {
-                // only front testing code
-                await axios.post('/post/nextPage',{
+                await axios.post('http://localhost:8080/post/nextPage', {
                     name : itemName,
                     startDate,
                     endDate,

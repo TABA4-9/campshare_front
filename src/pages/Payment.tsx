@@ -25,29 +25,17 @@ export default function Payment() {
         // 확인을 누르면 서버에 rent되었음을 전송해야겠네
         // id값을 기반으로 찾아서 isRented 값을 true로 변경(이건 서버에서 하는 일이고 나는 그냥 해당 상품 id 보내면 될듯)
         try {
-            // only front testing code
-            await axios.post(`/product/matching`,{
+            // front + back
+            await axios.post(`http://localhost:8080/product/matching`,{
                 productId : data.id,
                 rentUserId : userInfo.account.id,
             })
             .then(response => {
                 setUserInfo(prev => ({
                     ...prev,
-                    rentItem: response.data.rentItem
+                    rentItem: response.data.rentItem  // 여기를 수정
                 }));
             })
-
-            // front + back
-            // await axios.post(`http://localhost:8080/product/matching`,{
-            //     productId : data.id,
-            //     rentUserId : userInfo.account.id,
-            // })
-            // .then(response => {
-            //     setUserInfo(prev => ({
-            //         ...prev,
-            //         rentItem: response.data.rentItem  // 여기를 수정
-            //     }));
-            // })
         } catch (error) {
             console.error(':', error);
         }

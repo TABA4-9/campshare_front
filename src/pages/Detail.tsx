@@ -43,17 +43,11 @@ export default function Detail() {
 
     const DeleteProduct = async () => {
         try {
-            // only front testing code
-            await axios.post(`/product/delete`,{
+            // front + back
+            await axios.post(`http://localhost:8080/product/delete`,{
                 productId : data.id
             })
             .then(response=>{console.log(response)})
-
-            // front + back
-            // await axios.post(`http://localhost:8080/product/delete`,{
-            //     productId : data.id
-            // })
-            // .then(response=>{console.log(response)})
 
             alert("삭제가 완료되었습니다.")
             navigate("/");
@@ -65,19 +59,12 @@ export default function Detail() {
     useEffect(()=>{
         const postLog = async () => {
             try {
-                // only front testing code
-                await axios.post(`/detail/log`, {
+                // front + back
+                await axios.post(`http://localhost:8080/detail/${data.id}`,{
                     userId : userInfo.account.id,
                     detailPageLog : formattedDateTime,
                 })
                 .then(response=>{setRecommandItem(response.data.recommandProduct)})
-
-                // front + back
-                // await axios.post(`http://localhost:8080/detail/${data.id}`,{
-                //     userId : userInfo.id,
-                //     detailPageLog : formattedDate,
-                // })
-                // .then(response=>{console.log(response)})
             } catch (error) {
                 console.error('로그를 게시하는 중 오류 발생:', error);
             }
