@@ -27,6 +27,10 @@ export default function Detail() {
     const currentDateTime = new Date();
     const formattedDateTime = moment(currentDateTime).format('YYYY-MM-DD HH:mm:ss');
 
+    const newImagePathArr: string[] = data.imagePath.filter((element: string) => element !== null);
+    console.log("이미지 몇개")
+    console.log(newImagePathArr.length);
+
     const checkLogin = () => {
         if (userInfo.account.name === '') {
             alert("로그인 후 이용 가능한 서비스입니다.");
@@ -47,7 +51,8 @@ export default function Detail() {
                 productId : data.id
             })
             .then(response => {
-                setUserInfo(prev => ({
+                console.log(response);
+                setUserInfo(prev => ({    
                     ...prev,
                     lendItem: response.data.lendItem
                 }));
@@ -67,7 +72,7 @@ export default function Detail() {
                     userId : userInfo.account.id,
                     detailPageLog : formattedDateTime,
                 })
-                .then(response=>{console.log(response.data.recommandProduct); setRecommandItem(response.data.recommandProduct)})
+                .then(response=>{console.log(response.data); setRecommandItem(response.data)})
             } catch (error) {
                 console.error('로그를 게시하는 중 오류 발생:', error);
             }
@@ -81,13 +86,17 @@ export default function Detail() {
             <div className="flex justify-around w-full h-full">
                 <div className="flex flex-col m-4">
                     <div>
-                        <Carousel navButtonsAlwaysInvisible={data.imagePath.length < 2}  className="w-[500px] h-[500px]">
                         {
-                            data.imagePath.map((item:string, index:number) => (
-                                <img className="w-[500px] h-[500px]" src={item} alt="camping item img" key={index} />
-                            ))
-                        } 
-                        </Carousel>
+                            newImagePathArr.length >= 2 ? (
+                                <Carousel autoPlay={false} className="w-[500px] h-[500px]">
+                                {
+                                    newImagePathArr.map((item:string, index:number) => (
+                                        <img className="w-[500px] h-[500px]" src={item} alt="camping item img" key={index} />
+                                    ))
+                                }
+                                </Carousel>
+                            ) : <img className="w-[500px] h-[500px]" src={data.imagePath[0]} alt="camping item img" />
+                        }
                     </div>
                 </div>
                 <div className="flex mt-16 w-[40%] h-full flex-col m-4 pr-8">
@@ -146,7 +155,7 @@ export default function Detail() {
                                 <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                     <Link to={`/detail/${item.id}`} state={{item : item}}><img className="rounded-t-lg" src={`${item.imagePath[0]}`} alt="recommandImage" /></Link>
                                     <div className="p-5">
-                                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.name} ({data.brand && data.brand})</h5>
+                                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.name}</h5>
                                         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.headcount}</p>
                                         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.price}원</p>
                                     </div>
