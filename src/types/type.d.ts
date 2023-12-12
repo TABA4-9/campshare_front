@@ -11,7 +11,7 @@ type CampingItemType = {
     price : string,
     address : string,
     userName : string,
-    isLended : boolean,
+    isRented : boolean,
     postUserId : number,
     recommandItem : CampingItemType[],
     imagePath : string[],

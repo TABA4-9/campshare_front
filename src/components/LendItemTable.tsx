@@ -50,7 +50,7 @@ export default function LendItemTable() {
                                         {item.price}원
                                     </td>
                                     <td className="px-6 py-4">
-                                        {item.isLended === true ? "대여 중" : "대여 가능"}
+                                        {item.isRented === true ? "대여 중" : "대여 가능"}
                                     </td>
                                     <td className="px-6 py-4">
                                         <Link to={`/modify/${item.id}`} state={{item : item}}><div className="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-3">Edit</div></Link>
