@@ -155,7 +155,7 @@ export default function Category() {
             </div>
 
             {/* content */}
-            <div>
+            <div className="">
                 <div className="flex flex-col ml-52 mb-16">
                     <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -165,11 +165,13 @@ export default function Category() {
                                         <Grid item xs={2} sm={4} md={3} key={index}>
                                             <Item>
                                                 <div className="flex">
-                                                    <div className="flex-col justify-start items-start flex">
+                                                    <div className="flex-col justify-start items-start flex ">
                                                         {
-                                                        <Link to={`/detail/${item.id}`} state={{item : item}}><img className="w-full h-[200px]" src={item.imagePath[0]} alt="camping item img"/></Link>}
-                                                        <div className="text-stone-900 text-lg font-medium font-['Poppins']">{item.name}</div>
-                                                        <div className="text-stone-900 text-opacity-50 text-lg font-medium font-['Poppins']">{item.price} ₩ / 일</div>
+                                                        <Link to={`/detail/${item.id}`} state={{item : item}}><img className="object-cover w-[260px] h-[200px]" src={item.imagePath[0]} alt="camping item img"/></Link>}
+                                                        <div className="w-full h-full flex flex-col justify-center items-center mt-2">
+                                                            <div className="text-stone-900 text-lg font-medium font-['Poppins']">{item.name}</div>
+                                                            <div className="text-stone-900 text-opacity-50 text-lg font-medium font-['Poppins']">{item.price} ₩ / 일</div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </Item>
