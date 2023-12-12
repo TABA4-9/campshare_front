@@ -133,11 +133,13 @@ export default function Detail() {
                             <div className=""><strong>상세 설명</strong></div>
                             <div className="mt-2">{data.explanation}</div>
                         </div>
-                        <div className="mt-4">
-                            <div className="cursor-pointer flex justify-center items-center w-full h-[58px] bg-zinc-300 rounded-[10px] border border-zinc-300">
-                                <div onClick={()=>checkLogin()}><strong>대여 하기</strong></div>
-                            </div>
-                        </div>
+                        {
+                            data.postUserId !== userInfo.account.id ? ( <div className="mt-4">
+                                <div onClick={()=>checkLogin()} className="cursor-pointer flex justify-center items-center w-full h-[58px] bg-zinc-300 rounded-[10px] border border-zinc-300">
+                                    <div><strong>대여 하기</strong></div>
+                                </div>
+                            </div> ) : null
+                        }
                     </div>
                 </div>
             </div>       
