@@ -109,10 +109,6 @@ export default function Posts() {
             formDataList.append('id', String(urlLocation.state.item.id));
         }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 9f9fe982ab0eabef0a879fc023c80e60a956259b
         await fetch(apiUrl, {
             method : "POST",
             body : formDataList,
