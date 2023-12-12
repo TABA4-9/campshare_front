@@ -27,20 +27,20 @@ export default function Home() {
         <div className="flex flex-col px-10">
             <SearchItem/>
 
-            <div className="flex justify-center mt-16">
-                <div className="flex flex-col">
-                    <div className="font-bold text-3xl pb-5">대여 가능 용품</div>
+            <div className="flex w-full justify-center my-16">
+                <div className="flex flex-col pt-16">
+                    <div className="font-bold text-3xl pb-5 mr-8">대여 가능 용품</div>
                     <Link to="/product"><button type="button" className="w-[120px] text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">더보기 <FontAwesomeIcon icon={faArrowRight} /></button></Link>
                 </div>
                 <div>
-                    <div className="flex px-10">
+                    <div className="flex px-10 w-full mb-16">
                         {
                             // 만약 index가 홀수라면 사진 padding or margin을 다르게 줘서 위아래로 만들기
                             campItem.map((item,index)=>{
                                 return (
-                                    <div className={`w-[299px] h-[380px] bg-white border border-white flex-col justify-start items-start gap-3 inline-flex pt-14`}>
-                                        <Link to={`/detail/${item.id}`} state={{item : item}}><img className="w-[200px] h-[200px]" src={item.imagePath[0]} alt="camping item img"/></Link>
-                                        <div className="flex-col justify-start items-start flex">
+                                    <div className={`w-[300px] h-[200px] flex-col justify-start items-start gap-3 inline-flex pr-24`}>
+                                        <Link to={`/detail/${item.id}`} state={{item : item}}><img className="w-[300px] h-[200px]" src={item.imagePath[0]} alt="camping item img"/></Link>
+                                        <div className="flex-col w-full justify-center items-center flex">
                                             <div className="text-stone-900 text-lg font-medium font-['Poppins']">{item.name}</div>
                                             <div className="text-stone-900 text-opacity-50 text-lg font-medium font-['Poppins']">{item.price} ₩ / 일</div>
                                         </div>

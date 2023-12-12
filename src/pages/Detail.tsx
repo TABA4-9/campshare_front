@@ -28,8 +28,6 @@ export default function Detail() {
     const formattedDateTime = moment(currentDateTime).format('YYYY-MM-DD HH:mm:ss');
 
     const newImagePathArr: string[] = data.imagePath.filter((element: string) => element !== null);
-    console.log("이미지 몇개")
-    console.log(newImagePathArr.length);
 
     const checkLogin = () => {
         if (userInfo.account.name === '') {
@@ -79,7 +77,7 @@ export default function Detail() {
         };
         window.scrollTo(0, 0);
         postLog();
-    },[])
+    },[data])
 
     return (
         <div className="flex flex-col px-10">
@@ -153,8 +151,8 @@ export default function Detail() {
                         recommandItem.map((item:CampingItemType,index:number)=>{
                             return (
                                 <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                    <Link to={`/detail/${item.id}`} state={{item : item}}><img className="rounded-t-lg" src={`${item.imagePath[0]}`} alt="recommandImage" /></Link>
-                                    <div className="p-5">
+                                    <Link to={`/detail/${item.id}`} state={{item : item}}><img className="object-cover w-[250px] h-[200px] rounded-t-lg" src={`${item.imagePath[0]}`} alt="recommandImage" /></Link>
+                                    <div className="p-5 text-center">
                                         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.name}</h5>
                                         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.headcount}</p>
                                         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.price}원</p>

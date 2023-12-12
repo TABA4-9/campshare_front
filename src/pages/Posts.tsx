@@ -66,7 +66,7 @@ export default function Posts() {
         if(!modifyFilePath && fileList.length === 0) {
             alert("사진을 등록해주세요.");
             return ;
-         }
+        }
 
         // fileList to formData
         const formDataList = new FormData();  // formDataList 생성
@@ -102,17 +102,17 @@ export default function Posts() {
         formDataList.append('postUserId', String(userInfo?.account.id));
         formDataList.append('isRented', String(false));
 
-
         let apiUrl = 'http://localhost:8080/post/submit';
-
-
         
         if(urlPathname !== "/posts") {
             apiUrl = 'http://localhost:8080/product/update';
             formDataList.append('id', String(urlLocation.state.item.id));
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9f9fe982ab0eabef0a879fc023c80e60a956259b
         await fetch(apiUrl, {
             method : "POST",
             body : formDataList,
