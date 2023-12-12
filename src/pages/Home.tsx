@@ -41,8 +41,8 @@ export default function Home() {
                                     <div className={`w-[300px] h-[200px] flex-col justify-start items-start gap-3 inline-flex pr-24`}>
                                         <Link to={`/detail/${item.id}`} state={{item : item}}><img className="w-[300px] h-[200px]" src={item.imagePath[0]} alt="camping item img"/></Link>
                                         <div className="flex-col w-full justify-center items-center flex">
-                                            <div className="text-stone-900 text-lg font-medium font-['Poppins']">{item.name}</div>
-                                            <div className="text-stone-900 text-opacity-50 text-lg font-medium font-['Poppins']">{item.price} ₩ / 일</div>
+                                            <div className="text-stone-900 text-base font-['Poppins']"><strong>{item.name}</strong></div>
+                                            <div className="text-stone-900 text-opacity-50 text-base font-['Poppins']">{item.price} ₩ / 일</div>
                                         </div>
                                     </div>
                                 )

@@ -100,7 +100,7 @@ export default function Detail() {
                 <div className="flex mt-16 w-[40%] h-full flex-col m-4 pr-8">
                     <div className="flex flex-col mt-2">
                         <div className="text-base">
-                            <strong>{data.name}</strong>
+                            <div className="text-lg"><strong>{data.name}</strong></div>
                             {
                                 data.postUserId === userInfo.account.id ? ( 
                                 <div className="flex">
@@ -151,9 +151,9 @@ export default function Detail() {
                         recommandItem.map((item:CampingItemType,index:number)=>{
                             return (
                                 <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                    <Link to={`/detail/${item.id}`} state={{item : item}}><img className="object-cover w-[250px] h-[200px] rounded-t-lg" src={`${item.imagePath[0]}`} alt="recommandImage" /></Link>
+                                    <Link to={`/detail/${item.id}`} state={{item : item}}><img className="object-cover w-[300px] h-[200px] rounded-t-lg" src={`${item.imagePath[0]}`} alt="recommandImage" /></Link>
                                     <div className="p-5 text-center">
-                                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.name}</h5>
+                                        <h5 className="mb-2 text-base font-bold tracking-tight text-gray-900 dark:text-white">{item.name}</h5>
                                         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.headcount}</p>
                                         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.price}원</p>
                                     </div>

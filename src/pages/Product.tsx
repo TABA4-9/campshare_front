@@ -165,12 +165,12 @@ export default function Category() {
                                         <Grid item xs={2} sm={4} md={3} key={index}>
                                             <Item>
                                                 <div className="flex">
-                                                    <div className="flex-col justify-start items-start flex ">
+                                                    <div className="flex-col justify-start items-start flex">
                                                         {
                                                         <Link to={`/detail/${item.id}`} state={{item : item}}><img className="object-cover w-[260px] h-[200px]" src={item.imagePath[0]} alt="camping item img"/></Link>}
                                                         <div className="w-full h-full flex flex-col justify-center items-center mt-2">
-                                                            <div className="text-stone-900 text-lg font-medium font-['Poppins']">{item.name}</div>
-                                                            <div className="text-stone-900 text-opacity-50 text-lg font-medium font-['Poppins']">{item.price} ₩ / 일</div>
+                                                            <div className="text-stone-900 text-base font-medium font-['Poppins']"><strong>{item.name}</strong></div>
+                                                            <div className="text-stone-900 text-opacity-50 text-base font-medium font-['Poppins']">{item.price} ₩ / 일</div>
                                                         </div>
                                                     </div>
                                                 </div>
