@@ -34,6 +34,7 @@ export default function Detail() {
             alert("로그인 후 이용 가능한 서비스입니다.");
             return ;
         }
+        if(data.isRented === true) alert("이미 대여중인 상품입니다.");
         else {
             navigate(`/payment/${data.id}`, {
                 // props로 받는 list 스테이트를 넘겨준다.
