@@ -100,7 +100,7 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
                     </button>
                 </div>
                 <div className="flex flex-col pt-4">
-                    <strong className="text-base pb-3">가격</strong>
+                    <strong className="text-base pb-3">가격 (1박 당)</strong>
                     <FormControl size="small" variant="outlined">
                         <OutlinedInput
                             name="PriceItem"
