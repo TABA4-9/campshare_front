@@ -16,7 +16,7 @@ export default function Home() {
 
     useEffect(()=>{
         // 따로 3개의 item만 받는 것으로 변경.
-        fetch("http://localhost:8080/product/data/main")
+        fetch("http://43.200.250.149:8080/product/data/main")
         .then(res=>res.json())
         .then(data=>{
             setCampItem(data)

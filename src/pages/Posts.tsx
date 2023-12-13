@@ -102,10 +102,10 @@ export default function Posts() {
         formDataList.append('postUserId', String(userInfo?.account.id));
         formDataList.append('isRented', String(false));
 
-        let apiUrl = 'http://localhost:8080/post/submit';
+        let apiUrl = 'http://43.200.250.149:8080/post/submit';
         
         if(urlPathname !== "/posts") {
-            apiUrl = 'http://localhost:8080/product/update';
+            apiUrl = 'http://43.200.250.149:8080/product/update';
             formDataList.append('id', String(urlLocation.state.item.id));
         }
 
@@ -139,7 +139,7 @@ export default function Posts() {
         if(page === 1) {
             setPage(2);
             try {
-                await axios.post('http://localhost:8080/post/nextPage', {
+                await axios.post('http://43.200.250.149:8080/post/nextPage', {
                     name : itemName,
                     startDate,
                     endDate,

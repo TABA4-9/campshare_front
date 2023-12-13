@@ -31,7 +31,7 @@ export default function SearchResult() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/product/data/search?searchInput=${searchFilter}`);
+            const response = await axios.get(`http://43.200.250.149:8080/product/data/search?searchInput=${searchFilter}`);
             const data = response.data;
             setCampItem(data);
         } catch (error) {

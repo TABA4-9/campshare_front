@@ -46,7 +46,7 @@ export default function Detail() {
     const DeleteProduct = async () => {
         try {
             // front + back
-            await axios.post(`http://localhost:8080/product/delete`,{
+            await axios.post(`http://43.200.250.149:8080/product/delete`,{
                 productId : data.id
             })
             .then(response => {
@@ -67,7 +67,7 @@ export default function Detail() {
         const postLog = async () => {
             try {
                 // front + back
-                await axios.post(`http://localhost:8080/detail/${data.id}`,{
+                await axios.post(`http://43.200.250.149:8080/detail/${data.id}`,{
                     userId : userInfo.account.id,
                     detailPageLog : formattedDateTime,
                 })

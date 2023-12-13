@@ -26,7 +26,7 @@ export default function Payment() {
         // id값을 기반으로 찾아서 isRented 값을 true로 변경(이건 서버에서 하는 일이고 나는 그냥 해당 상품 id 보내면 될듯)
         try {
             // front + back
-            await axios.post(`http://localhost:8080/product/matching`,{
+            await axios.post(`http://43.200.250.149:8080/product/matching`,{
                 productId : data.id,
                 rentUserId : userInfo.account.id,
             })
