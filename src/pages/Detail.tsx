@@ -117,7 +117,7 @@ export default function Detail() {
                             <div className="">{data.postUserName}</div>
                         </div>
                         <div className="flex w-[400px] justify-between text-sm mt-4">
-                            <div className=""><strong>대여가</strong></div>  
+                            <div className=""><strong>대여가 (1박 당)</strong></div>
                             <div className="">{data.price}원</div>
                         </div>
                         <div className="flex w-[400px] justify-between text-sm mt-4">
@@ -127,6 +127,10 @@ export default function Detail() {
                         <div className="flex w-[400px] justify-between text-sm mt-4">
                             <div className=""><strong>대여 가능 기간</strong></div>
                             <div className="">{data.startDate} ~ {data.endDate}</div>
+                        </div>
+                        <div className="flex w-[400px] justify-between text-sm mt-4">
+                            <div className=""><strong>거래 희망 주소</strong></div>
+                            <div className="">{data.address}</div>
                         </div>
                         <div className="mt-4 mb-4 w-full h-[0px] border border-black"/>
                         <div className="flex flex-col w-full justify-between text-sm">

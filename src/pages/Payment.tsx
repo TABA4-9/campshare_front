@@ -19,6 +19,12 @@ export default function Payment() {
     const location = useLocation();
     const data = location.state.item;
 
+    // total price 계산을 위한 일 수 계산
+    let startDate = new Date(data?.startDate.replace(/년|월/g, '-').replace('일', '').trim());
+    let endDate =   new Date(data?.endDate.replace(/년|월/g, '-').replace('일', '').trim());
+    let timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
+    let rentDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
     const [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
 
     const rentCheck = async () => {
@@ -55,6 +61,7 @@ export default function Payment() {
                         <div className="flex flex-col">
                             <div className="flex h-full ml-4 items-center text-sm font-bold">{data.name}</div>
                             <div className="flex h-full ml-4 items-center text-sm font-bold">대여기간 : {data.startDate} ~ {data.endDate}</div>
+                            <div className="flex h-full ml-4 items-center text-sm font-bold">거래 희망 주소 : {data.address}</div>
                         </div>
                     </div>
                 </div>
@@ -99,9 +106,12 @@ export default function Payment() {
                     </div>
                 </div>
                 <div className="flex mt-4 justify-center w-[550px] h-[0px] border border-zinc-400"/>
-                <div className="flex h-full items-center justify-center w-full">
+                <div className="flex h-full flex-col items-center justify-center w-full">
+                    <div className="text-sm text-slate-400 pb-2">
+                        서비스 수수료(5%)가 포함된 가격입니다
+                    </div>
                     <div className="h-[50px] w-[300px] bg-gray-300" style={{borderRadius : "30px"}}>
-                        <div onClick={()=>{rentCheck()}} className="text-center mt-3 font-medium"><Link to='/completePay'><strong>{data.price}원 결제하기</strong></Link></div>
+                        <div onClick={()=>{rentCheck()}} className="text-center mt-3 font-medium"><Link to='/completePay'><strong>{Math.round((rentDays * data.price)*1.05)}원 결제하기</strong></Link></div>
                     </div>
                 </div>
             </div>
