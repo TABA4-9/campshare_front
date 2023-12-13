@@ -13,6 +13,7 @@ import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import UploadFileModal from "./form/modal/UploadFileModal";
+import { useLocation } from "react-router-dom";
 
 
 interface propsType {
@@ -33,6 +34,9 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
     const [showDetailModal, setShowDetailModal] = useState<boolean>(false);
     const [showUploadFileModal, setShowUploadFileModal] = useState<boolean>(false);
     const [explanation, setExplnation] = useState<string>(DetailItem ? DetailItem.slice(0,8) + "..." : "입력하기...");
+
+    const urlLocation = useLocation();
+    const urlPathname:string = urlLocation.pathname;
 
     const closeDetailModal = () => {
         setShowDetailModal(false);
@@ -129,7 +133,7 @@ export default function PostPageSec({DetailItem, itemPrice, handlePage, onChange
                 <button 
                     onClick={(e)=>productSubmit(e)} 
                     className="text-purple-700 w-full hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900">
-                        상품 등록
+                        {urlPathname === "/posts" ? "상품 등록" : "상품 수정"}
                 </button>
                 <Button variant="outlined" onClick={()=> handlePage()}>
                     <FontAwesomeIcon className="text-[20px] text-black" icon={faArrowLeft} />

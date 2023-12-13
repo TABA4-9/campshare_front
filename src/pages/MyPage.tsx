@@ -24,7 +24,7 @@ export default function MyPage() {
                     (myPageComponent === "등록 상품") && <LendItem/>
                 }
                 {
-                    (myPageComponent === "대여 상품") && <RentItem/>
+                    (myPageComponent === "이용 중인 상품") && <RentItem/>
                 }
             </div>
         </div>

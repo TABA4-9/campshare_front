@@ -31,7 +31,7 @@ export default function Kakaoauth() {
                 }
             );
             console.log("response");
-            console.log(response)
+            console.log(response);
             const accessToken = response.data.kakaoAccessToken;
             console.log("accessToken:", accessToken);
             console.log(response.data.account);
