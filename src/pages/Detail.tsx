@@ -34,7 +34,7 @@ export default function Detail() {
             alert("로그인 후 이용 가능한 서비스입니다.");
             return ;
         }
-        if(data.isRented === true) alert("이미 대여중인 상품입니다.");
+        if(data.isRented === true) alert("이미 대여 중인 상품입니다.");
         else {
             navigate(`/payment/${data.id}`, {
                 // props로 받는 list 스테이트를 넘겨준다.
@@ -145,7 +145,7 @@ export default function Detail() {
             </div>       
             <div className="flex w-full flex-col mt-8">
                 <div>
-                    이런게 필요하진 않으세요?
+                    이런 게 필요하지는 않으세요?
                 </div>
                 <div className="flex my-4 mb-8 justify-around w-full">
                     {

@@ -127,7 +127,10 @@ export default function Posts() {
                 ...prev,
                 lendItem: data.lendItem  // 여기를 수정
             }));
-            alert("상품 등록이 완료되었습니다.");
+            if(urlPathname === "/posts") {
+                alert("상품 등록이 완료되었습니다.");
+            }
+            else alert("상품 수정이 완료되었습니다.");
             navigate("/");
         })
         .catch(err => {

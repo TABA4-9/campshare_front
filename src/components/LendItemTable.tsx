@@ -34,6 +34,7 @@ export default function LendItemTable() {
                 <tbody>
                     {
                         userInfo.lendItem && userInfo.lendItem.map((item,index)=>{
+                            console.log("item:", item);
                             return (
                                 // state로 주는 item이 camping 용품 사이트에 올라온 item의 state와 동일해야겠네
                                 <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">

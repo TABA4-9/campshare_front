@@ -8,7 +8,7 @@ export default function RentItem() {
     return (
         <div className="flex flex-col pr-8">
             <div>
-            <strong>대여 상품</strong>
+            <strong>이용 중인 상품</strong>
             </div>
             {
                 userInfo?.rentItem === null ? 

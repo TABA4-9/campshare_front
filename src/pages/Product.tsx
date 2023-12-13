@@ -53,7 +53,7 @@ export default function Category() {
     const [endDate, setEndDate] = useState<string>("");
 
     const [categoryfilter, setCategoryFilter] = useState<string>("");
-    const category:string[] = ["텐트","캠핑 의자"];
+    const category:string[] = ["텐트", "타프", "랜턴", "화로대", "캠핑의자"];
 
     const handleClose = () => {
         setShowCalendar(false);

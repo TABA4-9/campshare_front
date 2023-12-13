@@ -16,7 +16,7 @@ export default function MyPage() {
                 <div className="w-[200px] h-[0px] border border-black my-4 "/>
                 <div className="mb-1"><strong>{userInfo.account.name}님. 반갑습니다. </strong></div>
                 <div onClick={()=>setMyPageComponent("등록 상품")} className={`mb-1 cursor-pointer ${myPageComponent === "등록 상품" ? "font-bold" : null}`}>등록 상품</div>
-                <div onClick={()=>setMyPageComponent("대여 상품")} className={`mb-1 cursor-pointer ${myPageComponent === "대여 상품" ? "font-bold" : null}`}>대여 상품</div>
+                <div onClick={()=>setMyPageComponent("이용 중인 상품")} className={`mb-1 cursor-pointer ${myPageComponent === "이용 중인 상품" ? "font-bold" : null}`}>이용 중인 상품</div>
                 <KakaoLogout/>
             </div>
             <div className="w-[75vw]">
@@ -24,7 +24,7 @@ export default function MyPage() {
                     (myPageComponent === "등록 상품") && <LendItem/>
                 }
                 {
-                    (myPageComponent === "대여 상품") && <RentItem/>
+                    (myPageComponent === "이용 중인 상품") && <RentItem/>
                 }
             </div>
         </div>
