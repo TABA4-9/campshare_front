@@ -113,7 +113,7 @@ export default function Detail() {
                             }
                         </div>
                         <div className="flex w-[400px] justify-between text-sm mt-4">
-                            <div className=""><strong>대여자</strong></div>
+                            <div className=""><strong>호스트</strong></div>
                             <div className="">{data.postUserName}</div>
                         </div>
                         <div className="flex w-[400px] justify-between text-sm mt-4">
