@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 export default function LendItemTable() {
     const [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
 
+
     return (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -34,6 +35,7 @@ export default function LendItemTable() {
                 <tbody>
                     {
                         userInfo.lendItem && userInfo.lendItem.map((item,index)=>{
+                            console.log(item);
                             return (
                                 // state로 주는 item이 camping 용품 사이트에 올라온 item의 state와 동일해야겠네
                                 <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">

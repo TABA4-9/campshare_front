@@ -13,6 +13,8 @@ type CampingItemType = {
     userName : string,
     isRented : boolean,
     postUserId : number,
+    postUserName : string,
+    postUserEmail : string,
     recommandItem : CampingItemType[],
     imagePath : string[],
     startDate : string,

@@ -61,7 +61,7 @@ export default function Payment() {
                 <div className="flex mt-4 justify-center w-[550px] h-[0px] border border-zinc-400"/>
                 <div className="flex text-base ml-4 mt-4">
                     <div className="flex flex-col">
-                        <strong>내 정보</strong>
+                        <strong>게스트 정보</strong>
                         <div className="text-sm">이름 : {userInfo.account.name}</div>
                         <div className="text-sm">이메일 : {userInfo.account.email}</div>
                     </div>
