@@ -66,7 +66,7 @@ export default function Payment() {
                         <div className="text-sm">이메일 : {userInfo.account.email}</div>
                     </div>
                     <div className="flex flex-col ml-8">
-                        <strong>대여자 정보</strong>
+                        <strong>호스트 정보</strong>
                         <div className="text-sm">이름 : {data.postUserName}</div>
                         <div className="text-sm">이메일 : {data.postUserEmail}</div>
                     </div>
