@@ -15,21 +15,19 @@ import Carousel from "react-material-ui-carousel";
 import { Paper } from '@mui/material'
 
 import moment from "moment";
+import CalendarModal from "../components/form/modal/CalendarModal";
 
 export default function Detail() {
+
+    const [isSetted, setIsSetted] = useState<boolean>(false);
+    const [showCalendar, setShowCalendar] = useState<boolean>(false);
     const navigate = useNavigate();
     const [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
     const [recommandItem, setRecommandItem] = useState<CampingItemType[]>([]);
     const location = useLocation();
     const data = location.state.item;
-    const startDate = location.state.startDate;
-    const endDate = location.state.endDate;
-
-    // utc time => kor time
-    const currentDateTime = new Date();
-    const formattedDateTime = moment(currentDateTime).format('YYYY-MM-DD HH:mm:ss');
-
-    const newImagePathArr: string[] = data.imagePath.filter((element: string) => element !== null);
+    const [startDate, setStartDate] = useState<string>("");
+    const [endDate, setEndDate] = useState<string>("");
 
     const checkLogin = () => {
         if (userInfo.account.name === '') {
@@ -38,12 +36,44 @@ export default function Detail() {
         }
         if(data.isRented === true) alert("이미 대여 중인 상품입니다.");
         else {
-            navigate(`/payment/${data.id}`, {
-                // props로 받는 list 스테이트를 넘겨준다.
-                state:{item : data, startDate : startDate, endDate : endDate}
-            })
-        }
+            if (!isSetted) {
+                alert("대여 희망 날짜를 먼저 선택해주세요!");
+                return ;
+            }
+            else if(startDate < data.startDate || data.endDate < endDate ){
+                alert("대여 가능 기간 내에서 선택해주세요!");
+                return ;
+            }
+            else if(isSetted){
+                // 날짜 선택된 경우에만 다음 페이지로 넘어가도록 동작
+                console.log("상품 클릭! 날짜:", startDate, "~", endDate);
+                navigate(`/payment/${data.id}`, {
+                    // props로 받는 list 스테이트를 넘겨준다.
+                    state:{item : data, startDate : startDate, endDate : endDate}
+                })
+            }//endElseIf
+        }//endElse
+    }//endCheckLogin
+
+    const handleClose = () => {
+        setShowCalendar(false);
+        setIsSetted(true);
     }
+    const onChangeDate = (e:any) :void => {
+        const startDateFormat = moment(e[0]).format("YYYY[년] MM[월] DD[일]");
+        const endDateFormat = moment(e[1]).format("YYYY[년] MM[월] DD[일]");
+        setStartDate(startDateFormat);
+        setEndDate(endDateFormat);
+        setIsSetted(true);
+    }
+
+    // utc time => kor time
+    const currentDateTime = new Date();
+    const formattedDateTime = moment(currentDateTime).format('YYYY-MM-DD HH:mm:ss');
+
+    const newImagePathArr: string[] = data.imagePath.filter((element: string) => element !== null);
+
+
 
     const DeleteProduct = async () => {
         try {
@@ -132,7 +162,11 @@ export default function Detail() {
                         </div>
                         <div className="flex w-[400px] justify-between text-sm mt-4">
                             <div className=""><strong>대여 희망 기간</strong></div>
-                            <div className="">{startDate} ~ {endDate}</div>
+                            <button className={`w-full md:w-[300px] h-[50px] bg-zinc-300 font-bold rounded-[10px]
+                            ${isSetted ? "bg-blue-500 hover:bg-blue-700" : "hover:bg-zinc-400"}`}
+                            onClick={()=>{setShowCalendar(true); setIsSetted(false);}}>
+                                {isSetted ? `${startDate} ~ ${endDate}` : "설정"}
+                            </button>
                         </div>
                         <div className="flex w-[400px] justify-between text-sm mt-4">
                             <div className=""><strong>사용 인원</strong></div>
@@ -149,7 +183,7 @@ export default function Detail() {
                         </div>
                         {
                             data.postUserId !== userInfo.account.id ? ( <div className="mt-4">
-                                <div onClick={()=>checkLogin()} className="cursor-pointer flex justify-center items-center w-full h-[58px] bg-zinc-300 rounded-[10px] border border-zinc-300">
+                                <div onClick={(e)=>{checkLogin();}} className="cursor-pointer flex justify-center items-center w-full h-[58px] bg-zinc-300 rounded-[10px] border border-zinc-300">
                                     <div><strong>대여 하기</strong></div>
                                 </div>
                             </div> ) : null
@@ -180,6 +214,11 @@ export default function Detail() {
                     }
                 </div>
             </div>
+            <CalendarModal
+                showCalendar={showCalendar}
+                handleClose={handleClose}
+                onChangeDate={onChangeDate}
+            />
         </div>
     )
 }
