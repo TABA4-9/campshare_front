@@ -129,6 +129,10 @@ export default function Detail() {
                             <div className="">{data.startDate} ~ {data.endDate}</div>
                         </div>
                         <div className="flex w-[400px] justify-between text-sm mt-4">
+                            <div className=""><strong>사용 인원</strong></div>
+                            <div className="">{data.headcount}용</div>
+                        </div>
+                        <div className="flex w-[400px] justify-between text-sm mt-4">
                             <div className=""><strong>거래 희망 주소</strong></div>
                             <div className="">{data.address}</div>
                         </div>
@@ -161,8 +165,8 @@ export default function Detail() {
                                     <Link to={`/detail/${item.id}`} state={{item : item}}><img className="object-cover w-[300px] h-[200px] rounded-t-lg" src={`${item.imagePath[0]}`} alt="recommandImage" /></Link>
                                     <div className="p-5 text-center">
                                         <h5 className="mb-2 text-base font-bold tracking-tight text-gray-900 dark:text-white">{item.name}</h5>
-                                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.headcount}</p>
-                                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.price}원</p>
+                                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.headcount}용</p>
+                                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.price} ₩ / 박</p>
                                     </div>
                                 </div>
                             )

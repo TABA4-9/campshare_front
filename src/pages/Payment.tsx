@@ -14,7 +14,15 @@ import { Link } from "react-router-dom";
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 
+import ServiceAgreeModal from "../components/form/modal/ServiceAgreeModal";
+import { useState } from "react";
+
 export default function Payment() {
+    const [showAgreeModal, setShowAgreeModal] = useState<boolean>(false);
+    const handleClose = () => {
+        setShowAgreeModal(false);
+    }
+
     // 확장성을 위한 임시 페이지
     const location = useLocation();
     const data = location.state.item;
@@ -60,7 +68,8 @@ export default function Payment() {
                         <img className="w-[100px] h-[100px]" src={data.imagePath[0]} alt="camping item img"/>
                         <div className="flex flex-col">
                             <div className="flex h-full ml-4 items-center text-sm font-bold">{data.name}</div>
-                            <div className="flex h-full ml-4 items-center text-sm font-bold">대여기간 : {data.startDate} ~ {data.endDate}</div>
+                            <div className="flex h-full ml-4 items-center text-sm font-bold">대여 기간 : {data.startDate} ~ {data.endDate} ({rentDays}박 {rentDays+1}일)</div>
+                            <div className="flex h-full ml-4 items-center text-sm font-bold">사용 인원 : {data.headcount}용</div>
                             <div className="flex h-full ml-4 items-center text-sm font-bold">거래 희망 주소 : {data.address}</div>
                         </div>
                     </div>
@@ -107,14 +116,21 @@ export default function Payment() {
                 </div>
                 <div className="flex mt-4 justify-center w-[550px] h-[0px] border border-zinc-400"/>
                 <div className="flex h-full flex-col items-center justify-center w-full">
-                    <div className="text-sm text-slate-400 pb-2">
-                        서비스 수수료(5%)가 포함된 가격입니다
+                    <div className="text-sm text-slate-400 mt-1 pb-2">
+                        <button onClick={()=>setShowAgreeModal(true)}>약관 보기</button>
                     </div>
                     <div className="h-[50px] w-[300px] bg-gray-300" style={{borderRadius : "30px"}}>
                         <div onClick={()=>{rentCheck()}} className="text-center mt-3 font-medium"><Link to='/completePay'><strong>{Math.round((rentDays * data.price)*1.05)}원 결제하기</strong></Link></div>
                     </div>
+                    <div className="text-xs text-slate-400 mt-2 pb-1">
+                        서비스 수수료(5%)가 포함된 가격입니다
+                    </div>
                 </div>
             </div>
+            <ServiceAgreeModal
+                handleClose={handleClose}
+                showAgreeModal={showAgreeModal}
+            />
         </div>
     )
 }

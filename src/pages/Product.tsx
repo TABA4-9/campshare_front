@@ -170,6 +170,7 @@ export default function Category() {
                                                         <Link to={`/detail/${item.id}`} state={{item : item}}><img className="object-cover w-[260px] h-[200px]" src={item.imagePath[0]} alt="camping item img"/></Link>}
                                                         <div className="w-full h-full flex flex-col justify-center items-center mt-2">
                                                             <div className="text-stone-900 text-base font-medium font-['Poppins']"><strong>{item.name}</strong></div>
+                                                            <div className="text-stone-900 text-opacity-50 text-base font-medium font-['Poppins']">{item.headcount}용</div>
                                                             <div className="text-stone-900 text-opacity-50 text-base font-medium font-['Poppins']">{item.price} ₩ / 박</div>
                                                         </div>
                                                     </div>
