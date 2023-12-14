@@ -1,9 +1,21 @@
 import { useRecoilState } from "recoil";
 import { userInfoAtom } from "../data/userInfoAtom";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function RentItemTable() {
     const [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
+
+    const handleReturn = (itemId: number) => {
+        axios.post("http://43.200.250.149:8080/product/return", {id:itemId})
+            .then(res => {
+                setUserInfo(prev => ({
+                    ...prev,
+                    rentItem: res.data.rentItem
+                }))
+            });
+        console.log(`Item ${itemId} 반납됨`);
+    };
 
     return (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
@@ -21,6 +33,9 @@ export default function RentItemTable() {
                         </th>
                         <th scope="col" className="px-6 py-3">
                             가격
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                            이용 종료
                         </th>
                     </tr>
                 </thead>
@@ -40,6 +55,9 @@ export default function RentItemTable() {
                                     </td>
                                     <td className="px-6 py-4">
                                         {item.price}원
+                                    </td>
+                                    <td className="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-3 px-6 py-4">
+                                        <button onClick={() => handleReturn(item.id)}>반납</button>
                                     </td>
                                 </tr>
                             )
