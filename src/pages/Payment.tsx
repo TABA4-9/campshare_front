@@ -27,11 +27,17 @@ export default function Payment() {
     const location = useLocation();
     const data = location.state.item;
 
+    let guestStartDate = location.state.startDate;
+    let guestEndDate = location.state.endDate;
+
     // total price 계산을 위한 일 수 계산
-    let startDate = new Date(data?.startDate.replace(/년|월/g, '-').replace('일', '').trim());
-    let endDate =   new Date(data?.endDate.replace(/년|월/g, '-').replace('일', '').trim());
+    
+    let startDate = new Date(guestStartDate.replace(/년|월/g, '-').replace('일', '').trim());
+    let endDate =   new Date(guestEndDate.replace(/년|월/g, '-').replace('일', '').trim());
     let timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
     let rentDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+
 
     const [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
 
@@ -68,7 +74,7 @@ export default function Payment() {
                         <img className="w-[100px] h-[100px]" src={data.imagePath[0]} alt="camping item img"/>
                         <div className="flex flex-col">
                             <div className="flex h-full ml-4 items-center text-sm font-bold">{data.name}</div>
-                            <div className="flex h-full ml-4 items-center text-sm font-bold">대여 기간 : {data.startDate} ~ {data.endDate} ({rentDays}박 {rentDays+1}일)</div>
+                            <div className="flex h-full ml-4 items-center text-sm font-bold">대여 기간 : {guestStartDate} ~ {guestEndDate} ({rentDays}박 {rentDays+1}일)</div>
                             <div className="flex h-full ml-4 items-center text-sm font-bold">사용 인원 : {data.headcount}용</div>
                             <div className="flex h-full ml-4 items-center text-sm font-bold">거래 희망 주소 : {data.address}</div>
                         </div>

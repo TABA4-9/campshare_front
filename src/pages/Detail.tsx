@@ -22,6 +22,8 @@ export default function Detail() {
     const [recommandItem, setRecommandItem] = useState<CampingItemType[]>([]);
     const location = useLocation();
     const data = location.state.item;
+    const startDate = location.state.startDate;
+    const endDate = location.state.endDate;
 
     // utc time => kor time
     const currentDateTime = new Date();
@@ -38,7 +40,7 @@ export default function Detail() {
         else {
             navigate(`/payment/${data.id}`, {
                 // props로 받는 list 스테이트를 넘겨준다.
-                state:{item : data}
+                state:{item : data, startDate : startDate, endDate : endDate}
             })
         }
     }
@@ -127,6 +129,10 @@ export default function Detail() {
                         <div className="flex w-[400px] justify-between text-sm mt-4">
                             <div className=""><strong>대여 가능 기간</strong></div>
                             <div className="">{data.startDate} ~ {data.endDate}</div>
+                        </div>
+                        <div className="flex w-[400px] justify-between text-sm mt-4">
+                            <div className=""><strong>대여 희망 기간</strong></div>
+                            <div className="">{startDate} ~ {endDate}</div>
                         </div>
                         <div className="flex w-[400px] justify-between text-sm mt-4">
                             <div className=""><strong>사용 인원</strong></div>

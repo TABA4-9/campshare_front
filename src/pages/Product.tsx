@@ -22,7 +22,6 @@ import moment from "moment";
 
 const StyledDropDown = styled(Dropdown)`
     border : 0;
-
 `;
 
 const StyledDropDownForm = styled(DropDownForm)`
@@ -46,6 +45,16 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
 
 export default function Category() {
+    const showAlert = (e: any) => {
+        if (!isSetted) {
+            alert("대여 희망 날짜를 먼저 선택해주세요!!");
+            e.preventDefault();
+        } else {
+            // 날짜 선택된 경우에만 다음 페이지로 넘어가도록 동작
+            console.log("상품 클릭! 날짜:", startDate, "~", endDate);
+        }
+    };
+    const [isSetted, setIsSetted] = useState<boolean>(false);
     const [campItem, setCampItem] = useRecoilState<CampingItemType[]>(campingItemAtom);
     const [showCalendar, setShowCalendar] = useState<boolean>(false);
 
@@ -66,7 +75,6 @@ export default function Category() {
             let formattedItemEndDate:string = item.endDate.replace(/년|월/g, '-').replace('일', '');
             let formattedUserStartDate:string = startDate.replace(/년|월/g, '-').replace('일', '');
             let formattedUserEndDate:string = endDate?.replace(/년|월/g, '-').replace('일', '');
-
 
             const itemStartDate = new Date(formattedItemStartDate);
             const itemEndDate = new Date(formattedItemEndDate);
@@ -150,7 +158,7 @@ export default function Category() {
                 </div>
                 <div className="flex flex-col">
                     <strong>날짜 설정</strong>
-                    <button onClick={()=>setShowCalendar(true)} className="w-[300px] h-[50px] bg-gray-300 rounded-lg mt-2">{startDate} ~ {endDate}</button>
+                    <button onClick={()=>{setShowCalendar(true); setIsSetted(true)}} className="w-[300px] h-[50px] bg-gray-300 rounded-lg mt-2">{startDate} ~ {endDate}</button>
                 </div>
             </div>
 
@@ -167,7 +175,7 @@ export default function Category() {
                                                 <div className="flex">
                                                     <div className="flex-col justify-start items-start flex">
                                                         {
-                                                        <Link to={`/detail/${item.id}`} state={{item : item}}><img className="object-cover w-[260px] h-[200px]" src={item.imagePath[0]} alt="camping item img"/></Link>}
+                                                        <Link to={`/detail/${item.id}`} state={{item : item, startDate : startDate, endDate : endDate}} onClick={(e) => showAlert(e)}><img className="object-cover w-[260px] h-[200px]" src={item.imagePath[0]} alt="camping item img"/></Link>}
                                                         <div className="w-full h-full flex flex-col justify-center items-center mt-2">
                                                             <div className="text-stone-900 text-base font-medium font-['Poppins']"><strong>{item.name}</strong></div>
                                                             <div className="text-stone-900 text-opacity-50 text-base font-medium font-['Poppins']">{item.headcount}용</div>
