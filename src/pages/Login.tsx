@@ -31,7 +31,7 @@ export default function Login() {
                 </div>
                 <div className="flex flex-col items-center justify-center mt-8">
                     <strong>로그인/회원가입</strong>
-                    <div className="mr-4 mt-4">
+                    <div className="mr-2.7 mt-3">
                         <KakaoLogin Agree={Agree}/>
                     </div>
                 </div>

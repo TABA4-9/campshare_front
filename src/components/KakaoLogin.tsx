@@ -20,7 +20,7 @@ export default function KakaoLogin({Agree} : propsType) {
 
     return(
         <div>
-            <img className="w-[246px] h-[45px] cursor-pointer" src={kakaoPicture}
+            <img className="h-[45px] cursor-pointer" src={kakaoPicture}
                  alt="카카오 로그인"
                  onClick={() => handleLogin()}
             />
