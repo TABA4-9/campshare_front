@@ -144,9 +144,17 @@ export default function Detail() {
                                 <div/>
                             }
                         </div>
-                        <div className="flex w-[400px] justify-between text-sm mt-4">
+                        <div className="flex w-full justify-between text-sm mt-4">
                             <div className=""><strong>호스트</strong></div>
                             <div className="">{data.postUserName}</div>
+                        </div>
+                        <div className="flex w-full justify-between text-sm mt-4">
+                            <div className=""><strong>사용 인원</strong></div>
+                            <div className="">{data.headcount}용</div>
+                        </div>
+                        <div className="flex w-full justify-between text-sm mt-4">
+                            <div className=""><strong>거래 희망 주소</strong></div>
+                            <div className="">{data.address}</div>
                         </div>
                         <div className="flex w-[400px] justify-between text-sm mt-4">
                             <div className=""><strong>대여가 (1박 당)</strong></div>
@@ -162,19 +170,11 @@ export default function Detail() {
                         </div>
                         <div className="flex w-[400px] justify-between text-sm mt-4">
                             <div className=""><strong>대여 희망 기간</strong></div>
-                            <button className={`w-full md:w-[300px] h-[50px] bg-zinc-300 font-bold rounded-[10px]
-                            ${isSetted ? "bg-blue-500 hover:bg-blue-700" : "hover:bg-zinc-400"}`}
-                            onClick={()=>{setShowCalendar(true); setIsSetted(false);}}>
+                            <button className={`w-[200px] md:w-[300px] h-[30px] md:h-[50px] bg-zinc-300 font-bold rounded-[10px]
+                                        ${isSetted ? "bg-blue-500 hover:bg-blue-700" : "hover:bg-zinc-400"}`}
+                                    onClick={() => { setShowCalendar(true); setIsSetted(false); }}>
                                 {isSetted ? `${startDate} ~ ${endDate}` : "설정"}
                             </button>
-                        </div>
-                        <div className="flex w-[400px] justify-between text-sm mt-4">
-                            <div className=""><strong>사용 인원</strong></div>
-                            <div className="">{data.headcount}용</div>
-                        </div>
-                        <div className="flex w-[400px] justify-between text-sm mt-4">
-                            <div className=""><strong>거래 희망 주소</strong></div>
-                            <div className="">{data.address}</div>
                         </div>
                         <div className="mt-4 mb-4 w-full h-[0px] border border-black"/>
                         <div className="flex flex-col w-full justify-between text-sm">
@@ -183,7 +183,8 @@ export default function Detail() {
                         </div>
                         {
                             data.postUserId !== userInfo.account.id ? ( <div className="mt-4">
-                                <div onClick={(e)=>{checkLogin();}} className="cursor-pointer flex justify-center items-center w-full h-[58px] bg-zinc-300 rounded-[10px] border border-zinc-300">
+                                <div onClick={(e)=>{checkLogin();}} className={`cursor-pointer flex justify-center items-center w-full h-[58px] bg-zinc-300 rounded-[10px] border border-zinc-300
+                                ${isSetted ? "bg-blue-500 hover:bg-blue-700" : "hover:bg-zinc-400"}`}>
                                     <div><strong>대여 하기</strong></div>
                                 </div>
                             </div> ) : null

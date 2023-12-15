@@ -31,7 +31,7 @@ export default function Payment() {
     let guestEndDate = location.state.endDate;
 
     // total price 계산을 위한 일 수 계산
-    
+
     let startDate = new Date(guestStartDate.replace(/년|월/g, '-').replace('일', '').trim());
     let endDate =   new Date(guestEndDate.replace(/년|월/g, '-').replace('일', '').trim());
     let timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
@@ -96,7 +96,7 @@ export default function Payment() {
                 <div className="flex mt-4 justify-center w-[550px] h-[0px] border border-zinc-400"/>
                 <div className="flex flex-col text-base ml-4 mt-4 mr-5">
                     <strong>결제 방식</strong>
-                    <div className="flex justify-between">
+                    <div className="flex justify-center">
                         <div className="flex">
                             <Checkbox
                                 icon={<RadioButtonUncheckedIcon />}
@@ -110,13 +110,6 @@ export default function Payment() {
                                 checkedIcon={<RadioButtonCheckedIcon />}
                             />
                             <div className="mt-2">무통장 입금</div>
-                        </div>
-                        <div className="flex">
-                            <Checkbox
-                                icon={<RadioButtonUncheckedIcon />}
-                                checkedIcon={<RadioButtonCheckedIcon />}
-                            />
-                            <div className="mt-2">만나서 결제</div>
                         </div>
                     </div>
                 </div>
