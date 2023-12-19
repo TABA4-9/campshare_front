@@ -144,15 +144,15 @@ export default function Detail() {
                                 <div/>
                             }
                         </div>
-                        <div className="flex w-full justify-between text-sm mt-4">
+                        <div className="flex w-[400px] justify-between text-sm mt-4">
                             <div className=""><strong>호스트</strong></div>
                             <div className="">{data.postUserName}</div>
                         </div>
-                        <div className="flex w-full justify-between text-sm mt-4">
+                        <div className="flex w-[400px] justify-between text-sm mt-4">
                             <div className=""><strong>사용 인원</strong></div>
                             <div className="">{data.headcount}용</div>
                         </div>
-                        <div className="flex w-full justify-between text-sm mt-4">
+                        <div className="flex w-[400px] justify-between text-sm mt-4">
                             <div className=""><strong>거래 희망 주소</strong></div>
                             <div className="">{data.address}</div>
                         </div>
